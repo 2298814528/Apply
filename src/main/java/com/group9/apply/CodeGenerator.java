@@ -1,4 +1,4 @@
-package com.zjj.library;
+package com.group9.apply;
 
 import com.baomidou.mybatisplus.core.exceptions.MybatisPlusException;
 import com.baomidou.mybatisplus.core.toolkit.StringPool;
