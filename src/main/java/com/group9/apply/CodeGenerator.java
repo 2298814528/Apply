@@ -53,17 +53,17 @@ public class CodeGenerator {
 
         // 数据源配置
         DataSourceConfig dsc = new DataSourceConfig();
-        dsc.setUrl("jdbc:mysql://localhost:3306/library?useUnicode=true&useSSL=false&characterEncoding=utf8&serverTimezone=Asia/Shanghai");
+        dsc.setUrl("jdbc:mysql://47.106.246.131:3306/apply?useUnicode=true&useSSL=false&characterEncoding=utf8&serverTimezone=Asia/Shanghai");
         // dsc.setSchemaName("public");
         dsc.setDriverName("com.mysql.cj.jdbc.Driver");
-        dsc.setUsername("root");
-        dsc.setPassword("1234");
+        dsc.setUsername("zjj");
+        dsc.setPassword("zjj19971209");
         mpg.setDataSource(dsc);
 
         // 包配置
         PackageConfig pc = new PackageConfig();
         pc.setModuleName(null);
-        pc.setParent("com.zjj.library");
+        pc.setParent("com.group9.apply");
         mpg.setPackageInfo(pc);
 
         // 自定义配置
@@ -113,7 +113,7 @@ public class CodeGenerator {
 //        strategy.setSuperEntityClass("com.zjj.library.entity.BaseEntity");
         strategy.setEntityLombokModel(true);
         strategy.setRestControllerStyle(true);
-        strategy.setSuperControllerClass("com.zjj.library.controller.BaseController");
+        strategy.setSuperControllerClass("com.group9.apply.controller.BaseController");
         strategy.setInclude(scanner("表名，多个英文逗号分割").split(","));
         strategy.setSuperEntityColumns("id", "created", "modified", "status");
         strategy.setControllerMappingHyphenStyle(true);
