@@ -2,6 +2,7 @@ package com.group9.apply.mapper;
 
 import com.group9.apply.entity.User;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import org.apache.ibatis.annotations.Mapper;
 
 /**
  * <p>
@@ -11,6 +12,7 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
  * @author zjj
  * @since 2020-09-18
  */
+@Mapper
 public interface UserMapper extends BaseMapper<User> {
 
 }
