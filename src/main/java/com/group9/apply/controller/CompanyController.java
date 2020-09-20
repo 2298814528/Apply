@@ -1,7 +1,7 @@
 package com.group9.apply.controller;
 
 
-import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+
 import com.group9.apply.entity.Company;
 
 import com.group9.apply.util.Result;
@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
-import com.group9.apply.controller.BaseController;
 
 /**
  * <p>

@@ -5,8 +5,6 @@ import com.alibaba.fastjson.JSON;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.group9.apply.util.Result;
 import com.group9.apply.entity.User;
-import com.group9.apply.service.UserService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
@@ -39,28 +37,29 @@ public class UserController extends BaseController {
      * 登陆逻辑
      */
     @PostMapping("/userExit")
-    public String login(String username, String password, HttpServletResponse resp) throws Exception {
+    @ResponseBody
+    public Result login(String username, String password, HttpServletResponse resp) throws Exception {
         User user = userService.getOne(new QueryWrapper<User>().eq("username", username));
         if (user.getPassword().equals(password)) {
             request.getSession().setAttribute("user", user);
             if (user.getRole().equals("1")) {
-                return "redirect:/user/toLoginSeeker ";
-            } else if (user.getRole().equals("2")) {
-                return "redirect:/user/toLoginCompany";
+                return new Result(1, "seeker login", null);
+            } else if (user.getRole().equals(2)) {
+                return new Result(2, "company login", null);
             } else {
-                return "redirect:/user/toLoginManager";
+                return new Result(0, "manager login", null);
             }
         } else {
-            return JSON.toJSONString(new Result(400, "username or password error", null));
+            return new Result(400, "username or password error", null);
         }
     }
 
     /**
      * 跳转到求职者主界面
      */
-    @GetMapping("/toLoginSeeker")
-    public void toLoginSeeker() {
-
+    @GetMapping("/doLogin")
+    public String toLoginSeeker() {
+        return"indexCompany";
     }
 
     /**
