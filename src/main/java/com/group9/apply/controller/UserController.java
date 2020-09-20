@@ -30,10 +30,18 @@ public class UserController extends BaseController {
     private UserService userService;
 
     /**
-     * 登陆逻辑
+     * 跳转到登陆界面
      */
     @GetMapping("/login")
-    public String login(String username, String password, HttpServletResponse resp) {
+    public String tologin(){
+        return "user/login";
+    }
+
+    /**
+     * 登陆逻辑
+     */
+    @PostMapping("/userExit")
+    public String login(String username, String password, HttpServletResponse resp) throws Exception {
         User user = userService.getOne(new QueryWrapper<User>().eq("username", username));
         if (user.getPassword().equals(password)) {
             request.getSession().setAttribute("user", user);
@@ -45,15 +53,9 @@ public class UserController extends BaseController {
                 return "redirect:/user/toLoginManager";
             }
         } else {
-            try {
-                resp.getOutputStream().print(JSON.toJSONString(new Result(400, "username or password error", null)));
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-            return null;
+            return JSON.toJSONString(new Result(400, "username or password error", null));
         }
     }
-
 
     /**
      * 跳转到求职者主界面
@@ -84,7 +86,7 @@ public class UserController extends BaseController {
      */
 
     @GetMapping("/register")
-    public String register(String username, String password, String role1,HttpServletResponse response) {
+    public String register(String username, String password, String role1, HttpServletResponse response) throws Exception{
         User user = new User();
         int role = 0;
         if (role1.equals("求职者")) {
@@ -98,12 +100,7 @@ public class UserController extends BaseController {
         if (userService.save(user)) {
             return "";//注册成功返回到登陆界面
         } else {
-            try {
-                response.getOutputStream().print(JSON.toJSONString(new Result(400, "register error", null)));
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-            return "register";//从新注册
+            return JSON.toJSONString(new Result(400, "register error", null));
         }
     }
 }
