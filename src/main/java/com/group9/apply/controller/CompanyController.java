@@ -3,7 +3,8 @@ package com.group9.apply.controller;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.group9.apply.entity.Company;
-import com.group9.apply.entity.Result;
+
+import com.group9.apply.util.Result;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 

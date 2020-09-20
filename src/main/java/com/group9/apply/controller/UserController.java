@@ -26,14 +26,12 @@ import java.io.IOException;
 @RequestMapping("/user")
 public class UserController extends BaseController {
 
-    @Autowired
-    private UserService userService;
 
     /**
      * 跳转到登陆界面
      */
     @GetMapping("/login")
-    public String tologin(){
+    public String login(){
         return "user/login";
     }
 

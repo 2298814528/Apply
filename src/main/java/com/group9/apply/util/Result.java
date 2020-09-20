@@ -14,4 +14,7 @@ public class Result {
     private int code;
     private String msg;
     private Object data;
+
+    public Result() {
+    }
 }
