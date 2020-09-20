@@ -31,7 +31,7 @@ public class UserController extends BaseController {
      * 跳转到登陆界面
      */
     @GetMapping("/login")
-    public String login(){
+    public String login() {
         return "user/login";
     }
 
@@ -84,7 +84,7 @@ public class UserController extends BaseController {
      */
 
     @GetMapping("/register")
-    public String register(String username, String password, String role1, HttpServletResponse response) throws Exception{
+    public String register(String username, String password, String role1, HttpServletResponse response) throws Exception {
         User user = new User();
         int role = 0;
         if (role1.equals("求职者")) {
