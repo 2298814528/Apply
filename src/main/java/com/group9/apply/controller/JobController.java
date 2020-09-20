@@ -1,9 +1,11 @@
 package com.group9.apply.controller;
 
 
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import org.springframework.web.bind.annotation.RestController;
+
 import com.group9.apply.controller.BaseController;
 
 /**
@@ -14,8 +16,9 @@ import com.group9.apply.controller.BaseController;
  * @author zjj
  * @since 2020-09-20
  */
-@RestController
+@Controller
 @RequestMapping("/job")
 public class JobController extends BaseController {
+
 
 }
