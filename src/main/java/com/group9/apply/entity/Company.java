@@ -38,7 +38,7 @@ public class Company implements Serializable {
     /**
      * 公司描述
      */
-    private String descption;
+    private String description;
 
 
 }
