@@ -22,6 +22,7 @@ import lombok.experimental.Accessors;
 @EqualsAndHashCode(callSuper = false)
 @Accessors(chain = true)
 public class Job implements Serializable {
+//    薪资范围、职位类型、工作地点、入职时间、公司名字、学历要求、工作经验
 
     private static final long serialVersionUID = 1L;
 
