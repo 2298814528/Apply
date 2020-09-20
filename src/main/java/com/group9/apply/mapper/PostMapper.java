@@ -11,7 +11,7 @@ import java.util.List;
  *  Mapper 接口
  * </p>
  *
- * @author zjj
+ * @author smr
  * @since 2020-09-20
  */
 public interface PostMapper extends BaseMapper<PostList> {
@@ -21,4 +21,15 @@ public interface PostMapper extends BaseMapper<PostList> {
     * */
     List<PostList> findByUserid(@Param("userId") Integer userId);
 
+    /**
+     *
+     * 单条数据删除
+     */
+    void deleteById(@Param("id")Integer id);
+
+    /**
+     *
+     * 多条数据删除
+     */
+    void deleteByIds(@Param("ids")String ids[]);
 }

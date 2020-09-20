@@ -53,7 +53,7 @@
         <tbody>
           <tr th:each="postlist:${list}">
             <td>
-              <div class="layui-unselect layui-form-checkbox" lay-skin="primary" data-id='2'><i class="layui-icon">&#xe605;</i></div>
+              <div class="layui-unselect layui-form-checkbox" lay-skin="primary" data-id='2' th:attr="data-id=${postlist.id}"><i class="layui-icon">&#xe605;</i></div>
             </td>
             <td th:text="${postlist.id}"></td>
             <td th:text="${postlist.seekerName}"></td>
@@ -66,7 +66,7 @@
               <span class="layui-btn layui-btn-normal layui-btn-mini" th:if="${postlist.postStatus==1}">未通过</span>
             </td>
             <td class="td-manage">
-              <a title="撤回" onclick="member_del(this,'要撤回的id')" href="javascript:;">
+              <a title="撤回" onclick="post_del(this,'要撤回的id')" href="javascript:;">
                 <i class="layui-icon">&#xe640;</i>
               </a>
             </td>
@@ -88,15 +88,50 @@
     <script>
 
         /*用户-撤回*/
-        function member_del(obj, id) {
-          layer.confirm('确认要撤回吗？', function (index) {
+        function post_del(obj){
+          let id = $(obj).attr('data-id');
+          console.log(id);
+          layer.confirm('确认要删除吗？',function(index){
             //发异步删除数据
-            $(obj).parents("tr").remove();
-            layer.msg('已撤回!', {icon: 1, time: 1000});
+            $.ajax({
+              type:"post", // 请求的方法
+              url:"/post/deleteone",// 后端接口的路径
+              data: {id: id}, // 需要传递到后端的数据
+              dataType:"json", // 后端返回的数据类型
+              success:function (res) {// 执行成功的回调
+                console.log(res);
+                layer.msg(res.msg, {icon: 1});
+                if(res.code==200)
+                  location.replace(location.href),
+                          $(".layui-form-checked").not('.header').parents('tr').remove();
+              }
+            })
           });
         }
 
+        function delAll (argument) {
+          // 需要删除的ids
+          var data = tableCheck.getData();
+          layer.confirm('确认要删除吗？',function(index){
+            //捉到所有被选中的，发异步进行删除
+            $.ajax({
+              type:"post", // 请求的方法
+              url:"/post/delete",// 后端接口的路径
+              data: {ids: data}, // 需要传递到后端的数据
+              dataType:"json", // 后端返回的数据类型
+              success:function (res) {// 执行成功的回调
+                console.log(res);
+                layer.msg(res.msg, {icon: res.code === 200 ? 1 : 2});
+                if(res.code === 200){
+                  $(".layui-form-checked").not('.header').parents('tr').remove();
+                  location.replace(location.href);
+                }
 
+              }
+            })
+
+          });
+        }
 
     </script>
 

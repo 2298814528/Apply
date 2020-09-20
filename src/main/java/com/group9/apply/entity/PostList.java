@@ -2,6 +2,10 @@ package com.group9.apply.entity;
 
 import java.sql.Timestamp;
 
+/*
+* author=smr
+* 20-9-20
+* */
 public class PostList {
     private Integer id;
     private String seekerName;
