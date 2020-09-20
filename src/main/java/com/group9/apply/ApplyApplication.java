@@ -10,6 +10,7 @@ public class ApplyApplication {
 
     public static void main(String[] args) {
         SpringApplication.run(ApplyApplication.class, args);
+        System.out.println("http://localhost:8080");
     }
 
 }
