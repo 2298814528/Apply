@@ -1,6 +1,5 @@
 package com.group9.apply.entity;
 
-import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.io.Serializable;
 
@@ -12,7 +11,7 @@ import lombok.experimental.Accessors;
 
 /**
  * <p>
- * 
+ * 工作表
  * </p>
  *
  * @author zjj
@@ -38,9 +37,39 @@ public class Job implements Serializable {
     private String name;
 
     /**
+     * 岗位类型
+     */
+    private String type;
+
+    /**
      * ☆该字段使该表不满足2NF，部分依赖于id与publisher
      */
     private String location;
+
+    /**
+     * 学历
+     */
+    private String education;
+
+    /**
+     * 最小薪资
+     */
+    private Integer minSalary;
+
+    /**
+     * 最大薪资
+     */
+    private Integer maxSalary;
+
+    /**
+     * 工作经验
+     */
+    private Integer experience;
+
+    /**
+     * 入职时间
+     */
+    private LocalDateTime entryTime;
 
     /**
      * 岗位联系人电话
@@ -61,11 +90,6 @@ public class Job implements Serializable {
      * ☆该字段使该表不满足2NF，部分依赖于id与publisher
      */
     private String tip;
-
-    /**
-     * 薪资待遇：原文档中为varchar，改为decimal更合理
-     */
-    private BigDecimal salary;
 
     /**
      * 发布时间
