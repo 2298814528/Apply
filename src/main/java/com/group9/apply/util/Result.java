@@ -1,4 +1,4 @@
-package com.group9.apply.entity;
+package com.group9.apply.util;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
