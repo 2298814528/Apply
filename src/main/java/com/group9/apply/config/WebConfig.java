@@ -32,10 +32,4 @@ public class WebConfig implements WebMvcConfigurer {
         registry.addInterceptor(loginInter).addPathPatterns("/**").excludePathPatterns(list);
     }
 
-    @Override
-    public void addResourceHandlers(ResourceHandlerRegistry registry) {
-        registry.addResourceHandler("/static/**").addResourceLocations("classpath:/static/**");
-//        WebMvcConfigurer.super.addResourceHandlers(registry);
-    }
-
 }
