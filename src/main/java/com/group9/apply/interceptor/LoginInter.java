@@ -12,8 +12,12 @@ import javax.servlet.http.HttpServletResponse;
 public class LoginInter implements HandlerInterceptor {
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
-        User user = (User)request.getSession().getAttribute("user");
-        return null == user;
+        User user = (User) request.getSession().getAttribute("user");
+        if (null == user){
+            response.sendRedirect(request.getContextPath()+"/user/login");
+            return false;
+        }
+        return true;
     }
 
     @Override
