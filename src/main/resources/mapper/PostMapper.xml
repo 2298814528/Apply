@@ -2,4 +2,18 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.group9.apply.mapper.PostMapper">
 
+    <!--通过求职者id查询-->
+    <select id="findByUserid" resultType="com.group9.apply.entity.PostList">
+     select d.id,a.name,b.name,c.name,d.post_time,d.post_status,d.is_deleted
+        from seeker as a,
+        job as b,
+        company as c,
+        post as d
+        where d.seeker_id=a.id
+        and d.job_id=b.id
+        and b.publisher=c.id
+        and a.id=#{userId};
+    </select>
+
+
 </mapper>
