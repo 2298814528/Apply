@@ -19,20 +19,19 @@ public class WebConfig implements WebMvcConfigurer {
 
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
-        InterceptorRegistration interceptor = registry.addInterceptor(loginInter);
         List<String> list = new ArrayList<>();
         list.add("/user/login");
         list.add("/user/doLogin");
         list.add("/user/register");
         list.add("/user/userExit");
-        list.add("/static/**");
-        interceptor.addPathPatterns("/**").excludePathPatterns(list);
-    }
-
-    @Override
-    public void addResourceHandlers(ResourceHandlerRegistry registry) {
-        registry.addResourceHandler("/static/**").addResourceLocations("classpath:/static/**");
-        WebMvcConfigurer.super.addResourceHandlers(registry);
+        list.add("/css/**");
+        list.add("/AmazeUI-2.4.2/**");
+        list.add("/basic/**");
+        list.add("/fonts/**");
+        list.add("/images/**");
+        list.add("/js/**");
+        list.add("/lib/**");
+        registry.addInterceptor(loginInter).addPathPatterns("/**").excludePathPatterns(list);
     }
 
 }

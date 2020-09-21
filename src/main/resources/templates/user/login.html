@@ -17,11 +17,11 @@
 
 </head>
 <body class="login-bg">
-    
+
     <div class="login layui-anim layui-anim-up">
         <div class="message">后台登录</div>
         <div id="darkbannerwrap"></div>
-        
+
         <form method="post" class="layui-form" >
             <input name="username" placeholder="用户名"  type="text" lay-verify="required" class="layui-input" >
             <hr class="hr15">
@@ -45,19 +45,22 @@
               //监听提交
               form.on('submit(login)', function(data){
                   $.ajax({
-                      url:'./signup',
+                      url:"/user/userExit",
                       method:'post',
                       data:data.field,
                       dataType:'JSON',
                       success:function(res){
-                          if(res.code='0'){
-                              location.href='index.html'
-
+                          if(res.code == 0){
+                              location.href="";
+                          }else if (res.code == 1){
+                              location.href = "";
+                          }else if (res.code == 2){
+                              location.href = "http://localhost:8080/user/doLogin";
                           }
                           else
-                              layer.msg("登录失败，请重新登录~");
+                              layer.msg("账号或密码，请重新登录~");
                       },
-                      error:function (data) {
+                      error:function () {
                           layer.msg("登录失败，请重新登录~");
                       }
                   }) ;
@@ -66,10 +69,10 @@
             });
         })
 
-        
+
     </script>
 
-    
+
     <!-- 底部结束 -->
 
 </body>

@@ -2,6 +2,10 @@ package com.group9.apply.mapper;
 
 import com.group9.apply.entity.Job;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import com.group9.apply.vo.JobVo;
+import org.apache.ibatis.annotations.Param;
+
+import java.util.List;
 
 /**
  * <p>
@@ -13,4 +17,5 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
  */
 public interface JobMapper extends BaseMapper<Job> {
 
+    List<JobVo> getSearchJob(@Param("job") Job job);
 }

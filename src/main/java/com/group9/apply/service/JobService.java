@@ -2,6 +2,9 @@ package com.group9.apply.service;
 
 import com.group9.apply.entity.Job;
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.group9.apply.vo.JobVo;
+
+import java.util.List;
 
 /**
  * <p>
@@ -13,4 +16,5 @@ import com.baomidou.mybatisplus.extension.service.IService;
  */
 public interface JobService extends IService<Job> {
 
+    List<JobVo> getJob(Job job);
 }
