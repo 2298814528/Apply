@@ -3,6 +3,7 @@ package com.group9.apply.controller;
 
 
 import com.alibaba.fastjson.JSON;
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.group9.apply.entity.Company;
 
 import com.group9.apply.entity.User;
@@ -29,6 +30,7 @@ import java.util.Map;
 @Controller
 @RequestMapping("/company")
 public class CompanyController extends BaseController {
+
     @Autowired
     MapToPageVo mapToPageVo;
     /**
@@ -41,7 +43,7 @@ public class CompanyController extends BaseController {
         Company company = new Company();
         company.setName(name);
         company.setAddress(address);
-        company.setDescption(description);
+        company.setDescription(description);
         companyService.save(company);
         return new Result(200,"add success",null);
     }
@@ -75,6 +77,18 @@ public class CompanyController extends BaseController {
     @GetMapping("/companyInfo")
     public String companyInfo(){
         return "company/CompanyInfo";
+    }
+
+    /**
+     * 首页显示公司信息
+     * @param id  公司ID
+     * @return
+     */
+    @GetMapping("/getSelectCompany")
+    public String getSelectCompany(String id){
+        Company company = companyService.getOne(new QueryWrapper<Company>().eq("id", Integer.valueOf(id)));
+        request.setAttribute("company",company);
+        return "company/getCompanyInfo";
     }
 
 }

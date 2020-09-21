@@ -42,12 +42,20 @@
                 and job.experience = #{job.jobVo.experience}
             </if>
             order by #{job.order} desc
-            limit #{job.currentPage},10;
+            limit #{job.currentPage},12;
         </where>
     </select>
 
     <select id="listAll" resultType="com.group9.apply.entity.Job">
         select id,name,type,location,education,min_salary,max_salary,experience,entry_time,phone,email,trade from job
+    </select>
+
+    <select id="getOne" parameterType="int" resultType="com.group9.apply.vo.JobVo">
+        select job.* ,company.name as company
+        from job
+        inner join company
+        on job.publisher = company.id
+        where job.id = #{id};
     </select>
 </mapper>
         <!--    //（薪资范围、职位类型、工作地点、入职时间、公司名字、学历要求、工作经验）-->

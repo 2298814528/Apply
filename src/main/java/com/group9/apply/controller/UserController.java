@@ -42,16 +42,10 @@ public class UserController extends BaseController {
         User user = userService.getOne(new QueryWrapper<User>().eq("username", username));
         if (user.getPassword().equals(password)) {
             request.getSession().setAttribute("user", user);
-            if (user.getRole().equals("1")) {
-                return new Result(1, "seeker login", null);
-            } else if (user.getRole().equals(2)) {
-                return new Result(2, "company login", null);
-            } else {
-                return new Result(0, "manager login", null);
-            }
-        } else {
-            return new Result(400, "username or password error", null);
+            return new Result(200);
         }
+        return new Result(400);
+
     }
 
     /**
@@ -63,7 +57,7 @@ public class UserController extends BaseController {
         StringBuffer requestURL = request.getRequestURL();
         String requestURI = request.getRequestURI();
         int i = requestURL.indexOf(requestURI);
-        StringBuffer originalUrl = requestURL.delete(i, requestURL.length() );
+        StringBuffer originalUrl = requestURL.delete(i, requestURL.length());
         String url = originalUrl.toString();
         response.sendRedirect(url);
     }
@@ -88,7 +82,7 @@ public class UserController extends BaseController {
      * 注册用户逻辑
      */
     @GetMapping("/register")
-    public String toregister(){
+    public String toregister() {
         return "user/register";
     }
 
@@ -100,18 +94,19 @@ public class UserController extends BaseController {
         user.setPassword(password);
         user.setRole(role);
         if (userService.save(user)) {
-            return new Result(200,"register success",null);
+            return new Result(200, "register success", null);
         } else {
-            return new Result(400,"register error",null);
+            return new Result(400, "register error", null);
         }
     }
 
     /**
      * 用户退出实现
+     *
      * @return
      */
     @GetMapping("/logout")
-    public String logout(){
+    public String logout() {
         session.removeAttribute("user");
         return "index";
     }

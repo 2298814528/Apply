@@ -1,6 +1,7 @@
 package com.group9.apply.util;
 
 import cn.hutool.core.date.DateUtil;
+import cn.hutool.core.util.StrUtil;
 import com.group9.apply.vo.JobVo;
 import com.group9.apply.vo.PageVo;
 import org.springframework.stereotype.Component;
@@ -15,7 +16,7 @@ public class MapToPageVo {
         PageVo pageVo = new PageVo();
         String currentPage = (String) map.get("currentPage");
         String order = (String) map.get("order");
-        pageVo.setCurrentPage(null == currentPage ? 0 : Integer.valueOf(currentPage) * 10);
+        pageVo.setCurrentPage(null == currentPage ? 0 : Integer.valueOf(currentPage) * 12);
         pageVo.setOrder(null == order ? "pub_time" : order);
         JobVo jobVo = new JobVo();
 //        Integer integer = Integer.valueOf(null);
@@ -27,10 +28,10 @@ public class MapToPageVo {
         String entryTime = (String) map.get("entryTime");//Date
         String education = (String) map.get("education");
         String experience = (String) map.get("experience");
-        jobVo.setCompany(company);
-        jobVo.setEducation(education);
-        jobVo.setLocation(location);
-        jobVo.setType(type);
+        jobVo.setCompany(StrUtil.isBlank(company)?null:company);
+        jobVo.setEducation(StrUtil.isBlank(education)?null:education);
+        jobVo.setLocation(StrUtil.isBlank(location)?null:location);
+        jobVo.setType(StrUtil.isBlank(type)?null:type);
         jobVo.setExperience(null == experience ? null : Integer.valueOf(experience));
         jobVo.setMinSalary(null == minSalary ? null : Integer.valueOf(minSalary));
         jobVo.setMaxSalary(null == maxSalary ? null : Integer.valueOf(maxSalary));

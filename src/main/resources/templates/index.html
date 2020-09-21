@@ -23,7 +23,6 @@
             height: 50px;
             width: 100px;
             border: 1px solid white;
-            border-right: 1px solid black;
         }
 
         input:-webkit-autofill {
@@ -71,7 +70,7 @@
             <div class=" pr " style="border-radius: 100%">
                 <!--&lt;!&ndash;                薪资范围、职位类型、工作地点、入职时间、公司名字、学历要求、工作经验）&ndash;&gt;-->
                 <div>
-                    <form style="padding: 3px 0px 0px 3px;"method="get" action="/job/search" >
+                    <form style="padding: 3px 0px 0px 3px;" method="get" action="/job/search">
                         <select class="layui-input-block layui-form-item myClass" name="type">
                             <option value="">工作类型</option>
                             <option value="开发">开发</option>
@@ -82,7 +81,7 @@
                         </select>
 
                         <input class="myClass"
-                               style="font-size: 15px;width: 300px;border: 1px solid white;border-right: 1px solid black"
+                               style="font-size: 15px;width: 300px;border: 1px solid white;"
                                name="company" placeholder="公司名字">
                         <select class="layui-input-block layui-form-item "
                                 style="margin: 0px;height: 50px;width: 100px;border: 1px solid white;" name="location">
@@ -106,15 +105,7 @@
         <div class="slideall" style="height: auto;">
 
             <div class="long-title"><span class="all-goods">全部分类</span></div>
-            <!--        <div class="nav-cont">-->
-            <!--            <ul>-->
-            <!--                <li class="index"><a href="#">首页</a></li>-->
-            <!--                <li class="qc"><a href="#">闪购</a></li>-->
-            <!--                <li class="qc"><a href="#">限时抢</a></li>-->
-            <!--                <li class="qc"><a href="#">团购</a></li>-->
-            <!--                <li class="qc last"><a href="#">大包装</a></li>-->
-            <!--            </ul>-->
-            <!--        </div>-->
+
 
             <div class="bannerTwo">
                 <!--轮播 -->
@@ -800,36 +791,8 @@
                     });
                 })
             </script>
-
-
-            <!--小导航 -->
-            <div class="am-g am-g-fixed smallnav">
-                <div class="am-u-sm-3">
-                    <a href="sort.html"><img src="/images/navsmall.jpg"/>
-                        <div class="title">商品分类</div>
-                    </a>
-                </div>
-                <div class="am-u-sm-3">
-                    <a href="#"><img src="/images/huismall.jpg"/>
-                        <div class="title">大聚惠</div>
-                    </a>
-                </div>
-                <div class="am-u-sm-3">
-                    <a href="#"><img src="/images/mansmall.jpg"/>
-                        <div class="title">个人中心</div>
-                    </a>
-                </div>
-                <div class="am-u-sm-3">
-                    <a href="#"><img src="/images/moneysmall.jpg"/>
-                        <div class="title">投资理财</div>
-                    </a>
-                </div>
-            </div>
-
-
             <div class="clear"></div>
             <!--走马灯 -->
-
             <div class="marqueenTwo">
                 <span class="marqueen-title"><i class="am-icon-volume-up am-icon-fw"></i>招聘头条<em
                         class="am-icon-angle-double-right"></em></span>
@@ -877,10 +840,7 @@
                 </div>
             </div>
             <div class="clear"></div>
-
         </div>
-
-
         <script type="text/javascript">
             if ($(window).width() < 640) {
                 function autoScroll(obj) {
@@ -902,107 +862,8 @@
     <div class="shopMainbg" style="background-color: transparent">
         <div class="shopMain" id="shopmain">
 
-
-            <div class="am-container">
-
-                <!--            <div class="sale-mt">-->
-                <!--                <i></i>-->
-                <!--                <em class="sale-title">限时秒杀</em>-->
-                <!--                <div class="s-time" id="countdown">-->
-                <!--                    <span class="hh">01</span>-->
-                <!--                    <span class="mm">20</span>-->
-                <!--                    <span class="ss">59</span>-->
-                <!--                </div>-->
-                <!--            </div>-->
-
-
-                <!--            <div class="am-g am-g-fixed sale">-->
-                <!--                <div class="am-u-sm-3 sale-item">-->
-                <!--                    <div class="s-img">-->
-                <!--                        <a href="# "><img src="/images/sale3.jpg" /></a>-->
-                <!--                    </div>-->
-                <!--                    <div class="s-info">-->
-                <!--                        <a href="#"><p class="s-title">ZEK 原味海苔</p></a>-->
-                <!--                        <div class="s-price">￥<b>9.90</b>-->
-                <!--                            <a class="s-buy" href="#">秒杀</a>-->
-                <!--                        </div>-->
-                <!--                    </div>-->
-                <!--                </div>-->
-
-                <!--                <div class="am-u-sm-3 sale-item">-->
-                <!--                    <div class="s-img">-->
-                <!--                        <a href="# "><img src="/images/sale2.jpg" /></a>-->
-                <!--                    </div>-->
-                <!--                    <div class="s-info">-->
-                <!--                        <a href="#"><p class="s-title">ZEK 原味海苔</p></a>-->
-                <!--                        <div class="s-price">￥<b>9.90</b>-->
-                <!--                            <a class="s-buy" href="#">秒杀</a>-->
-                <!--                        </div>-->
-                <!--                    </div>-->
-                <!--                </div>-->
-
-                <!--                <div class="am-u-sm-3 sale-item">-->
-                <!--                    <div class="s-img">-->
-                <!--                        <a href="# "><img src="/images/sale1.jpg" /></a>-->
-                <!--                    </div>-->
-                <!--                    <div class="s-info">-->
-                <!--                        <a href="#"><p class="s-title">ZEK 原味海苔</p></a>-->
-                <!--                        <div class="s-price">￥<b>9.90</b>-->
-                <!--                            <a class="s-buy" href="#">秒杀</a>-->
-                <!--                        </div>-->
-                <!--                    </div>-->
-                <!--                </div>-->
-
-                <!--                <div class="am-u-sm-3 sale-item">-->
-                <!--                    <div class="s-img">-->
-                <!--                        <a href="# "><img src="/images/sale2.jpg " /></a>-->
-                <!--                    </div>-->
-                <!--                    <div class="s-info">-->
-                <!--                        <a href="#"><p class="s-title">ZEK 原味海苔</p></a>-->
-                <!--                        <div class="s-price">￥<b>9.90</b>-->
-                <!--                            <a class="s-buy" href="#">秒杀</a>-->
-                <!--                        </div>-->
-                <!--                    </div>-->
-                <!--                </div>-->
-
-                <!--            </div>-->
-                <!--            表单搜索-->
-                <!--            <form class="am-form-inline" role="form">-->
-                <!--                <div class="am-form-group" style="width: 70px">-->
-                <!--                    <input type="text" class="am-form-field" placeholder="公司名字">-->
-                <!--                </div>-->
-                <!--                <div class="am-form-group">-->
-                <!--                    <input type="text" class="am-form-field" placeholder="工作地点">-->
-                <!--                </div>-->
-                <!--                <div class="am-form-group">-->
-                <!--                    <input type="text" class="am-form-field" placeholder="入职时间">-->
-                <!--                </div>-->
-                <!--                <div class="am-form-group">-->
-                <!--                    <input type="text" class="am-form-field" placeholder="学历要求">-->
-                <!--                </div>-->
-                <!--                <div class="am-form-group">-->
-                <!--                    <input type="text" class="am-form-field" placeholder="工作经验">-->
-                <!--                </div>-->
-                <!--                <div class="am-form-group">-->
-                <!--                    <input type="text" class="am-form-field" placeholder="最低薪资">-->
-                <!--                </div>-->
-                <!--                <div class="am-form-group">-->
-                <!--                    <input type="text" class="am-form-field" placeholder="最高薪资">-->
-                <!--                </div>-->
-                <!--                <div class="am-form-group">-->
-                <!--                    <input type="text" class="am-form-field" placeholder="职位类型">-->
-                <!--                </div>-->
-                <!--                <div class="am-form-group">-->
-                <!--                    <input type="text" class="am-form-field" placeholder="排序">-->
-                <!--                </div>-->
-                <!--&lt;!&ndash;                薪资范围、职位类型、工作地点、入职时间、公司名字、学历要求、工作经验）&ndash;&gt;-->
-                <!--                <button type="submit" class="am-btn am-btn-default">搜索</button>-->
-                <!--            </form>-->
-            </div>
-
             <div class="f1">
-                <!--甜点-->
-
+                <br><br><br>
                 <div class="am-container" style="align-content: center;background-color: rgba(139,108,203,0.1)">
                     <div class="shopTitle" style="background-color: white">
                         <h4 class="floor-title" style="margin-left: 550px">热门岗位</h4>
@@ -1012,25 +873,44 @@
                 <br><br>
 
                 <div class="am-g am-g-fixed floodSix " style="background-color: transparent">
-                    <ul class="am-avg-sm-2 am-avg-md-3 am-avg-lg-3 am-thumbnails" th:each="job:${#request.getAttribute('jobList')}">
-                        <li>
-                            <div style="width:393px;height:150px;border: 1px solid darkred">
-                                <table>
+                    <ul class="am-avg-sm-2 am-avg-md-3 am-avg-lg-3 am-thumbnails">
+                        <li th:each="job:${#request.getAttribute('jobList')}">
+                            <div style="width:393px;height:150px;background-color: white;padding-top: 5px;padding-left: 25px">
+                                <table height="140px" width="350px">
+                                    <a href="/job/search">
+                                        <tr>
+                                            <td>
+                                                <a th:href="@{/job/Info(id=${job.id})}">
+                                                    <span style="font-size: 20px;font-family: 'Verdana';color: #ad2daf">[[${job.name}]]</span>
+                                                    <span style="font-size: 18px;font-family: \96B6\4E66;color: rgba(198,44,0,0.77);float: right;margin-top: 3px">
+                                                    [[${job.minSalary}]]— [[${job.maxSalary}]]
+                                                    </span>
+                                                </a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <a th:href="@{/job/Info(id=${job.id})}">
+                                                    <span style="white-space:nowrap;width:200px;overflow:hidden;text-overflow:ellipsis;display: inline-block;">[[${job.location}]]</span>
+                                                    <span style="float: right">|[[${job.experience}]]年&nbsp;|&nbsp;[[${job.education}]]</span>
+                                                </a>
+                                            </td>
+                                        </tr>
+                                    </a>
                                     <tr>
-                                        <td width="70%">
-                                            [[${job.name}]]
-                                        </td>
-                                        <td width="30%">
-                                            [[${job.minSalary}]]&nbsp;&nbsp; ——&nbsp;&nbsp; [[${job.maxSalary}]]
+                                        <td>
+                                            <hr>
                                         </td>
                                     </tr>
-                                    <tr>
 
+                                    <tr>
+                                        <td>
+                                            <a th:href="@{/company/getSelectCompany(id=${job.publisher})}">
+                                                [[${job.company}]]
+                                            </a>
+                                        </td>
                                     </tr>
-                                    <tr></tr>
-                                    <tr></tr>
                                 </table>
-                                <span th:text="${job.company}"></span>
                             </div>
                         </li>
 
@@ -1041,27 +921,72 @@
             </div>
             <div class="f2">
 
+                <br><br><br>
                 <!--坚果-->
-                <div class="am-container"style="align-content: center;background-color: rgba(139,108,203,0.1)">
+                <div class="am-container" style="align-content: center;background-color: rgba(139,108,203,0.1)">
                     <div class="shopTitle" style="background-color: white">
                         <h4 class="floor-title" style="margin-left: 550px">热门企业</h4>
                         <br>
                     </div>
                 </div>
                 <br><br>
-                <div class="am-g am-g-fixed floodSix " style="background-color: rgba(139,108,203,0.1)">
+                <div class="am-g am-g-fixed floodSix " style="background-color: transparent">
                     <ul class="am-avg-sm-2 am-avg-md-3 am-avg-lg-3 am-thumbnails">
-                        <li><img src="http://amazeui.shopxo.net/static/images/001.jpg"/></li>
-                        <li><img src="http://amazeui.shopxo.net/static/images/002.jpg"/></li>
-                        <li><img src="http://amazeui.shopxo.net/static/images/003.jpg"/></li>
-                        <li><img src="http://amazeui.shopxo.net/static/images/004.jpg"/></li>
-                        <li><img src="http://amazeui.shopxo.net/static/images/001.jpg"/></li>
-                        <li><img src="http://amazeui.shopxo.net/static/images/002.jpg"/></li>
-                        <li><img src="http://amazeui.shopxo.net/static/images/003.jpg"/></li>
-                        <li><img src="http://amazeui.shopxo.net/static/images/004.jpg"/></li>
+                        <li th:each="company:${session.company}">
+                            <div style="width:393px;height:150px;background-color: white;padding-top: 5px;padding-left: 25px">
+                                <table height="140px" width="350px">
+                                    <a href="/job/search">
+                                        <tr>
+                                            <td>
+                                                <a th:href="@{/company/getSelectCompany(${company.id})}">
+                                                    <span style="font-size: 20px;font-family: 'Verdana';color: #ad2daf">[[${company.name}]]</span>
+                                                </a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <span style="white-space:nowrap;width:200px;overflow:hidden;text-overflow:ellipsis;display: inline-block;">
+                                                    [[${company.address}]]
+                                                </span>
+                                            </td>
+                                        </tr>
+                                    </a>
+                                    <tr>
+                                        <td>
+                                            <span style="width:100%;height:60px;overflow:hidden;text-overflow:ellipsis;display: block;">
+                                                [[${company.description}]]
+                                            </span>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </li>
+
                     </ul>
                 </div>
             </div>
+        </div>
+    </div>
+    <div class="footer ">
+        <div class="footer-hd ">
+            <p>
+                <a href="# ">第九组</a>
+                <b>|</b>
+                <a href="# ">首页</a>
+                <b>|</b>
+                <a href="# ">提交Bug</a>
+                <b>|</b>
+                <a href="# ">相关信息</a>
+            </p>
+        </div>
+        <div class="footer-bd ">
+            <p>
+                <a href="# ">关于我们</a>
+                <a href="# ">合作伙伴</a>
+                <a href="# ">联系我们</a>
+                <a href="# ">网站地图</a>
+                <em>© 2015-2025 xxxxxx.com 版权所有</em>
+            </p>
         </div>
     </div>
 

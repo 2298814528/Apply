@@ -19,4 +19,6 @@ import java.util.List;
 public interface JobService extends IService<Job> {
 
     List<JobVo> getJob(PageVo pageVo);
+
+    JobVo getOneJob(Integer id);
 }

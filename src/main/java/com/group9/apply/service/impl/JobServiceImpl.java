@@ -33,5 +33,10 @@ public class JobServiceImpl extends ServiceImpl<JobMapper, Job> implements JobSe
         return jobMapper.getSearchJob(pageVo);
     }
 
+    @Override
+    public JobVo getOneJob(Integer id) {
+        return jobMapper.getOne(id);
+    }
+
 
 }

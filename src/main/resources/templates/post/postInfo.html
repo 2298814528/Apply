@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="${#request.getAttribute('oneJob').name}">Title</title>
+</head>
+<body th:object="${#request.getAttribute('oneJob')}">
+<div style="background-color: #41495e;height: 200px;width: 100%;padding-top: 30px">
+    <div style="margin-left: 60px;width: 70%">
+        <span style="color: #c7c9d0 ">招聘中</span>
+        <br>
+        <br>
+        <span style="color: white;font-size: 40px">[[*{name}]]</span>
+        <span style="color: #fa6a43;font-size: 30px;margin-left: 30px">[[*{minSalary}]]-[[*{maxSalary}]]</span>
+        <br>
+        <br>
+        <span style="color: #c7c9d0;">
+            <span style="white-space: nowrap;display: inline-block;text-overflow: ellipsis;width: 300px;overflow: hidden;vertical-align: middle;">[[*{location}]]</span>
+            <span style="vertical-align: middle;">&nbsp;&nbsp; [[*{experience}]]年&nbsp;&nbsp;  [[*{education}]]</span>
+        </span>
+        <br>
+        <br>
+            <div style="border: 1px solid #5ed5c8;border-radius: 20px;width: 80px;height: 25px;text-align: center;padding-top: 1px;display: inline-block">
+                <span style="font-size: 15px;color: #5ed5c8">五险一金</span>
+            </div>
+            <div style="border: 1px solid gray;border-radius: 20px;width: 80px;height: 25px;text-align: center;padding-top: 1px;display: inline-block">
+                <span style="font-size: 15px;color: #5ed5c8">定期体检</span>
+            </div>
+            <div style="border: 1px solid gray;border-radius: 20px;width: 80px;height: 25px;text-align: center;padding-top: 1px;display: inline-block">
+                <span style="font-size: 15px;color: #5ed5c8">年终奖</span>
+            </div>
+            <div style="border: 1px solid gray;border-radius: 20px;width: 80px;height: 25px;text-align: center;padding-top: 1px;display: inline-block">
+                <span style="font-size: 15px;color: #5ed5c8">股票期权</span>
+            </div>
+            <div style="border: 1px solid gray;border-radius: 20px;width: 80px;height: 25px;text-align: center;padding-top: 1px;display: inline-block">
+                <span style="font-size: 15px;color: #5ed5c8">带薪年假</span>
+            </div>
+            <div style="border: 1px solid gray;border-radius: 20px;width: 80px;height: 25px;text-align: center;padding-top: 1px;display: inline-block">
+                <span style="font-size: 15px;color: #5ed5c8">零食下午茶</span>
+            </div>
+
+
+    </div>
+</div>
+</body>
+</html>
