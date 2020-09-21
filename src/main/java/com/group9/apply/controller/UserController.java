@@ -100,4 +100,14 @@ public class UserController extends BaseController {
             return JSON.toJSONString(new Result(400, "register error", null));
         }
     }
+
+    /**
+     * 用户退出实现
+     * @return
+     */
+    @GetMapping("/logout")
+    public String logout(){
+        session.removeAttribute("user");
+        return "index";
+    }
 }

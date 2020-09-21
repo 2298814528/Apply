@@ -24,12 +24,19 @@ public class WebConfig implements WebMvcConfigurer {
         list.add("/user/doLogin");
         list.add("/user/register");
         list.add("/user/userExit");
+        list.add("/job/search");
         list.add("/css/**");
         list.add("/fonts/**");
         list.add("/images/**");
         list.add("/js/**");
         list.add("/lib/**");
         registry.addInterceptor(loginInter).addPathPatterns("/**").excludePathPatterns(list);
+    }
+
+    @Override
+    public void addResourceHandlers(ResourceHandlerRegistry registry) {
+        registry.addResourceHandler("/static/**").addResourceLocations("classpath:/static/");
+        WebMvcConfigurer.super.addResourceHandlers(registry);
     }
 
 }
