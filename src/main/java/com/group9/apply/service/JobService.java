@@ -2,6 +2,7 @@ package com.group9.apply.service;
 
 import com.group9.apply.entity.Job;
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.group9.apply.util.PageResult;
 import com.group9.apply.vo.JobVo;
 import com.group9.apply.vo.PageVo;
 

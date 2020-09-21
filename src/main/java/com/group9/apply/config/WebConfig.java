@@ -23,6 +23,7 @@ public class WebConfig implements WebMvcConfigurer {
         list.add("/user/login");
         list.add("/user/doLogin");
         list.add("/user/register");
+        list.add("/user/doRegister");
         list.add("/user/userExit");
         list.add("/index");
         list.add("/");

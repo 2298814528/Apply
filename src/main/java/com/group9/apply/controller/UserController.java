@@ -88,21 +88,21 @@ public class UserController extends BaseController {
      * 注册用户逻辑
      */
     @GetMapping("/register")
-    public String register(String username, String password, String role1, HttpServletResponse response) throws Exception {
+    public String toregister(){
+        return "user/register";
+    }
+
+    @PostMapping("/doRegister")
+    @ResponseBody
+    public Result register(String username, String password, int role) throws Exception {
         User user = new User();
-        int role = 0;
-        if (role1.equals("求职者")) {
-            role = 1;
-        } else if (role1.equals("企业")) {
-            role = 2;
-        }
         user.setUsername(username);
         user.setPassword(password);
         user.setRole(role);
         if (userService.save(user)) {
-            return "";//注册成功返回到登陆界面
+            return new Result(200,"register success",null);
         } else {
-            return JSON.toJSONString(new Result(400, "register error", null));
+            return new Result(400,"register error",null);
         }
     }
 
