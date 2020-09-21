@@ -3,6 +3,7 @@ package com.group9.apply.service;
 import com.group9.apply.entity.Job;
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.group9.apply.vo.JobVo;
+import com.group9.apply.vo.PageVo;
 
 import java.util.List;
 
@@ -16,5 +17,5 @@ import java.util.List;
  */
 public interface JobService extends IService<Job> {
 
-    List<JobVo> getJob(Job job);
+    List<JobVo> getJob(PageVo pageVo);
 }

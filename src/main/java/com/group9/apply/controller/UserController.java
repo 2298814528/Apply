@@ -57,9 +57,15 @@ public class UserController extends BaseController {
     /**
      * 跳转到求职者主界面
      */
+    @ResponseBody
     @GetMapping("/doLogin")
-    public String toLoginSeeker() {
-        return"seeker/frame";
+    public void toLoginSeeker() throws IOException {
+        StringBuffer requestURL = request.getRequestURL();
+        String requestURI = request.getRequestURI();
+        int i = requestURL.indexOf(requestURI);
+        StringBuffer originalUrl = requestURL.delete(i, requestURL.length() );
+        String url = originalUrl.toString();
+        response.sendRedirect(url);
     }
 
     /**
@@ -81,7 +87,6 @@ public class UserController extends BaseController {
     /**
      * 注册用户逻辑
      */
-
     @GetMapping("/register")
     public String register(String username, String password, String role1, HttpServletResponse response) throws Exception {
         User user = new User();
@@ -99,5 +104,15 @@ public class UserController extends BaseController {
         } else {
             return JSON.toJSONString(new Result(400, "register error", null));
         }
+    }
+
+    /**
+     * 用户退出实现
+     * @return
+     */
+    @GetMapping("/logout")
+    public String logout(){
+        session.removeAttribute("user");
+        return "index";
     }
 }

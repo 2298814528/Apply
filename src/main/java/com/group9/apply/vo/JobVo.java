@@ -3,6 +3,7 @@ package com.group9.apply.vo;
 import lombok.Data;
 
 import java.time.LocalDateTime;
+import java.util.Date;
 
 @Data
 public class JobVo {
@@ -52,7 +53,7 @@ public class JobVo {
     /**
      * 入职时间
      */
-    private LocalDateTime entryTime;
+    private Date entryTime;
 
     /**
      * 岗位联系人电话
@@ -77,9 +78,10 @@ public class JobVo {
     /**
      * 发布时间
      */
-    private LocalDateTime pubTime;
+    private Date pubTime;
     /**
      * 公司名字
      */
     private String company;
+
 }

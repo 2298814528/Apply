@@ -2,6 +2,7 @@ package com.group9.apply.entity;
 
 import java.time.LocalDateTime;
 import java.io.Serializable;
+import java.util.Date;
 
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
@@ -69,7 +70,7 @@ public class Job implements Serializable {
     /**
      * 入职时间
      */
-    private LocalDateTime entryTime;
+    private Date entryTime;
 
     /**
      * 岗位联系人电话
@@ -94,7 +95,7 @@ public class Job implements Serializable {
     /**
      * 发布时间
      */
-    private LocalDateTime pubTime;
+    private Date pubTime;
 
 
 }

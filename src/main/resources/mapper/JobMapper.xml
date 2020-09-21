@@ -2,44 +2,50 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.group9.apply.mapper.JobMapper">
     <!--    //（薪资范围、职位类型、工作地点、入职时间、公司名字、学历要求、工作经验）-->
-    <select id="getSearchJob" resultType="com.group9.apply.vo.JobVo">
+        <select id="getSearchJob" resultType="com.group9.apply.vo.JobVo" parameterType="com.group9.apply.vo.PageVo">
         select job.* ,company.name as company
-            from job
-            inner join company
-            on  job.publisher = company.id
---             公司名字
-            <if test="#{job.company} != null">
-                and company.name like concat('%',#{job.company},'%')
+        from job
+        inner join company
+        on job.publisher = company.id
+
+        <if test="job.jobVo.company != null">
+            and company.name like concat('%',#{job.jobVo.company},'%')
+        </if>
+        <where>
+            1 = 1
+
+            <if test="job.jobVo.minSalary != null">
+                and job.min_salary &gt;= #{job.jobVo.minSalary}
             </if>
-            <where>
-                1 = 1
---                 最小薪资
-                <if test="#{job.minSalary} != null">
-                    and job.min_salary &gt;= #{job.minSalary}
-                </if>
---                 最大工资
-                <if test="#{job.maxSalary} != null">
-                    and job.min_salary &lt;= #{job.maxSalary}
-                </if>
---                 工作类型
-                <if test="#{job.type} != null">
-                    and job.type = #{job.type}
-                </if>
---                 工作地点
-                <if test="#{job.location} != null">
-                    and job.location = #{job.location}
-                </if>
---                 入职时间
-                <if test="#{job.entryTime} != null">
-                    and job.entry_time eq #{job.entryTime}
-                </if>
---                 学历要求
-                <if test="#{job.minSalary} != null">
-                    and job.min_salary gt; #{job.minSalary}
-                </if>
-            </where>
+
+            <if test="job.jobVo.maxSalary != null">
+                and job.max_salary &lt;= #{job.jobVo.maxSalary}
+            </if>
+
+            <if test="job.jobVo.type != null">
+                and job.type like concat('%',#{job.jobVo.type},'%')
+            </if>
+
+            <if test="job.jobVo.location != null">
+                and job.location = #{job.jobVo.location}
+            </if>
+
+            <if test="job.jobVo.entryTime != null">
+                and job.entry_time = #{job.jobVo.entryTime}
+            </if>
+
+            <if test="job.jobVo.education != null">
+                and job.education = #{job.jobVo.education}
+            </if>
+
+            <if test="job.jobVo.experience != null">
+                and job.experience = #{job.jobVo.experience}
+            </if>
+            order by #{job.order} desc
+            limit #{job.currentPage},10;
+        </where>
     </select>
 </mapper>
         <!--    //（薪资范围、职位类型、工作地点、入职时间、公司名字、学历要求、工作经验）-->
-<!--        <     <=     >        >=      &       ’        "-->
-<!--        &lt;  &lt;=  &gt;    &gt;=    &amp;   &apos;   &quot;-->
+        <!--        <     <=     >        >=      &       ’        "-->
+        <!--        &lt;  &lt;=  &gt;    &gt;=    &amp;   &apos;   &quot;-->
