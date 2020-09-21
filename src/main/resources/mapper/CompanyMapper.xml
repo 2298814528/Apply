@@ -2,4 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.group9.apply.mapper.CompanyMapper">
 
+    <insert id="addCompany">
+        insert into company values (#{id},#{name},#{address},#{description})
+    </insert>
 </mapper>

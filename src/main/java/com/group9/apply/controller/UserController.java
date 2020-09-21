@@ -42,7 +42,7 @@ public class UserController extends BaseController {
         User user = userService.getOne(new QueryWrapper<User>().eq("username", username));
         if (user.getPassword().equals(password)) {
             request.getSession().setAttribute("user", user);
-            if (user.getRole().equals("1")) {
+            if (user.getRole().equals(1)) {
                 return new Result(1, "seeker login", null);
             } else if (user.getRole().equals(2)) {
                 return new Result(2, "company login", null);

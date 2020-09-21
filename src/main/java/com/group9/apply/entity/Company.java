@@ -36,12 +36,12 @@ public class Company implements Serializable {
     /**
      * 公司描述
      */
-    private String descption;
+    private String description;
 
     /**
      * 公司id
      */
     @TableId(value = "id",type = IdType.AUTO)
-    private Integer id;
+    private Long id;
 
 }

@@ -65,10 +65,14 @@ public class JobController extends BaseController {
         int page = Integer.parseInt(request.getParameter("page"));
         int limit = Integer.parseInt(request.getParameter("limit"));
         User user = (User) session.getAttribute("user");
-        Long id = user.getId();
-        IPage<Job> iPage = new Page<>(page, limit);
-        IPage<Job> publisher = jobService.page(iPage, new QueryWrapper<Job>()
-                .eq("publisher", id));
-        return new PageResult(0,"请求成功",publisher.getRecords(),publisher.getTotal());
+        if (user.getRole().equals(2)){
+            Long id = user.getId();
+            IPage<Job> iPage = new Page<>(page, limit);
+            IPage<Job> publisher = jobService.page(iPage, new QueryWrapper<Job>()
+                    .eq("publisher", id));
+            return new PageResult(0,"请求成功",publisher.getRecords(),publisher.getTotal());
+        }else {
+            return new Result(400,"error");
+        }
     }
 }

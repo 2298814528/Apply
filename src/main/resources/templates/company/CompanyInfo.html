@@ -46,17 +46,18 @@
         //监听提交
         form.on('submit(formDemo)', function(data){
             $.ajax({
-                url:"/jsp/shopp/file/Ajaxup",
+                url:"http://localhost:8080/company/addCompany",
                 type:"post",
-                data:form,
-                cache: false,//上传文件无需缓存
-                processData: false,//用于对data参数进行序列化处理 这里必须false
-                contentType: false, //必须
+                data:{
+                    name:data.field.name,
+                    address:data.field.address,
+                    description:data.field.description,
+                },
+                data_type:"json",
                 success:function(data){
-                    alert("OK");
-                    data=JSON.parse(data);
-                    $("#img123").attr("src",data);
-                    $("#picture").val(data);
+                    if (data.code != null){
+                        layer.msg("添加成功")
+                    }
                 }
             });
             return false;

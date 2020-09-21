@@ -111,4 +111,21 @@ public class Job implements Serializable {
         this.email = email;
         this.trade = trade;
     }
+
+
+    public Job( String name, String type, String location, String education, Integer minSalary, Integer maxSalary, Integer experience, Date entryTime, String phone, String email, String trade) {
+
+        this.name = name;
+        this.type = type;
+        this.location = location;
+        this.education = education;
+        this.minSalary = minSalary;
+        this.maxSalary = maxSalary;
+        this.experience = experience;
+        this.entryTime = entryTime;
+        this.phone = phone;
+        this.email = email;
+        this.trade = trade;
+    }
+
 }
