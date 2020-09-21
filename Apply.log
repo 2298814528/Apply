@@ -2317,3 +2317,490 @@ java.sql.SQLSyntaxErrorException: Unknown column 'job.jobVo.min_salary' in 'wher
 2020-09-21 10:08:46.092 DEBUG 13088 --- [http-nio-8080-exec-3] c.g.apply.mapper.JobMapper.getSearchJob  : ==>  Preparing: select job.* ,company.name as company from job inner join company on job.publisher = company.id WHERE 1 = 1 and job.min_salary >= ? and job.max_salary <= ? order by ? desc limit ?,10; 
 2020-09-21 10:08:46.095 DEBUG 13088 --- [http-nio-8080-exec-3] c.g.apply.mapper.JobMapper.getSearchJob  : ==> Parameters: 100(Integer), 10000(Integer), pub_time(String), 0(Integer)
 2020-09-21 10:08:46.226 DEBUG 13088 --- [http-nio-8080-exec-3] c.g.apply.mapper.JobMapper.getSearchJob  : <==      Total: 1
+2020-09-21 10:22:24.961  WARN 13884 --- [restartedMain] o.m.s.mapper.ClassPathMapperScanner      : Skipping MapperFactoryBean with name 'companyMapper' and 'com.group9.apply.mapper.CompanyMapper' mapperInterface. Bean already defined with the same name!
+2020-09-21 10:22:24.966  WARN 13884 --- [restartedMain] o.m.s.mapper.ClassPathMapperScanner      : Skipping MapperFactoryBean with name 'jobMapper' and 'com.group9.apply.mapper.JobMapper' mapperInterface. Bean already defined with the same name!
+2020-09-21 10:22:24.966  WARN 13884 --- [restartedMain] o.m.s.mapper.ClassPathMapperScanner      : Skipping MapperFactoryBean with name 'postMapper' and 'com.group9.apply.mapper.PostMapper' mapperInterface. Bean already defined with the same name!
+2020-09-21 10:22:24.967  WARN 13884 --- [restartedMain] o.m.s.mapper.ClassPathMapperScanner      : Skipping MapperFactoryBean with name 'seekerMapper' and 'com.group9.apply.mapper.SeekerMapper' mapperInterface. Bean already defined with the same name!
+2020-09-21 10:22:24.968  WARN 13884 --- [restartedMain] o.m.s.mapper.ClassPathMapperScanner      : Skipping MapperFactoryBean with name 'userMapper' and 'com.group9.apply.mapper.UserMapper' mapperInterface. Bean already defined with the same name!
+2020-09-21 10:22:24.968  WARN 13884 --- [restartedMain] o.m.s.mapper.ClassPathMapperScanner      : No MyBatis mapper was found in '[com.group9.apply.mapper]' package. Please check your configuration.
+2020-09-21 10:22:29.671  WARN 13884 --- [restartedMain] c.b.m.core.toolkit.TableInfoHelper       : Warn: Could not find @TableId in Class: com.group9.apply.entity.Company.
+2020-09-21 10:23:16.262 DEBUG 13884 --- [http-nio-8080-exec-9] c.g.apply.mapper.UserMapper.selectList   : ==>  Preparing: SELECT id,username,password,role FROM user WHERE username = ? 
+2020-09-21 10:23:16.288 DEBUG 13884 --- [http-nio-8080-exec-9] c.g.apply.mapper.UserMapper.selectList   : ==> Parameters: zfx(String)
+2020-09-21 10:23:16.423 DEBUG 13884 --- [http-nio-8080-exec-9] c.g.apply.mapper.UserMapper.selectList   : <==      Total: 1
+2020-09-21 10:32:02.984  WARN 9336 --- [restartedMain] o.m.s.mapper.ClassPathMapperScanner      : Skipping MapperFactoryBean with name 'companyMapper' and 'com.group9.apply.mapper.CompanyMapper' mapperInterface. Bean already defined with the same name!
+2020-09-21 10:32:02.987  WARN 9336 --- [restartedMain] o.m.s.mapper.ClassPathMapperScanner      : Skipping MapperFactoryBean with name 'jobMapper' and 'com.group9.apply.mapper.JobMapper' mapperInterface. Bean already defined with the same name!
+2020-09-21 10:32:02.987  WARN 9336 --- [restartedMain] o.m.s.mapper.ClassPathMapperScanner      : Skipping MapperFactoryBean with name 'postMapper' and 'com.group9.apply.mapper.PostMapper' mapperInterface. Bean already defined with the same name!
+2020-09-21 10:32:02.988  WARN 9336 --- [restartedMain] o.m.s.mapper.ClassPathMapperScanner      : Skipping MapperFactoryBean with name 'seekerMapper' and 'com.group9.apply.mapper.SeekerMapper' mapperInterface. Bean already defined with the same name!
+2020-09-21 10:32:02.989  WARN 9336 --- [restartedMain] o.m.s.mapper.ClassPathMapperScanner      : Skipping MapperFactoryBean with name 'userMapper' and 'com.group9.apply.mapper.UserMapper' mapperInterface. Bean already defined with the same name!
+2020-09-21 10:32:02.989  WARN 9336 --- [restartedMain] o.m.s.mapper.ClassPathMapperScanner      : No MyBatis mapper was found in '[com.group9.apply.mapper]' package. Please check your configuration.
+2020-09-21 10:32:07.338  WARN 9336 --- [restartedMain] c.b.m.core.toolkit.TableInfoHelper       : Warn: Could not find @TableId in Class: com.group9.apply.entity.Company.
+2020-09-21 10:33:05.998  WARN 14144 --- [restartedMain] o.m.s.mapper.ClassPathMapperScanner      : Skipping MapperFactoryBean with name 'companyMapper' and 'com.group9.apply.mapper.CompanyMapper' mapperInterface. Bean already defined with the same name!
+2020-09-21 10:33:06.001  WARN 14144 --- [restartedMain] o.m.s.mapper.ClassPathMapperScanner      : Skipping MapperFactoryBean with name 'jobMapper' and 'com.group9.apply.mapper.JobMapper' mapperInterface. Bean already defined with the same name!
+2020-09-21 10:33:06.001  WARN 14144 --- [restartedMain] o.m.s.mapper.ClassPathMapperScanner      : Skipping MapperFactoryBean with name 'postMapper' and 'com.group9.apply.mapper.PostMapper' mapperInterface. Bean already defined with the same name!
+2020-09-21 10:33:06.001  WARN 14144 --- [restartedMain] o.m.s.mapper.ClassPathMapperScanner      : Skipping MapperFactoryBean with name 'seekerMapper' and 'com.group9.apply.mapper.SeekerMapper' mapperInterface. Bean already defined with the same name!
+2020-09-21 10:33:06.002  WARN 14144 --- [restartedMain] o.m.s.mapper.ClassPathMapperScanner      : Skipping MapperFactoryBean with name 'userMapper' and 'com.group9.apply.mapper.UserMapper' mapperInterface. Bean already defined with the same name!
+2020-09-21 10:33:06.002  WARN 14144 --- [restartedMain] o.m.s.mapper.ClassPathMapperScanner      : No MyBatis mapper was found in '[com.group9.apply.mapper]' package. Please check your configuration.
+2020-09-21 10:33:10.706  WARN 14144 --- [restartedMain] c.b.m.core.toolkit.TableInfoHelper       : Warn: Could not find @TableId in Class: com.group9.apply.entity.Company.
+2020-09-21 10:33:26.130 DEBUG 14144 --- [http-nio-8080-exec-5] c.g.apply.mapper.UserMapper.selectList   : ==>  Preparing: SELECT id,username,password,role FROM user WHERE username = ? 
+2020-09-21 10:33:26.182 DEBUG 14144 --- [http-nio-8080-exec-5] c.g.apply.mapper.UserMapper.selectList   : ==> Parameters: zfx(String)
+2020-09-21 10:33:26.290 DEBUG 14144 --- [http-nio-8080-exec-5] c.g.apply.mapper.UserMapper.selectList   : <==      Total: 1
+2020-09-21 10:33:54.266  WARN 9212 --- [restartedMain] o.m.s.mapper.ClassPathMapperScanner      : Skipping MapperFactoryBean with name 'companyMapper' and 'com.group9.apply.mapper.CompanyMapper' mapperInterface. Bean already defined with the same name!
+2020-09-21 10:33:54.271  WARN 9212 --- [restartedMain] o.m.s.mapper.ClassPathMapperScanner      : Skipping MapperFactoryBean with name 'jobMapper' and 'com.group9.apply.mapper.JobMapper' mapperInterface. Bean already defined with the same name!
+2020-09-21 10:33:54.271  WARN 9212 --- [restartedMain] o.m.s.mapper.ClassPathMapperScanner      : Skipping MapperFactoryBean with name 'postMapper' and 'com.group9.apply.mapper.PostMapper' mapperInterface. Bean already defined with the same name!
+2020-09-21 10:33:54.271  WARN 9212 --- [restartedMain] o.m.s.mapper.ClassPathMapperScanner      : Skipping MapperFactoryBean with name 'seekerMapper' and 'com.group9.apply.mapper.SeekerMapper' mapperInterface. Bean already defined with the same name!
+2020-09-21 10:33:54.272  WARN 9212 --- [restartedMain] o.m.s.mapper.ClassPathMapperScanner      : Skipping MapperFactoryBean with name 'userMapper' and 'com.group9.apply.mapper.UserMapper' mapperInterface. Bean already defined with the same name!
+2020-09-21 10:33:54.272  WARN 9212 --- [restartedMain] o.m.s.mapper.ClassPathMapperScanner      : No MyBatis mapper was found in '[com.group9.apply.mapper]' package. Please check your configuration.
+2020-09-21 10:33:59.231  WARN 9212 --- [restartedMain] c.b.m.core.toolkit.TableInfoHelper       : Warn: Could not find @TableId in Class: com.group9.apply.entity.Company.
+2020-09-21 10:34:17.938 DEBUG 9212 --- [http-nio-8080-exec-5] c.g.apply.mapper.UserMapper.selectList   : ==>  Preparing: SELECT id,username,password,role FROM user WHERE username = ? 
+2020-09-21 10:34:17.973 DEBUG 9212 --- [http-nio-8080-exec-5] c.g.apply.mapper.UserMapper.selectList   : ==> Parameters: zfx(String)
+2020-09-21 10:34:18.115 DEBUG 9212 --- [http-nio-8080-exec-5] c.g.apply.mapper.UserMapper.selectList   : <==      Total: 1
+2020-09-21 10:37:07.382  WARN 6052 --- [restartedMain] o.m.s.mapper.ClassPathMapperScanner      : Skipping MapperFactoryBean with name 'companyMapper' and 'com.group9.apply.mapper.CompanyMapper' mapperInterface. Bean already defined with the same name!
+2020-09-21 10:37:07.385  WARN 6052 --- [restartedMain] o.m.s.mapper.ClassPathMapperScanner      : Skipping MapperFactoryBean with name 'jobMapper' and 'com.group9.apply.mapper.JobMapper' mapperInterface. Bean already defined with the same name!
+2020-09-21 10:37:07.386  WARN 6052 --- [restartedMain] o.m.s.mapper.ClassPathMapperScanner      : Skipping MapperFactoryBean with name 'postMapper' and 'com.group9.apply.mapper.PostMapper' mapperInterface. Bean already defined with the same name!
+2020-09-21 10:37:07.386  WARN 6052 --- [restartedMain] o.m.s.mapper.ClassPathMapperScanner      : Skipping MapperFactoryBean with name 'seekerMapper' and 'com.group9.apply.mapper.SeekerMapper' mapperInterface. Bean already defined with the same name!
+2020-09-21 10:37:07.386  WARN 6052 --- [restartedMain] o.m.s.mapper.ClassPathMapperScanner      : Skipping MapperFactoryBean with name 'userMapper' and 'com.group9.apply.mapper.UserMapper' mapperInterface. Bean already defined with the same name!
+2020-09-21 10:37:07.387  WARN 6052 --- [restartedMain] o.m.s.mapper.ClassPathMapperScanner      : No MyBatis mapper was found in '[com.group9.apply.mapper]' package. Please check your configuration.
+2020-09-21 10:37:11.572  WARN 6052 --- [restartedMain] c.b.m.core.toolkit.TableInfoHelper       : Warn: Could not find @TableId in Class: com.group9.apply.entity.Company.
+2020-09-21 10:37:23.516 DEBUG 6052 --- [http-nio-8080-exec-5] c.g.apply.mapper.UserMapper.selectList   : ==>  Preparing: SELECT id,username,password,role FROM user WHERE username = ? 
+2020-09-21 10:37:23.543 DEBUG 6052 --- [http-nio-8080-exec-5] c.g.apply.mapper.UserMapper.selectList   : ==> Parameters: zfx(String)
+2020-09-21 10:37:23.725 DEBUG 6052 --- [http-nio-8080-exec-5] c.g.apply.mapper.UserMapper.selectList   : <==      Total: 1
+2020-09-21 10:37:41.722 DEBUG 6052 --- [http-nio-8080-exec-1] c.g.apply.mapper.UserMapper.selectList   : ==>  Preparing: SELECT id,username,password,role FROM user WHERE username = ? 
+2020-09-21 10:37:41.723 DEBUG 6052 --- [http-nio-8080-exec-1] c.g.apply.mapper.UserMapper.selectList   : ==> Parameters: zfx(String)
+2020-09-21 10:37:41.792 DEBUG 6052 --- [http-nio-8080-exec-1] c.g.apply.mapper.UserMapper.selectList   : <==      Total: 1
+2020-09-21 10:38:51.764  WARN 8124 --- [restartedMain] o.m.s.mapper.ClassPathMapperScanner      : Skipping MapperFactoryBean with name 'companyMapper' and 'com.group9.apply.mapper.CompanyMapper' mapperInterface. Bean already defined with the same name!
+2020-09-21 10:38:51.768  WARN 8124 --- [restartedMain] o.m.s.mapper.ClassPathMapperScanner      : Skipping MapperFactoryBean with name 'jobMapper' and 'com.group9.apply.mapper.JobMapper' mapperInterface. Bean already defined with the same name!
+2020-09-21 10:38:51.768  WARN 8124 --- [restartedMain] o.m.s.mapper.ClassPathMapperScanner      : Skipping MapperFactoryBean with name 'postMapper' and 'com.group9.apply.mapper.PostMapper' mapperInterface. Bean already defined with the same name!
+2020-09-21 10:38:51.768  WARN 8124 --- [restartedMain] o.m.s.mapper.ClassPathMapperScanner      : Skipping MapperFactoryBean with name 'seekerMapper' and 'com.group9.apply.mapper.SeekerMapper' mapperInterface. Bean already defined with the same name!
+2020-09-21 10:38:51.769  WARN 8124 --- [restartedMain] o.m.s.mapper.ClassPathMapperScanner      : Skipping MapperFactoryBean with name 'userMapper' and 'com.group9.apply.mapper.UserMapper' mapperInterface. Bean already defined with the same name!
+2020-09-21 10:38:51.769  WARN 8124 --- [restartedMain] o.m.s.mapper.ClassPathMapperScanner      : No MyBatis mapper was found in '[com.group9.apply.mapper]' package. Please check your configuration.
+2020-09-21 10:38:56.462  WARN 8124 --- [restartedMain] c.b.m.core.toolkit.TableInfoHelper       : Warn: Could not find @TableId in Class: com.group9.apply.entity.Company.
+2020-09-21 10:39:12.846 DEBUG 8124 --- [http-nio-8080-exec-5] c.g.apply.mapper.UserMapper.selectList   : ==>  Preparing: SELECT id,username,password,role FROM user WHERE username = ? 
+2020-09-21 10:39:12.878 DEBUG 8124 --- [http-nio-8080-exec-5] c.g.apply.mapper.UserMapper.selectList   : ==> Parameters: zfx(String)
+2020-09-21 10:39:13.113 DEBUG 8124 --- [http-nio-8080-exec-5] c.g.apply.mapper.UserMapper.selectList   : <==      Total: 1
+2020-09-21 10:40:01.227  WARN 3996 --- [restartedMain] o.m.s.mapper.ClassPathMapperScanner      : Skipping MapperFactoryBean with name 'companyMapper' and 'com.group9.apply.mapper.CompanyMapper' mapperInterface. Bean already defined with the same name!
+2020-09-21 10:40:01.232  WARN 3996 --- [restartedMain] o.m.s.mapper.ClassPathMapperScanner      : Skipping MapperFactoryBean with name 'jobMapper' and 'com.group9.apply.mapper.JobMapper' mapperInterface. Bean already defined with the same name!
+2020-09-21 10:40:01.232  WARN 3996 --- [restartedMain] o.m.s.mapper.ClassPathMapperScanner      : Skipping MapperFactoryBean with name 'postMapper' and 'com.group9.apply.mapper.PostMapper' mapperInterface. Bean already defined with the same name!
+2020-09-21 10:40:01.232  WARN 3996 --- [restartedMain] o.m.s.mapper.ClassPathMapperScanner      : Skipping MapperFactoryBean with name 'seekerMapper' and 'com.group9.apply.mapper.SeekerMapper' mapperInterface. Bean already defined with the same name!
+2020-09-21 10:40:01.233  WARN 3996 --- [restartedMain] o.m.s.mapper.ClassPathMapperScanner      : Skipping MapperFactoryBean with name 'userMapper' and 'com.group9.apply.mapper.UserMapper' mapperInterface. Bean already defined with the same name!
+2020-09-21 10:40:01.233  WARN 3996 --- [restartedMain] o.m.s.mapper.ClassPathMapperScanner      : No MyBatis mapper was found in '[com.group9.apply.mapper]' package. Please check your configuration.
+2020-09-21 10:40:06.243  WARN 3996 --- [restartedMain] c.b.m.core.toolkit.TableInfoHelper       : Warn: Could not find @TableId in Class: com.group9.apply.entity.Company.
+2020-09-21 10:40:16.702 DEBUG 3996 --- [http-nio-8080-exec-5] c.g.apply.mapper.UserMapper.selectList   : ==>  Preparing: SELECT id,username,password,role FROM user WHERE username = ? 
+2020-09-21 10:40:16.733 DEBUG 3996 --- [http-nio-8080-exec-5] c.g.apply.mapper.UserMapper.selectList   : ==> Parameters: zfx(String)
+2020-09-21 10:40:16.871 DEBUG 3996 --- [http-nio-8080-exec-5] c.g.apply.mapper.UserMapper.selectList   : <==      Total: 1
+2020-09-21 10:44:35.964  WARN 12960 --- [restartedMain] o.m.s.mapper.ClassPathMapperScanner      : Skipping MapperFactoryBean with name 'companyMapper' and 'com.group9.apply.mapper.CompanyMapper' mapperInterface. Bean already defined with the same name!
+2020-09-21 10:44:35.970  WARN 12960 --- [restartedMain] o.m.s.mapper.ClassPathMapperScanner      : Skipping MapperFactoryBean with name 'jobMapper' and 'com.group9.apply.mapper.JobMapper' mapperInterface. Bean already defined with the same name!
+2020-09-21 10:44:35.971  WARN 12960 --- [restartedMain] o.m.s.mapper.ClassPathMapperScanner      : Skipping MapperFactoryBean with name 'postMapper' and 'com.group9.apply.mapper.PostMapper' mapperInterface. Bean already defined with the same name!
+2020-09-21 10:44:35.971  WARN 12960 --- [restartedMain] o.m.s.mapper.ClassPathMapperScanner      : Skipping MapperFactoryBean with name 'seekerMapper' and 'com.group9.apply.mapper.SeekerMapper' mapperInterface. Bean already defined with the same name!
+2020-09-21 10:44:35.972  WARN 12960 --- [restartedMain] o.m.s.mapper.ClassPathMapperScanner      : Skipping MapperFactoryBean with name 'userMapper' and 'com.group9.apply.mapper.UserMapper' mapperInterface. Bean already defined with the same name!
+2020-09-21 10:44:35.972  WARN 12960 --- [restartedMain] o.m.s.mapper.ClassPathMapperScanner      : No MyBatis mapper was found in '[com.group9.apply.mapper]' package. Please check your configuration.
+2020-09-21 10:44:40.457  WARN 12960 --- [restartedMain] c.b.m.core.toolkit.TableInfoHelper       : Warn: Could not find @TableId in Class: com.group9.apply.entity.Company.
+2020-09-21 10:44:51.448 DEBUG 12960 --- [http-nio-8080-exec-8] c.g.apply.mapper.UserMapper.selectList   : ==>  Preparing: SELECT id,username,password,role FROM user WHERE username = ? 
+2020-09-21 10:44:51.481 DEBUG 12960 --- [http-nio-8080-exec-8] c.g.apply.mapper.UserMapper.selectList   : ==> Parameters: zfx(String)
+2020-09-21 10:44:51.618 DEBUG 12960 --- [http-nio-8080-exec-8] c.g.apply.mapper.UserMapper.selectList   : <==      Total: 1
+2020-09-21 10:45:21.640  WARN 12276 --- [restartedMain] o.m.s.mapper.ClassPathMapperScanner      : Skipping MapperFactoryBean with name 'companyMapper' and 'com.group9.apply.mapper.CompanyMapper' mapperInterface. Bean already defined with the same name!
+2020-09-21 10:45:21.644  WARN 12276 --- [restartedMain] o.m.s.mapper.ClassPathMapperScanner      : Skipping MapperFactoryBean with name 'jobMapper' and 'com.group9.apply.mapper.JobMapper' mapperInterface. Bean already defined with the same name!
+2020-09-21 10:45:21.644  WARN 12276 --- [restartedMain] o.m.s.mapper.ClassPathMapperScanner      : Skipping MapperFactoryBean with name 'postMapper' and 'com.group9.apply.mapper.PostMapper' mapperInterface. Bean already defined with the same name!
+2020-09-21 10:45:21.645  WARN 12276 --- [restartedMain] o.m.s.mapper.ClassPathMapperScanner      : Skipping MapperFactoryBean with name 'seekerMapper' and 'com.group9.apply.mapper.SeekerMapper' mapperInterface. Bean already defined with the same name!
+2020-09-21 10:45:21.645  WARN 12276 --- [restartedMain] o.m.s.mapper.ClassPathMapperScanner      : Skipping MapperFactoryBean with name 'userMapper' and 'com.group9.apply.mapper.UserMapper' mapperInterface. Bean already defined with the same name!
+2020-09-21 10:45:21.645  WARN 12276 --- [restartedMain] o.m.s.mapper.ClassPathMapperScanner      : No MyBatis mapper was found in '[com.group9.apply.mapper]' package. Please check your configuration.
+2020-09-21 10:45:26.112  WARN 12276 --- [restartedMain] c.b.m.core.toolkit.TableInfoHelper       : Warn: Could not find @TableId in Class: com.group9.apply.entity.Company.
+2020-09-21 10:45:38.047 DEBUG 12276 --- [http-nio-8080-exec-7] c.g.apply.mapper.UserMapper.selectList   : ==>  Preparing: SELECT id,username,password,role FROM user WHERE username = ? 
+2020-09-21 10:45:38.080 DEBUG 12276 --- [http-nio-8080-exec-7] c.g.apply.mapper.UserMapper.selectList   : ==> Parameters: zfx(String)
+2020-09-21 10:45:38.218 DEBUG 12276 --- [http-nio-8080-exec-7] c.g.apply.mapper.UserMapper.selectList   : <==      Total: 1
+2020-09-21 10:46:19.467  WARN 10408 --- [restartedMain] o.m.s.mapper.ClassPathMapperScanner      : Skipping MapperFactoryBean with name 'companyMapper' and 'com.group9.apply.mapper.CompanyMapper' mapperInterface. Bean already defined with the same name!
+2020-09-21 10:46:19.472  WARN 10408 --- [restartedMain] o.m.s.mapper.ClassPathMapperScanner      : Skipping MapperFactoryBean with name 'jobMapper' and 'com.group9.apply.mapper.JobMapper' mapperInterface. Bean already defined with the same name!
+2020-09-21 10:46:19.472  WARN 10408 --- [restartedMain] o.m.s.mapper.ClassPathMapperScanner      : Skipping MapperFactoryBean with name 'postMapper' and 'com.group9.apply.mapper.PostMapper' mapperInterface. Bean already defined with the same name!
+2020-09-21 10:46:19.473  WARN 10408 --- [restartedMain] o.m.s.mapper.ClassPathMapperScanner      : Skipping MapperFactoryBean with name 'seekerMapper' and 'com.group9.apply.mapper.SeekerMapper' mapperInterface. Bean already defined with the same name!
+2020-09-21 10:46:19.473  WARN 10408 --- [restartedMain] o.m.s.mapper.ClassPathMapperScanner      : Skipping MapperFactoryBean with name 'userMapper' and 'com.group9.apply.mapper.UserMapper' mapperInterface. Bean already defined with the same name!
+2020-09-21 10:46:19.474  WARN 10408 --- [restartedMain] o.m.s.mapper.ClassPathMapperScanner      : No MyBatis mapper was found in '[com.group9.apply.mapper]' package. Please check your configuration.
+2020-09-21 10:46:24.149  WARN 10408 --- [restartedMain] c.b.m.core.toolkit.TableInfoHelper       : Warn: Could not find @TableId in Class: com.group9.apply.entity.Company.
+2020-09-21 10:46:36.654 DEBUG 10408 --- [http-nio-8080-exec-5] c.g.apply.mapper.UserMapper.selectList   : ==>  Preparing: SELECT id,username,password,role FROM user WHERE username = ? 
+2020-09-21 10:46:36.686 DEBUG 10408 --- [http-nio-8080-exec-5] c.g.apply.mapper.UserMapper.selectList   : ==> Parameters: zfx(String)
+2020-09-21 10:46:36.804 DEBUG 10408 --- [http-nio-8080-exec-5] c.g.apply.mapper.UserMapper.selectList   : <==      Total: 1
+2020-09-21 10:47:21.247  WARN 11912 --- [restartedMain] o.m.s.mapper.ClassPathMapperScanner      : Skipping MapperFactoryBean with name 'companyMapper' and 'com.group9.apply.mapper.CompanyMapper' mapperInterface. Bean already defined with the same name!
+2020-09-21 10:47:21.252  WARN 11912 --- [restartedMain] o.m.s.mapper.ClassPathMapperScanner      : Skipping MapperFactoryBean with name 'jobMapper' and 'com.group9.apply.mapper.JobMapper' mapperInterface. Bean already defined with the same name!
+2020-09-21 10:47:21.254  WARN 11912 --- [restartedMain] o.m.s.mapper.ClassPathMapperScanner      : Skipping MapperFactoryBean with name 'postMapper' and 'com.group9.apply.mapper.PostMapper' mapperInterface. Bean already defined with the same name!
+2020-09-21 10:47:21.255  WARN 11912 --- [restartedMain] o.m.s.mapper.ClassPathMapperScanner      : Skipping MapperFactoryBean with name 'seekerMapper' and 'com.group9.apply.mapper.SeekerMapper' mapperInterface. Bean already defined with the same name!
+2020-09-21 10:47:21.255  WARN 11912 --- [restartedMain] o.m.s.mapper.ClassPathMapperScanner      : Skipping MapperFactoryBean with name 'userMapper' and 'com.group9.apply.mapper.UserMapper' mapperInterface. Bean already defined with the same name!
+2020-09-21 10:47:21.255  WARN 11912 --- [restartedMain] o.m.s.mapper.ClassPathMapperScanner      : No MyBatis mapper was found in '[com.group9.apply.mapper]' package. Please check your configuration.
+2020-09-21 10:47:26.430  WARN 11912 --- [restartedMain] c.b.m.core.toolkit.TableInfoHelper       : Warn: Could not find @TableId in Class: com.group9.apply.entity.Company.
+2020-09-21 10:47:37.399 DEBUG 11912 --- [http-nio-8080-exec-2] c.g.apply.mapper.UserMapper.selectList   : ==>  Preparing: SELECT id,username,password,role FROM user WHERE username = ? 
+2020-09-21 10:47:37.431 DEBUG 11912 --- [http-nio-8080-exec-2] c.g.apply.mapper.UserMapper.selectList   : ==> Parameters: zfx(String)
+2020-09-21 10:47:37.571 DEBUG 11912 --- [http-nio-8080-exec-2] c.g.apply.mapper.UserMapper.selectList   : <==      Total: 1
+2020-09-21 10:47:41.803 ERROR 11912 --- [http-nio-8080-exec-4] org.thymeleaf.TemplateEngine             : [THYMELEAF][http-nio-8080-exec-4] Exception processing template "user/doLogin": Error resolving template [user/doLogin], template might not exist or might not be accessible by any of the configured Template Resolvers
+
+org.thymeleaf.exceptions.TemplateInputException: Error resolving template [user/doLogin], template might not exist or might not be accessible by any of the configured Template Resolvers
+	at org.thymeleaf.engine.TemplateManager.resolveTemplate(TemplateManager.java:869) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.engine.TemplateManager.parseAndProcess(TemplateManager.java:607) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1098) [thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1072) [thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.spring5.view.ThymeleafView.renderFragment(ThymeleafView.java:362) [thymeleaf-spring5-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.spring5.view.ThymeleafView.render(ThymeleafView.java:189) [thymeleaf-spring5-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.render(DispatcherServlet.java:1325) [spring-webmvc-5.0.13.RELEASE.jar:5.0.13.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.processDispatchResult(DispatcherServlet.java:1069) [spring-webmvc-5.0.13.RELEASE.jar:5.0.13.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1008) [spring-webmvc-5.0.13.RELEASE.jar:5.0.13.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:925) [spring-webmvc-5.0.13.RELEASE.jar:5.0.13.RELEASE]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:981) [spring-webmvc-5.0.13.RELEASE.jar:5.0.13.RELEASE]
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:873) [spring-webmvc-5.0.13.RELEASE.jar:5.0.13.RELEASE]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:635) [tomcat-embed-core-8.5.39.jar:8.5.39]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:858) [spring-webmvc-5.0.13.RELEASE.jar:5.0.13.RELEASE]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:742) [tomcat-embed-core-8.5.39.jar:8.5.39]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231) [tomcat-embed-core-8.5.39.jar:8.5.39]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) [tomcat-embed-core-8.5.39.jar:8.5.39]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:52) [tomcat-embed-websocket-8.5.39.jar:8.5.39]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) [tomcat-embed-core-8.5.39.jar:8.5.39]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) [tomcat-embed-core-8.5.39.jar:8.5.39]
+	at com.alibaba.druid.support.http.WebStatFilter.doFilter(WebStatFilter.java:123) [druid-1.1.10.jar:1.1.10]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) [tomcat-embed-core-8.5.39.jar:8.5.39]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) [tomcat-embed-core-8.5.39.jar:8.5.39]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:99) [spring-web-5.0.13.RELEASE.jar:5.0.13.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107) [spring-web-5.0.13.RELEASE.jar:5.0.13.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) [tomcat-embed-core-8.5.39.jar:8.5.39]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) [tomcat-embed-core-8.5.39.jar:8.5.39]
+	at org.springframework.web.filter.HttpPutFormContentFilter.doFilterInternal(HttpPutFormContentFilter.java:109) [spring-web-5.0.13.RELEASE.jar:5.0.13.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107) [spring-web-5.0.13.RELEASE.jar:5.0.13.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) [tomcat-embed-core-8.5.39.jar:8.5.39]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) [tomcat-embed-core-8.5.39.jar:8.5.39]
+	at org.springframework.web.filter.HiddenHttpMethodFilter.doFilterInternal(HiddenHttpMethodFilter.java:93) [spring-web-5.0.13.RELEASE.jar:5.0.13.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107) [spring-web-5.0.13.RELEASE.jar:5.0.13.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) [tomcat-embed-core-8.5.39.jar:8.5.39]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) [tomcat-embed-core-8.5.39.jar:8.5.39]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:200) [spring-web-5.0.13.RELEASE.jar:5.0.13.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107) [spring-web-5.0.13.RELEASE.jar:5.0.13.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) [tomcat-embed-core-8.5.39.jar:8.5.39]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) [tomcat-embed-core-8.5.39.jar:8.5.39]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:199) [tomcat-embed-core-8.5.39.jar:8.5.39]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96) [tomcat-embed-core-8.5.39.jar:8.5.39]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:493) [tomcat-embed-core-8.5.39.jar:8.5.39]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:137) [tomcat-embed-core-8.5.39.jar:8.5.39]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:81) [tomcat-embed-core-8.5.39.jar:8.5.39]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:87) [tomcat-embed-core-8.5.39.jar:8.5.39]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343) [tomcat-embed-core-8.5.39.jar:8.5.39]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:798) [tomcat-embed-core-8.5.39.jar:8.5.39]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66) [tomcat-embed-core-8.5.39.jar:8.5.39]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:806) [tomcat-embed-core-8.5.39.jar:8.5.39]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1498) [tomcat-embed-core-8.5.39.jar:8.5.39]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) [tomcat-embed-core-8.5.39.jar:8.5.39]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149) [na:1.8.0_211]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624) [na:1.8.0_211]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) [tomcat-embed-core-8.5.39.jar:8.5.39]
+	at java.lang.Thread.run(Thread.java:748) [na:1.8.0_211]
+
+2020-09-21 10:47:41.819 ERROR 11912 --- [http-nio-8080-exec-4] o.a.c.c.C.[.[.[/].[dispatcherServlet]    : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is org.thymeleaf.exceptions.TemplateInputException: Error resolving template [user/doLogin], template might not exist or might not be accessible by any of the configured Template Resolvers] with root cause
+
+org.thymeleaf.exceptions.TemplateInputException: Error resolving template [user/doLogin], template might not exist or might not be accessible by any of the configured Template Resolvers
+	at org.thymeleaf.engine.TemplateManager.resolveTemplate(TemplateManager.java:869) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.engine.TemplateManager.parseAndProcess(TemplateManager.java:607) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1098) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1072) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.spring5.view.ThymeleafView.renderFragment(ThymeleafView.java:362) ~[thymeleaf-spring5-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.spring5.view.ThymeleafView.render(ThymeleafView.java:189) ~[thymeleaf-spring5-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.render(DispatcherServlet.java:1325) ~[spring-webmvc-5.0.13.RELEASE.jar:5.0.13.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.processDispatchResult(DispatcherServlet.java:1069) ~[spring-webmvc-5.0.13.RELEASE.jar:5.0.13.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1008) ~[spring-webmvc-5.0.13.RELEASE.jar:5.0.13.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:925) ~[spring-webmvc-5.0.13.RELEASE.jar:5.0.13.RELEASE]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:981) ~[spring-webmvc-5.0.13.RELEASE.jar:5.0.13.RELEASE]
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:873) ~[spring-webmvc-5.0.13.RELEASE.jar:5.0.13.RELEASE]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:635) ~[tomcat-embed-core-8.5.39.jar:8.5.39]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:858) ~[spring-webmvc-5.0.13.RELEASE.jar:5.0.13.RELEASE]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:742) ~[tomcat-embed-core-8.5.39.jar:8.5.39]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231) ~[tomcat-embed-core-8.5.39.jar:8.5.39]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-8.5.39.jar:8.5.39]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:52) ~[tomcat-embed-websocket-8.5.39.jar:8.5.39]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-8.5.39.jar:8.5.39]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-8.5.39.jar:8.5.39]
+	at com.alibaba.druid.support.http.WebStatFilter.doFilter(WebStatFilter.java:123) ~[druid-1.1.10.jar:1.1.10]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-8.5.39.jar:8.5.39]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-8.5.39.jar:8.5.39]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:99) ~[spring-web-5.0.13.RELEASE.jar:5.0.13.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107) ~[spring-web-5.0.13.RELEASE.jar:5.0.13.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-8.5.39.jar:8.5.39]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-8.5.39.jar:8.5.39]
+	at org.springframework.web.filter.HttpPutFormContentFilter.doFilterInternal(HttpPutFormContentFilter.java:109) ~[spring-web-5.0.13.RELEASE.jar:5.0.13.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107) ~[spring-web-5.0.13.RELEASE.jar:5.0.13.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-8.5.39.jar:8.5.39]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-8.5.39.jar:8.5.39]
+	at org.springframework.web.filter.HiddenHttpMethodFilter.doFilterInternal(HiddenHttpMethodFilter.java:93) ~[spring-web-5.0.13.RELEASE.jar:5.0.13.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107) ~[spring-web-5.0.13.RELEASE.jar:5.0.13.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-8.5.39.jar:8.5.39]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-8.5.39.jar:8.5.39]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:200) ~[spring-web-5.0.13.RELEASE.jar:5.0.13.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107) ~[spring-web-5.0.13.RELEASE.jar:5.0.13.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-8.5.39.jar:8.5.39]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-8.5.39.jar:8.5.39]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:199) ~[tomcat-embed-core-8.5.39.jar:8.5.39]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96) [tomcat-embed-core-8.5.39.jar:8.5.39]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:493) [tomcat-embed-core-8.5.39.jar:8.5.39]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:137) [tomcat-embed-core-8.5.39.jar:8.5.39]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:81) [tomcat-embed-core-8.5.39.jar:8.5.39]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:87) [tomcat-embed-core-8.5.39.jar:8.5.39]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343) [tomcat-embed-core-8.5.39.jar:8.5.39]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:798) [tomcat-embed-core-8.5.39.jar:8.5.39]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66) [tomcat-embed-core-8.5.39.jar:8.5.39]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:806) [tomcat-embed-core-8.5.39.jar:8.5.39]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1498) [tomcat-embed-core-8.5.39.jar:8.5.39]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) [tomcat-embed-core-8.5.39.jar:8.5.39]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149) [na:1.8.0_211]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624) [na:1.8.0_211]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) [tomcat-embed-core-8.5.39.jar:8.5.39]
+	at java.lang.Thread.run(Thread.java:748) [na:1.8.0_211]
+
+2020-09-21 10:48:09.666 DEBUG 11912 --- [http-nio-8080-exec-6] c.g.apply.mapper.UserMapper.selectList   : ==>  Preparing: SELECT id,username,password,role FROM user WHERE username = ? 
+2020-09-21 10:48:09.666 DEBUG 11912 --- [http-nio-8080-exec-6] c.g.apply.mapper.UserMapper.selectList   : ==> Parameters: zfx(String)
+2020-09-21 10:48:09.756 DEBUG 11912 --- [http-nio-8080-exec-6] c.g.apply.mapper.UserMapper.selectList   : <==      Total: 1
+2020-09-21 10:49:54.479 ERROR 11912 --- [http-nio-8080-exec-7] org.thymeleaf.TemplateEngine             : [THYMELEAF][http-nio-8080-exec-7] Exception processing template "user/doLogin": Error resolving template [user/doLogin], template might not exist or might not be accessible by any of the configured Template Resolvers
+
+org.thymeleaf.exceptions.TemplateInputException: Error resolving template [user/doLogin], template might not exist or might not be accessible by any of the configured Template Resolvers
+	at org.thymeleaf.engine.TemplateManager.resolveTemplate(TemplateManager.java:869) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.engine.TemplateManager.parseAndProcess(TemplateManager.java:607) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1098) [thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1072) [thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.spring5.view.ThymeleafView.renderFragment(ThymeleafView.java:362) [thymeleaf-spring5-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.spring5.view.ThymeleafView.render(ThymeleafView.java:189) [thymeleaf-spring5-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.render(DispatcherServlet.java:1325) [spring-webmvc-5.0.13.RELEASE.jar:5.0.13.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.processDispatchResult(DispatcherServlet.java:1069) [spring-webmvc-5.0.13.RELEASE.jar:5.0.13.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1008) [spring-webmvc-5.0.13.RELEASE.jar:5.0.13.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:925) [spring-webmvc-5.0.13.RELEASE.jar:5.0.13.RELEASE]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:981) [spring-webmvc-5.0.13.RELEASE.jar:5.0.13.RELEASE]
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:873) [spring-webmvc-5.0.13.RELEASE.jar:5.0.13.RELEASE]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:635) [tomcat-embed-core-8.5.39.jar:8.5.39]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:858) [spring-webmvc-5.0.13.RELEASE.jar:5.0.13.RELEASE]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:742) [tomcat-embed-core-8.5.39.jar:8.5.39]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231) [tomcat-embed-core-8.5.39.jar:8.5.39]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) [tomcat-embed-core-8.5.39.jar:8.5.39]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:52) [tomcat-embed-websocket-8.5.39.jar:8.5.39]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) [tomcat-embed-core-8.5.39.jar:8.5.39]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) [tomcat-embed-core-8.5.39.jar:8.5.39]
+	at com.alibaba.druid.support.http.WebStatFilter.doFilter(WebStatFilter.java:123) [druid-1.1.10.jar:1.1.10]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) [tomcat-embed-core-8.5.39.jar:8.5.39]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) [tomcat-embed-core-8.5.39.jar:8.5.39]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:99) [spring-web-5.0.13.RELEASE.jar:5.0.13.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107) [spring-web-5.0.13.RELEASE.jar:5.0.13.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) [tomcat-embed-core-8.5.39.jar:8.5.39]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) [tomcat-embed-core-8.5.39.jar:8.5.39]
+	at org.springframework.web.filter.HttpPutFormContentFilter.doFilterInternal(HttpPutFormContentFilter.java:109) [spring-web-5.0.13.RELEASE.jar:5.0.13.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107) [spring-web-5.0.13.RELEASE.jar:5.0.13.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) [tomcat-embed-core-8.5.39.jar:8.5.39]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) [tomcat-embed-core-8.5.39.jar:8.5.39]
+	at org.springframework.web.filter.HiddenHttpMethodFilter.doFilterInternal(HiddenHttpMethodFilter.java:93) [spring-web-5.0.13.RELEASE.jar:5.0.13.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107) [spring-web-5.0.13.RELEASE.jar:5.0.13.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) [tomcat-embed-core-8.5.39.jar:8.5.39]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) [tomcat-embed-core-8.5.39.jar:8.5.39]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:200) [spring-web-5.0.13.RELEASE.jar:5.0.13.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107) [spring-web-5.0.13.RELEASE.jar:5.0.13.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) [tomcat-embed-core-8.5.39.jar:8.5.39]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) [tomcat-embed-core-8.5.39.jar:8.5.39]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:199) [tomcat-embed-core-8.5.39.jar:8.5.39]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96) [tomcat-embed-core-8.5.39.jar:8.5.39]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:493) [tomcat-embed-core-8.5.39.jar:8.5.39]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:137) [tomcat-embed-core-8.5.39.jar:8.5.39]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:81) [tomcat-embed-core-8.5.39.jar:8.5.39]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:87) [tomcat-embed-core-8.5.39.jar:8.5.39]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343) [tomcat-embed-core-8.5.39.jar:8.5.39]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:798) [tomcat-embed-core-8.5.39.jar:8.5.39]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66) [tomcat-embed-core-8.5.39.jar:8.5.39]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:806) [tomcat-embed-core-8.5.39.jar:8.5.39]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1498) [tomcat-embed-core-8.5.39.jar:8.5.39]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) [tomcat-embed-core-8.5.39.jar:8.5.39]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149) [na:1.8.0_211]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624) [na:1.8.0_211]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) [tomcat-embed-core-8.5.39.jar:8.5.39]
+	at java.lang.Thread.run(Thread.java:748) [na:1.8.0_211]
+
+2020-09-21 10:49:54.480 ERROR 11912 --- [http-nio-8080-exec-7] o.a.c.c.C.[.[.[/].[dispatcherServlet]    : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is org.thymeleaf.exceptions.TemplateInputException: Error resolving template [user/doLogin], template might not exist or might not be accessible by any of the configured Template Resolvers] with root cause
+
+org.thymeleaf.exceptions.TemplateInputException: Error resolving template [user/doLogin], template might not exist or might not be accessible by any of the configured Template Resolvers
+	at org.thymeleaf.engine.TemplateManager.resolveTemplate(TemplateManager.java:869) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.engine.TemplateManager.parseAndProcess(TemplateManager.java:607) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1098) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1072) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.spring5.view.ThymeleafView.renderFragment(ThymeleafView.java:362) ~[thymeleaf-spring5-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.spring5.view.ThymeleafView.render(ThymeleafView.java:189) ~[thymeleaf-spring5-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.render(DispatcherServlet.java:1325) ~[spring-webmvc-5.0.13.RELEASE.jar:5.0.13.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.processDispatchResult(DispatcherServlet.java:1069) ~[spring-webmvc-5.0.13.RELEASE.jar:5.0.13.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1008) ~[spring-webmvc-5.0.13.RELEASE.jar:5.0.13.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:925) ~[spring-webmvc-5.0.13.RELEASE.jar:5.0.13.RELEASE]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:981) ~[spring-webmvc-5.0.13.RELEASE.jar:5.0.13.RELEASE]
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:873) ~[spring-webmvc-5.0.13.RELEASE.jar:5.0.13.RELEASE]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:635) ~[tomcat-embed-core-8.5.39.jar:8.5.39]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:858) ~[spring-webmvc-5.0.13.RELEASE.jar:5.0.13.RELEASE]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:742) ~[tomcat-embed-core-8.5.39.jar:8.5.39]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231) ~[tomcat-embed-core-8.5.39.jar:8.5.39]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-8.5.39.jar:8.5.39]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:52) ~[tomcat-embed-websocket-8.5.39.jar:8.5.39]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-8.5.39.jar:8.5.39]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-8.5.39.jar:8.5.39]
+	at com.alibaba.druid.support.http.WebStatFilter.doFilter(WebStatFilter.java:123) ~[druid-1.1.10.jar:1.1.10]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-8.5.39.jar:8.5.39]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-8.5.39.jar:8.5.39]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:99) ~[spring-web-5.0.13.RELEASE.jar:5.0.13.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107) ~[spring-web-5.0.13.RELEASE.jar:5.0.13.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-8.5.39.jar:8.5.39]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-8.5.39.jar:8.5.39]
+	at org.springframework.web.filter.HttpPutFormContentFilter.doFilterInternal(HttpPutFormContentFilter.java:109) ~[spring-web-5.0.13.RELEASE.jar:5.0.13.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107) ~[spring-web-5.0.13.RELEASE.jar:5.0.13.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-8.5.39.jar:8.5.39]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-8.5.39.jar:8.5.39]
+	at org.springframework.web.filter.HiddenHttpMethodFilter.doFilterInternal(HiddenHttpMethodFilter.java:93) ~[spring-web-5.0.13.RELEASE.jar:5.0.13.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107) ~[spring-web-5.0.13.RELEASE.jar:5.0.13.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-8.5.39.jar:8.5.39]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-8.5.39.jar:8.5.39]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:200) ~[spring-web-5.0.13.RELEASE.jar:5.0.13.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107) ~[spring-web-5.0.13.RELEASE.jar:5.0.13.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-8.5.39.jar:8.5.39]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-8.5.39.jar:8.5.39]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:199) ~[tomcat-embed-core-8.5.39.jar:8.5.39]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96) [tomcat-embed-core-8.5.39.jar:8.5.39]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:493) [tomcat-embed-core-8.5.39.jar:8.5.39]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:137) [tomcat-embed-core-8.5.39.jar:8.5.39]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:81) [tomcat-embed-core-8.5.39.jar:8.5.39]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:87) [tomcat-embed-core-8.5.39.jar:8.5.39]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343) [tomcat-embed-core-8.5.39.jar:8.5.39]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:798) [tomcat-embed-core-8.5.39.jar:8.5.39]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66) [tomcat-embed-core-8.5.39.jar:8.5.39]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:806) [tomcat-embed-core-8.5.39.jar:8.5.39]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1498) [tomcat-embed-core-8.5.39.jar:8.5.39]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) [tomcat-embed-core-8.5.39.jar:8.5.39]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149) [na:1.8.0_211]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624) [na:1.8.0_211]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) [tomcat-embed-core-8.5.39.jar:8.5.39]
+	at java.lang.Thread.run(Thread.java:748) [na:1.8.0_211]
+
+2020-09-21 10:50:17.245  WARN 9836 --- [restartedMain] o.m.s.mapper.ClassPathMapperScanner      : Skipping MapperFactoryBean with name 'companyMapper' and 'com.group9.apply.mapper.CompanyMapper' mapperInterface. Bean already defined with the same name!
+2020-09-21 10:50:17.249  WARN 9836 --- [restartedMain] o.m.s.mapper.ClassPathMapperScanner      : Skipping MapperFactoryBean with name 'jobMapper' and 'com.group9.apply.mapper.JobMapper' mapperInterface. Bean already defined with the same name!
+2020-09-21 10:50:17.249  WARN 9836 --- [restartedMain] o.m.s.mapper.ClassPathMapperScanner      : Skipping MapperFactoryBean with name 'postMapper' and 'com.group9.apply.mapper.PostMapper' mapperInterface. Bean already defined with the same name!
+2020-09-21 10:50:17.250  WARN 9836 --- [restartedMain] o.m.s.mapper.ClassPathMapperScanner      : Skipping MapperFactoryBean with name 'seekerMapper' and 'com.group9.apply.mapper.SeekerMapper' mapperInterface. Bean already defined with the same name!
+2020-09-21 10:50:17.250  WARN 9836 --- [restartedMain] o.m.s.mapper.ClassPathMapperScanner      : Skipping MapperFactoryBean with name 'userMapper' and 'com.group9.apply.mapper.UserMapper' mapperInterface. Bean already defined with the same name!
+2020-09-21 10:50:17.250  WARN 9836 --- [restartedMain] o.m.s.mapper.ClassPathMapperScanner      : No MyBatis mapper was found in '[com.group9.apply.mapper]' package. Please check your configuration.
+2020-09-21 10:50:22.977  WARN 9836 --- [restartedMain] c.b.m.core.toolkit.TableInfoHelper       : Warn: Could not find @TableId in Class: com.group9.apply.entity.Company.
+2020-09-21 10:50:34.991 DEBUG 9836 --- [http-nio-8080-exec-5] c.g.apply.mapper.UserMapper.selectList   : ==>  Preparing: SELECT id,username,password,role FROM user WHERE username = ? 
+2020-09-21 10:50:35.036 DEBUG 9836 --- [http-nio-8080-exec-5] c.g.apply.mapper.UserMapper.selectList   : ==> Parameters: zfx(String)
+2020-09-21 10:50:35.194 DEBUG 9836 --- [http-nio-8080-exec-5] c.g.apply.mapper.UserMapper.selectList   : <==      Total: 1
+2020-09-21 10:50:49.275 ERROR 9836 --- [http-nio-8080-exec-6] org.thymeleaf.TemplateEngine             : [THYMELEAF][http-nio-8080-exec-6] Exception processing template "user/doLogin": Error resolving template [user/doLogin], template might not exist or might not be accessible by any of the configured Template Resolvers
+
+org.thymeleaf.exceptions.TemplateInputException: Error resolving template [user/doLogin], template might not exist or might not be accessible by any of the configured Template Resolvers
+	at org.thymeleaf.engine.TemplateManager.resolveTemplate(TemplateManager.java:869) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.engine.TemplateManager.parseAndProcess(TemplateManager.java:607) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1098) [thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1072) [thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.spring5.view.ThymeleafView.renderFragment(ThymeleafView.java:362) [thymeleaf-spring5-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.spring5.view.ThymeleafView.render(ThymeleafView.java:189) [thymeleaf-spring5-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.render(DispatcherServlet.java:1325) [spring-webmvc-5.0.13.RELEASE.jar:5.0.13.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.processDispatchResult(DispatcherServlet.java:1069) [spring-webmvc-5.0.13.RELEASE.jar:5.0.13.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1008) [spring-webmvc-5.0.13.RELEASE.jar:5.0.13.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:925) [spring-webmvc-5.0.13.RELEASE.jar:5.0.13.RELEASE]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:981) [spring-webmvc-5.0.13.RELEASE.jar:5.0.13.RELEASE]
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:873) [spring-webmvc-5.0.13.RELEASE.jar:5.0.13.RELEASE]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:635) [tomcat-embed-core-8.5.39.jar:8.5.39]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:858) [spring-webmvc-5.0.13.RELEASE.jar:5.0.13.RELEASE]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:742) [tomcat-embed-core-8.5.39.jar:8.5.39]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231) [tomcat-embed-core-8.5.39.jar:8.5.39]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) [tomcat-embed-core-8.5.39.jar:8.5.39]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:52) [tomcat-embed-websocket-8.5.39.jar:8.5.39]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) [tomcat-embed-core-8.5.39.jar:8.5.39]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) [tomcat-embed-core-8.5.39.jar:8.5.39]
+	at com.alibaba.druid.support.http.WebStatFilter.doFilter(WebStatFilter.java:123) [druid-1.1.10.jar:1.1.10]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) [tomcat-embed-core-8.5.39.jar:8.5.39]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) [tomcat-embed-core-8.5.39.jar:8.5.39]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:99) [spring-web-5.0.13.RELEASE.jar:5.0.13.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107) [spring-web-5.0.13.RELEASE.jar:5.0.13.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) [tomcat-embed-core-8.5.39.jar:8.5.39]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) [tomcat-embed-core-8.5.39.jar:8.5.39]
+	at org.springframework.web.filter.HttpPutFormContentFilter.doFilterInternal(HttpPutFormContentFilter.java:109) [spring-web-5.0.13.RELEASE.jar:5.0.13.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107) [spring-web-5.0.13.RELEASE.jar:5.0.13.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) [tomcat-embed-core-8.5.39.jar:8.5.39]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) [tomcat-embed-core-8.5.39.jar:8.5.39]
+	at org.springframework.web.filter.HiddenHttpMethodFilter.doFilterInternal(HiddenHttpMethodFilter.java:93) [spring-web-5.0.13.RELEASE.jar:5.0.13.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107) [spring-web-5.0.13.RELEASE.jar:5.0.13.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) [tomcat-embed-core-8.5.39.jar:8.5.39]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) [tomcat-embed-core-8.5.39.jar:8.5.39]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:200) [spring-web-5.0.13.RELEASE.jar:5.0.13.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107) [spring-web-5.0.13.RELEASE.jar:5.0.13.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) [tomcat-embed-core-8.5.39.jar:8.5.39]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) [tomcat-embed-core-8.5.39.jar:8.5.39]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:199) [tomcat-embed-core-8.5.39.jar:8.5.39]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96) [tomcat-embed-core-8.5.39.jar:8.5.39]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:493) [tomcat-embed-core-8.5.39.jar:8.5.39]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:137) [tomcat-embed-core-8.5.39.jar:8.5.39]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:81) [tomcat-embed-core-8.5.39.jar:8.5.39]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:87) [tomcat-embed-core-8.5.39.jar:8.5.39]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343) [tomcat-embed-core-8.5.39.jar:8.5.39]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:798) [tomcat-embed-core-8.5.39.jar:8.5.39]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66) [tomcat-embed-core-8.5.39.jar:8.5.39]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:806) [tomcat-embed-core-8.5.39.jar:8.5.39]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1498) [tomcat-embed-core-8.5.39.jar:8.5.39]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) [tomcat-embed-core-8.5.39.jar:8.5.39]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149) [na:1.8.0_211]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624) [na:1.8.0_211]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) [tomcat-embed-core-8.5.39.jar:8.5.39]
+	at java.lang.Thread.run(Thread.java:748) [na:1.8.0_211]
+
+2020-09-21 10:50:49.279 ERROR 9836 --- [http-nio-8080-exec-6] o.a.c.c.C.[.[.[/].[dispatcherServlet]    : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is org.thymeleaf.exceptions.TemplateInputException: Error resolving template [user/doLogin], template might not exist or might not be accessible by any of the configured Template Resolvers] with root cause
+
+org.thymeleaf.exceptions.TemplateInputException: Error resolving template [user/doLogin], template might not exist or might not be accessible by any of the configured Template Resolvers
+	at org.thymeleaf.engine.TemplateManager.resolveTemplate(TemplateManager.java:869) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.engine.TemplateManager.parseAndProcess(TemplateManager.java:607) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1098) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1072) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.spring5.view.ThymeleafView.renderFragment(ThymeleafView.java:362) ~[thymeleaf-spring5-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.spring5.view.ThymeleafView.render(ThymeleafView.java:189) ~[thymeleaf-spring5-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.render(DispatcherServlet.java:1325) ~[spring-webmvc-5.0.13.RELEASE.jar:5.0.13.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.processDispatchResult(DispatcherServlet.java:1069) ~[spring-webmvc-5.0.13.RELEASE.jar:5.0.13.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1008) ~[spring-webmvc-5.0.13.RELEASE.jar:5.0.13.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:925) ~[spring-webmvc-5.0.13.RELEASE.jar:5.0.13.RELEASE]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:981) ~[spring-webmvc-5.0.13.RELEASE.jar:5.0.13.RELEASE]
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:873) ~[spring-webmvc-5.0.13.RELEASE.jar:5.0.13.RELEASE]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:635) ~[tomcat-embed-core-8.5.39.jar:8.5.39]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:858) ~[spring-webmvc-5.0.13.RELEASE.jar:5.0.13.RELEASE]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:742) ~[tomcat-embed-core-8.5.39.jar:8.5.39]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231) ~[tomcat-embed-core-8.5.39.jar:8.5.39]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-8.5.39.jar:8.5.39]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:52) ~[tomcat-embed-websocket-8.5.39.jar:8.5.39]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-8.5.39.jar:8.5.39]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-8.5.39.jar:8.5.39]
+	at com.alibaba.druid.support.http.WebStatFilter.doFilter(WebStatFilter.java:123) ~[druid-1.1.10.jar:1.1.10]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-8.5.39.jar:8.5.39]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-8.5.39.jar:8.5.39]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:99) ~[spring-web-5.0.13.RELEASE.jar:5.0.13.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107) ~[spring-web-5.0.13.RELEASE.jar:5.0.13.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-8.5.39.jar:8.5.39]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-8.5.39.jar:8.5.39]
+	at org.springframework.web.filter.HttpPutFormContentFilter.doFilterInternal(HttpPutFormContentFilter.java:109) ~[spring-web-5.0.13.RELEASE.jar:5.0.13.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107) ~[spring-web-5.0.13.RELEASE.jar:5.0.13.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-8.5.39.jar:8.5.39]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-8.5.39.jar:8.5.39]
+	at org.springframework.web.filter.HiddenHttpMethodFilter.doFilterInternal(HiddenHttpMethodFilter.java:93) ~[spring-web-5.0.13.RELEASE.jar:5.0.13.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107) ~[spring-web-5.0.13.RELEASE.jar:5.0.13.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-8.5.39.jar:8.5.39]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-8.5.39.jar:8.5.39]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:200) ~[spring-web-5.0.13.RELEASE.jar:5.0.13.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107) ~[spring-web-5.0.13.RELEASE.jar:5.0.13.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-8.5.39.jar:8.5.39]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-8.5.39.jar:8.5.39]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:199) ~[tomcat-embed-core-8.5.39.jar:8.5.39]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96) [tomcat-embed-core-8.5.39.jar:8.5.39]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:493) [tomcat-embed-core-8.5.39.jar:8.5.39]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:137) [tomcat-embed-core-8.5.39.jar:8.5.39]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:81) [tomcat-embed-core-8.5.39.jar:8.5.39]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:87) [tomcat-embed-core-8.5.39.jar:8.5.39]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343) [tomcat-embed-core-8.5.39.jar:8.5.39]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:798) [tomcat-embed-core-8.5.39.jar:8.5.39]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66) [tomcat-embed-core-8.5.39.jar:8.5.39]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:806) [tomcat-embed-core-8.5.39.jar:8.5.39]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1498) [tomcat-embed-core-8.5.39.jar:8.5.39]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) [tomcat-embed-core-8.5.39.jar:8.5.39]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149) [na:1.8.0_211]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624) [na:1.8.0_211]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) [tomcat-embed-core-8.5.39.jar:8.5.39]
+	at java.lang.Thread.run(Thread.java:748) [na:1.8.0_211]
+
+2020-09-21 10:51:15.821  WARN 3060 --- [restartedMain] o.m.s.mapper.ClassPathMapperScanner      : Skipping MapperFactoryBean with name 'companyMapper' and 'com.group9.apply.mapper.CompanyMapper' mapperInterface. Bean already defined with the same name!
+2020-09-21 10:51:15.825  WARN 3060 --- [restartedMain] o.m.s.mapper.ClassPathMapperScanner      : Skipping MapperFactoryBean with name 'jobMapper' and 'com.group9.apply.mapper.JobMapper' mapperInterface. Bean already defined with the same name!
+2020-09-21 10:51:15.826  WARN 3060 --- [restartedMain] o.m.s.mapper.ClassPathMapperScanner      : Skipping MapperFactoryBean with name 'postMapper' and 'com.group9.apply.mapper.PostMapper' mapperInterface. Bean already defined with the same name!
+2020-09-21 10:51:15.826  WARN 3060 --- [restartedMain] o.m.s.mapper.ClassPathMapperScanner      : Skipping MapperFactoryBean with name 'seekerMapper' and 'com.group9.apply.mapper.SeekerMapper' mapperInterface. Bean already defined with the same name!
+2020-09-21 10:51:15.826  WARN 3060 --- [restartedMain] o.m.s.mapper.ClassPathMapperScanner      : Skipping MapperFactoryBean with name 'userMapper' and 'com.group9.apply.mapper.UserMapper' mapperInterface. Bean already defined with the same name!
+2020-09-21 10:51:15.826  WARN 3060 --- [restartedMain] o.m.s.mapper.ClassPathMapperScanner      : No MyBatis mapper was found in '[com.group9.apply.mapper]' package. Please check your configuration.
+2020-09-21 10:51:20.769  WARN 3060 --- [restartedMain] c.b.m.core.toolkit.TableInfoHelper       : Warn: Could not find @TableId in Class: com.group9.apply.entity.Company.
+2020-09-21 10:51:31.044 DEBUG 3060 --- [http-nio-8080-exec-10] c.g.apply.mapper.UserMapper.selectList   : ==>  Preparing: SELECT id,username,password,role FROM user WHERE username = ? 
+2020-09-21 10:51:31.074 DEBUG 3060 --- [http-nio-8080-exec-10] c.g.apply.mapper.UserMapper.selectList   : ==> Parameters: zfx(String)
+2020-09-21 10:51:31.187 DEBUG 3060 --- [http-nio-8080-exec-10] c.g.apply.mapper.UserMapper.selectList   : <==      Total: 1

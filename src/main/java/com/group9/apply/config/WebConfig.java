@@ -24,7 +24,9 @@ public class WebConfig implements WebMvcConfigurer {
         list.add("/user/doLogin");
         list.add("/user/register");
         list.add("/user/userExit");
-        list.add("/job/search");
+        list.add("/index");
+        list.add("/");
+        list.add("");
         list.add("/css/**");
         list.add("/AmazeUI-2.4.2/**");
         list.add("/basic/**");

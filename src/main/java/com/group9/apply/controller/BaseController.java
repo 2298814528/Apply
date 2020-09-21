@@ -5,11 +5,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpRequest;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 public class BaseController {
     @Autowired
     HttpServletRequest request;
+
+    @Autowired
+    HttpServletResponse response;
 
     @Autowired
     HttpSession session;
