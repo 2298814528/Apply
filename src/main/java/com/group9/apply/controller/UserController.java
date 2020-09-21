@@ -59,7 +59,7 @@ public class UserController extends BaseController {
      */
     @GetMapping("/doLogin")
     public String toLoginSeeker() {
-        return"indexCompany";
+        return"seeker/frame";
     }
 
     /**
