@@ -21,4 +21,6 @@ public interface JobMapper extends BaseMapper<Job> {
     List<JobVo> getSearchJob(@Param("job") PageVo pageVo);
 
     List<Job> listAll();
+
+    JobVo getOne(Integer id);
 }

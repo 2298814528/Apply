@@ -47,16 +47,12 @@ public class JobController extends BaseController {
      * @return
      */
     //（薪资范围、职位类型、工作地点、入职时间、公司名字、学历要求、工作经验）
-    @ResponseBody
     @GetMapping({"/search", "/jobList"})
-    public Result searchJob(@RequestParam Map map) {
-        Result result = new Result();
+    public String searchJob(@RequestParam Map map) {
         PageVo pageVo = mapToPageVo.get(map);
         List<JobVo> jobList = jobService.getJob(pageVo);
-        result.setData(jobList);
-        result.setCode(1);
-        result.setMsg("成功");
-        return result;
+        request.setAttribute("jobList",jobList);
+        return "index";
     }
 
     @ResponseBody
@@ -74,5 +70,18 @@ public class JobController extends BaseController {
         }else {
             return new Result(400,"error");
         }
+    }
+
+
+    /**
+     * 获取单个职位信息
+     * @param id  岗位ID
+     * @return
+     */
+    @GetMapping("/Info")
+    public String jobInfo(String id){
+        JobVo jobVo = jobService.getOneJob(Integer.valueOf(id));
+        request.setAttribute("oneJob",jobVo);
+        return "post/postInfo";
     }
 }

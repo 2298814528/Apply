@@ -2,7 +2,6 @@ package com.group9.apply.vo;
 
 import lombok.Data;
 
-import java.time.LocalDateTime;
 import java.util.Date;
 
 @Data
