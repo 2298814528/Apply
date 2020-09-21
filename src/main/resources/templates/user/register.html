@@ -54,20 +54,19 @@
                     layer.msg("密码不一致");
                 }else{
                     $.ajax({
-                        url:'./signup',
+                        url:"/user/doRegister",
                         method:'post',
                         data:data.field,
                         dataType:'JSON',
-                        success:function(res){
-                            if(res.code=='0'){
+                        success:function(result){
+                            if(result.code== 200){
                                 layer.msg("注册成功")
-                                location.href='index.html'
-
+                                location.href= "http://localhost:8080/user/login"
                             }
                             else
                                 layer.msg(res.msg);
                         },
-                        error:function (data) {
+                        error:function () {
                             layer.msg("注册失败");
                         }
                     }) ;

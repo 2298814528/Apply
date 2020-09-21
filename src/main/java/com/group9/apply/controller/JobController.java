@@ -2,7 +2,13 @@ package com.group9.apply.controller;
 
 
 import cn.hutool.core.util.StrUtil;
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.group9.apply.entity.Job;
+import com.group9.apply.entity.User;
 import com.group9.apply.util.MapToPageVo;
+import com.group9.apply.util.PageResult;
 import com.group9.apply.util.Result;
 import com.group9.apply.vo.JobVo;
 import com.group9.apply.vo.PageVo;
@@ -29,10 +35,11 @@ import java.util.logging.Logger;
 @Controller
 @RequestMapping("/job")
 public class JobController extends BaseController {
-    
-    
+
+
     @Autowired
     MapToPageVo mapToPageVo;
+
     /**
      * 根据搜索条件返回相应的工作（无参数时返回整个）
      *
@@ -52,4 +59,16 @@ public class JobController extends BaseController {
         return result;
     }
 
+    @ResponseBody
+    @GetMapping("/list")
+    public Result JobList(@RequestParam Map map) {
+        int page = Integer.parseInt(request.getParameter("page"));
+        int limit = Integer.parseInt(request.getParameter("limit"));
+        User user = (User) session.getAttribute("user");
+        Long id = user.getId();
+        IPage<Job> iPage = new Page<>(page, limit);
+        IPage<Job> publisher = jobService.page(iPage, new QueryWrapper<Job>()
+                .eq("publisher", id));
+        return new PageResult(0,"请求成功",publisher.getRecords(),publisher.getTotal());
+    }
 }
