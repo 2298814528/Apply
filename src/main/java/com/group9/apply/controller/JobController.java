@@ -44,7 +44,8 @@ public class JobController extends BaseController {
     @GetMapping({"/search", "/jobList"})
     public Result searchJob(@RequestParam Map map) {
         Result result = new Result();
-        PageVo pageVo = mapToPageVo.get(map);
+//        PageVo pageVo = mapToPageVo.get(map);
+        PageVo pageVo = new PageVo();
         List<JobVo> jobList = jobService.getJob(pageVo);
         result.setData(jobList);
         result.setCode(1);
