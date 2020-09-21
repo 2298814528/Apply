@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+  
+  <head>
+    <meta charset="UTF-8">
+    <title>投递列表</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width,user-scalable=yes, minimum-scale=0.4, initial-scale=0.8,target-densitydpi=low-dpi" />
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet"  th:href="@{/css/font.css}">
+    <link rel="stylesheet"  th:href="@{/css/xadmin.css}">
+    <script type="text/javascript"  th:src="@{/js/jquery.min.js}"></script>
+    <script th:src="@{/lib/layui/layui.js}" charset="utf-8"></script>
+    <script type="text/javascript" th:src="@{/js/xadmin.js}"></script>
+    <!-- 让IE8/9支持媒体查询，从而兼容栅格 -->
+    <!--[if lt IE 9]>
+      <script src="https://cdn.staticfile.org/html5shiv/r29/html5.min.js"></script>
+      <script src="https://cdn.staticfile.org/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  
+  <body>
+    <div class="x-nav">
+      <span class="layui-breadcrumb">
+        <a href="">首页</a>
+        <a href="">演示</a>
+        <a>
+          <cite>导航元素</cite></a>
+      </span>
+      <a class="layui-btn layui-btn-small" style="line-height:1.6em;margin-top:3px;float:right" href="javascript:location.replace(location.href);" title="刷新">
+        <i class="layui-icon" style="line-height:30px">ဂ</i></a>
+    </div>
+    <div class="x-body">
+      <xblock>
+        <button class="layui-btn layui-btn-danger" onclick="delAll()"><i class="layui-icon"></i>批量撤回</button>
+        <span class="x-right" style="line-height:40px">共有数据：88 条</span>
+      </xblock>
+      <table class="layui-table">
+        <thead>
+          <tr>
+            <th>
+              <div class="layui-unselect header layui-form-checkbox" lay-skin="primary"><i class="layui-icon">&#xe605;</i></div>
+            </th>
+            <th>投递ID</th>
+            <th>求职者名</th>
+            <th>投递岗位</th>
+            <th>公司</th>
+            <th>投递时间</th>
+            <th>状态</th>
+            <th>操作</th>
+        </thead>
+        <tbody>
+          <tr th:each="postlist:${list}">
+            <td>
+              <div class="layui-unselect layui-form-checkbox" lay-skin="primary" data-id='2' th:attr="data-id=${postlist.id}"><i class="layui-icon">&#xe605;</i></div>
+            </td>
+            <td th:text="${postlist.id}"></td>
+            <td th:text="${postlist.seekerName}"></td>
+            <td th:text="${postlist.jobName}"></td>
+            <td th:text="${postlist.publisherName}"></td>
+            <td th:text="${postlist.postTime}"></td>
+            <td class="td-status">
+              <span class="layui-btn layui-btn-normal layui-btn-mini" th:if="${postlist.postStatus==0}">待审核</span>
+              <span class="layui-btn layui-btn-normal layui-btn-mini" th:if="${postlist.postStatus==1}">已通过</span>
+              <span class="layui-btn layui-btn-normal layui-btn-mini" th:if="${postlist.postStatus==1}">未通过</span>
+            </td>
+            <td class="td-manage">
+              <a title="撤回" onclick="post_del(this,'要撤回的id')" href="javascript:;">
+                <i class="layui-icon">&#xe640;</i>
+              </a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="page">
+        <div>
+          <a class="prev" href="">&lt;&lt;</a>
+          <a class="num" href="">1</a>
+          <span class="current">2</span>
+          <a class="num" href="">3</a>
+          <a class="num" href="">489</a>
+          <a class="next" href="">&gt;&gt;</a>
+        </div>
+      </div>
+
+    </div>
+    <script>
+
+        /*用户-撤回*/
+        function post_del(obj){
+          let id = $(obj).attr('data-id');
+          console.log(id);
+          layer.confirm('确认要删除吗？',function(index){
+            //发异步删除数据
+            $.ajax({
+              type:"post", // 请求的方法
+              url:"/post/deleteone",// 后端接口的路径
+              data: {id: id}, // 需要传递到后端的数据
+              dataType:"json", // 后端返回的数据类型
+              success:function (res) {// 执行成功的回调
+                console.log(res);
+                layer.msg(res.msg, {icon: 1});
+                if(res.code==200)
+                  location.replace(location.href),
+                          $(".layui-form-checked").not('.header').parents('tr').remove();
+              }
+            })
+          });
+        }
+
+        function delAll (argument) {
+          // 需要删除的ids
+          var data = tableCheck.getData();
+          layer.confirm('确认要删除吗？',function(index){
+            //捉到所有被选中的，发异步进行删除
+            $.ajax({
+              type:"post", // 请求的方法
+              url:"/post/delete",// 后端接口的路径
+              data: {ids: data}, // 需要传递到后端的数据
+              dataType:"json", // 后端返回的数据类型
+              success:function (res) {// 执行成功的回调
+                console.log(res);
+                layer.msg(res.msg, {icon: res.code === 200 ? 1 : 2});
+                if(res.code === 200){
+                  $(".layui-form-checked").not('.header').parents('tr').remove();
+                  location.replace(location.href);
+                }
+
+              }
+            })
+
+          });
+        }
+
+    </script>
+
+  </body>
+
+</html>

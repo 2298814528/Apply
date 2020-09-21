@@ -1,838 +1,1075 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE>
+<html xmlns:th="http://www.thymeleaf.org">
 
-	<head>
-		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-		<title>首页</title>
+    <title>首页</title>
 
-		<link href="/AmazeUI-2.4.2/assets/css/amazeui.css" rel="stylesheet" type="text/css" />
-		<link href="/AmazeUI-2.4.2/assets/css/admin.css" rel="stylesheet" type="text/css" />
+    <link href="/AmazeUI-2.4.2/assets/css/amazeui.css" rel="stylesheet" type="text/css"/>
+    <link href="/AmazeUI-2.4.2/assets/css/admin.css" rel="stylesheet" type="text/css"/>
+    <link rel="stylesheet" href="/lib/layui/css/layui.css">
 
-		<link href="/basic/css/demo.css" rel="stylesheet" type="text/css" />
+    <link href="/basic/css/demo.css" rel="stylesheet" type="text/css"/>
 
-		<link href="/css/hmstyle.css" rel="stylesheet" type="text/css" />
-		<script src="/AmazeUI-2.4.2/assets/js/jquery.min.js"></script>
-		<script src="/AmazeUI-2.4.2/assets/js/amazeui.min.js"></script>
+    <link href="/css/hmstyle.css" rel="stylesheet" type="text/css"/>
+    <script src="/AmazeUI-2.4.2/assets/js/jquery.min.js"></script>
+    <script src="/AmazeUI-2.4.2/assets/js/amazeui.min.js"></script>
+    <style>
+        .myClass {
+            margin: 0px;
+            height: 50px;
+            width: 100px;
+            border: 1px solid white;
+            border-right: 1px solid black;
+        }
 
-	</head>
+        input:-webkit-autofill {
+            box-shadow: 0 0 20px 1000000px white inset
+        }
+    </style>
 
-	<body>
-		<div class="hmtop">
-			<!--顶部导航条 -->
-			<div class="am-container header">
-				<ul class="message-l">
-					<div class="topMessage">
-						<div class="menu-hd">
-							<a href="/user/login" target="_top" class="h">亲，请登录</a>
-							<a href="/user/register" target="_top">免费注册</a>
-						</div>
-					</div>
-				</ul>
-				<ul class="message-r">
-					<div class="topMessage home">
-						<div class="menu-hd"><a href="#" target="_top" class="h">网站首页</a></div>
-					</div>
-					<div class="topMessage my-shangcheng">
-						<div class="menu-hd MyShangcheng"><a href="frame.html" target="_top"><i class="am-icon-user am-icon-fw"></i>个人中心</a></div>
-					</div>
-					<div class="topMessage mini-cart">
-						<div class="menu-hd"><a id="mc-menu-hd" href="http://localhost:8080/company/companyMain" target="_top"><i class="am-icon-shopping-cart  am-icon-fw"></i><span>企业中心</span><strong id="J_MiniCartNum" class="h">0</strong></a></div>
-					</div>
-					<div class="topMessage favorite">
-						<div class="menu-hd"><a href="person/collection.html" target="_top"><i class="am-icon-heart am-icon-fw"></i><span>收藏夹</span></a></div>
-				</ul>
-				</div>
+</head>
 
-				<!--悬浮搜索框-->
+<body style="background-color: rgba(139,108,203,0.1)">
+<div style="margin-left: 50px">
+    <div class="hmtop" style="background-color: rgba(139,108,203,0.1);margin-left: 0px;width: 1270px">
+        <!--顶部导航条 -->
+        <div class="am-container header">
+            <ul class="message-l">
+                <div class="topMessage">
+                    <div class="menu-hd" th:if="${session.user eq null}">
+                        <a href="/user/login" target="_top" class="h">登录</a>
+                        <a href="/user/register" target="_top">免费注册</a>
+                    </div>
+                </div>
+            </ul>
+            <ul class="message-r">
+                <div class="topMessage home">
+                    <div class="menu-hd"><a href="http://localhost:8080/" target="_top" class="h">首页</a></div>
+                </div>
+                <div class="topMessage my-shangcheng">
+                    <div class="menu-hd MyShangcheng">
+                        <a href="frame.html" target="_top">
+                            <i class="am-icon-user am-icon-fw"></i>个人中心
+                        </a>
+                    </div>
+                </div>
+            </ul>
+        </div>
 
-				<div class="nav white">
-					<div class="logo"><img src="/images/logo.png" /></div>
-					<div class="logoBig">
-						<li><img src="/images/logobig.png" /></li>
-					</div>
+        <!--悬浮搜索框-->
 
-					<div class="search-bar pr">
-						<a name="index_none_header_sysc" href="#"></a>
-						<form>
-							<input id="searchInput" name="index_none_header_sysc" type="text" placeholder="搜索" autocomplete="off">
-							<input id="ai-topsearch" class="submit am-btn" value="搜索" index="1" type="submit">
-						</form>
-					</div>
-				</div>
+        <div class="nav white">
+            <div class="logo"><img src="/images/logo.png"/></div>
+            <div class="logoBig">
+                <li><img src="/images/logobig.png"/></li>
+            </div>
 
-				<div class="clear"></div>
-			</div>
-             <b class="line"></b>
-			<div class="shopNav">
-				<div class="slideall" style="height: auto;">
-			        
-					   <div class="long-title"><span class="all-goods">全部分类</span></div>
-					   <div class="nav-cont">
-						   <li class="index"><a href="home/index.html">首页</a></li>
-						   <li class="qc"><a href="#">地区搜索</a></li>
-						   <li class="qc"><a href="#">公司搜索</a></li>
-						   <li class="qc"><a href="#">工薪搜索</a></li>
-						   <li class="qc last"><a href="#"><经验搜索></经验搜索></a></li>
-						    <div class="nav-extra">
-						    	<i class="am-icon-user-secret am-icon-md nav-user"></i><b></b>我的福利
-						    	<i class="am-icon-angle-right" style="padding-left: 10px;"></i>
-						    </div>
-						</div>
-                
-			    <div class="bannerTwo">
-                      <!--轮播 -->
-						<div class="am-slider am-slider-default scoll" data-am-flexslider id="demo-slider-0">
-							<ul class="am-slides">
-								<li class="banner1"><a href="introduction.html"><img src="/images/ad5.jpg" /></a></li>
-								<li class="banner2"><a><img src="/images/ad6.jpg" /></a></li>
-								<li class="banner3"><a><img src="/images/ad7.jpg" /></a></li>
-								<li class="banner4"><a><img src="/images/ad8.jpg" /></a></li>
-							</ul>
-						</div>
-						<div class="clear"></div>	
-			    </div>
+            <div class=" pr " style="border-radius: 100%">
+                <!--&lt;!&ndash;                薪资范围、职位类型、工作地点、入职时间、公司名字、学历要求、工作经验）&ndash;&gt;-->
+                <div>
+                    <form style="padding: 3px 0px 0px 3px;"method="get" action="/job/search" >
+                        <select class="layui-input-block layui-form-item myClass" name="type">
+                            <option value="">工作类型</option>
+                            <option value="开发">开发</option>
+                            <option value="技术">技术</option>
+                            <option value="测试">测试</option>
+                            <option value="前端">前端</option>
+                            <option value="单片机">单片机</option>
+                        </select>
 
-						<!--侧边导航 -->
-						<div id="nav" class="navfull" style="position: static;">
-							<div class="area clearfix">
-								<div class="category-content" id="guide_2">
-									
-									<div class="category" style="box-shadow:none ;margin-top: 2px;">
-										<ul class="category-list navTwo" id="js_climit_li">
-											<li>
-												<div class="category-info">
-													<h3 class="category-name b-category-name"><i><img src="/images/cake.png"></i><a class="ml-22" title="技术">技术</a></h3>
-													<em>&gt;</em></div>
-												<div class="menu-item menu-in top">
-													<div class="area-in">
-														<div class="area-bg">
-															<div class="menu-srot">
-																<div class="sort-side">
-																	<dl class="dl-sort">
-																		<dt><span title="技术">后端开发</span></dt>
-																		<dd><a title="Hadhoop" href="/job/search?type=Hadhoop"><span>Hadhoop</span></a></dd>
-																		<dd><a title="Golong" href="/job/search?type=Golong"><span>Golong</span></a></dd>
-																		<dd><a title="NET" href="/job/search?type=NET"><span>NET</span></a></dd>
-																		<dd><a title="PHP" href="/job/search?type=PHP"><span>PHP</span></a></dd>
-																		<dd><a title="后端开发" href="/job/search?type=后端开发"><span>后端开发</span></a></dd>
-																		<dd><a title="全栈工程师" href="/job/search?type=全栈工程师"><span>全栈工程师</span></a></dd>
-																	</dl>
-																	<dl class="dl-sort">
-																		<dt><span title="移动开发">移动开发</span></dt>
-																		<dd><a title="JavaScript" href="/job/search?type=JavaScript"><span>JavaScript</span></a></dd>
-																		<dd><a title="Flash开发" href="/job/search?type=Flash开发"><span>Flash开发</span></a></dd>
-																		<dd><a title="移动开发" href="/job/search?type=移动开发"><span>移动开发</span></a></dd>
-																		<dd><a title="ios" href="/job/search?type=ios"><span>ios</span></a></dd>
-																		<dd><a title="HTML5" href="/job/search?type=HTML5"><span>HTML5</span></a></dd>
-																		<dd><a title="移动web前端" href="/job/search?type=移动web前端"><span>移动web前端</span></a></dd>
-																		<dd><a title="移动web前端" href="/job/search?type=移动web前端"><span>移动web前端</span></a></dd>
-																		<dd><a title="java" href="/job/search?type=java"><span>java</span></a></dd>
-																	</dl>
-																	<dl class="dl-sort">
-																		<dt><span title="测试">测试</span></dt>
-																		<dd><a title="渗透测试" href="/job/search?type=渗透测试"><span>渗透测试</span></a></dd>
-																		<dd><a title="游戏测试" href="/job/search?type=游戏测试"><span>游戏测试</span></a></dd>
-																		<dd><a title="硬件测试" href="/job/search?type=硬件测试"><span>硬件测试</span></a></dd>
-																		<dd><a title="性能测试" href="/job/search?type=性能测试"><span>性能测试</span></a></dd>
-																		<dd><a title="自动化测试" href="/job/search?type=自动化测试"><span>自动化测试</span></a></dd>
-																		<dd><a title="测试开发" href="/job/search?type=测试开发"><span>测试开发</span></a></dd>
-																		<dd><a title="功能测试" href="/job/search?type=移动web前端"><span>功能测试</span></a></dd>
-																	</dl>
-																	<dl class="dl-sort">
-																		<dt><span title="测试">运维/技术支持</span></dt>
-																		<dd><a title="IT技术支持" href="/job/search?type=IT技术支持"><span>IT技术支持</span></a></dd>
-																		<dd><a title="网络安全" href="/job/search?type=网络安全"><span>网络安全</span></a></dd>
-																		<dd><a title="硬件测试" href="/job/search?type=硬件测试"><span>硬件测试</span></a></dd>
-																		<dd><a title="性能测试" href="/job/search?type=性能测试"><span>性能测试</span></a></dd>
-																		<dd><a title="自动化测试" href="/job/search?type=自动化测试"><span>自动化测试</span></a></dd>
-																		<dd><a title="测试开发" href="/job/search?type=测试开发"><span>测试开发</span></a></dd>
-																		<dd><a title="功能测试" href="/job/search?type=移动web前端"><span>功能测试</span></a></dd>
-																	</dl>
-																</div>
-															</div>
-														</div>
-													</div>
-												</div>
-											<b class="arrow"></b>	
-											</li>
-											<li>
-												<div class="category-info">
-													<h3 class="category-name b-category-name"><i><img src="/images/cake.png"></i><a class="ml-22" title="技术">技术</a></h3>
-													<em>&gt;</em></div>
-												<div class="menu-item menu-in top">
-													<div class="area-in">
-														<div class="area-bg">
-															<div class="menu-srot">
-																<div class="sort-side">
-																	<dl class="dl-sort">
-																		<dt><span title="技术">后端开发</span></dt>
-																		<dd><a title="Hadhoop" href="/job/search?type=Hadhoop"><span>Hadhoop</span></a></dd>
-																		<dd><a title="Golong" href="/job/search?type=Golong"><span>Golong</span></a></dd>
-																		<dd><a title="NET" href="/job/search?type=NET"><span>NET</span></a></dd>
-																		<dd><a title="PHP" href="/job/search?type=PHP"><span>PHP</span></a></dd>
-																		<dd><a title="后端开发" href="/job/search?type=后端开发"><span>后端开发</span></a></dd>
-																		<dd><a title="全栈工程师" href="/job/search?type=全栈工程师"><span>全栈工程师</span></a></dd>
-																	</dl>
-																	<dl class="dl-sort">
-																		<dt><span title="移动开发">移动开发</span></dt>
-																		<dd><a title="JavaScript" href="/job/search?type=JavaScript"><span>JavaScript</span></a></dd>
-																		<dd><a title="Flash开发" href="/job/search?type=Flash开发"><span>Flash开发</span></a></dd>
-																		<dd><a title="移动开发" href="/job/search?type=移动开发"><span>移动开发</span></a></dd>
-																		<dd><a title="ios" href="/job/search?type=ios"><span>ios</span></a></dd>
-																		<dd><a title="HTML5" href="/job/search?type=HTML5"><span>HTML5</span></a></dd>
-																		<dd><a title="移动web前端" href="/job/search?type=移动web前端"><span>移动web前端</span></a></dd>
-																		<dd><a title="移动web前端" href="/job/search?type=移动web前端"><span>移动web前端</span></a></dd>
-																		<dd><a title="java" href="/job/search?type=java"><span>java</span></a></dd>
-																	</dl>
-																	<dl class="dl-sort">
-																		<dt><span title="测试">测试</span></dt>
-																		<dd><a title="渗透测试" href="/job/search?type=渗透测试"><span>渗透测试</span></a></dd>
-																		<dd><a title="游戏测试" href="/job/search?type=游戏测试"><span>游戏测试</span></a></dd>
-																		<dd><a title="硬件测试" href="/job/search?type=硬件测试"><span>硬件测试</span></a></dd>
-																		<dd><a title="性能测试" href="/job/search?type=性能测试"><span>性能测试</span></a></dd>
-																		<dd><a title="自动化测试" href="/job/search?type=自动化测试"><span>自动化测试</span></a></dd>
-																		<dd><a title="测试开发" href="/job/search?type=测试开发"><span>测试开发</span></a></dd>
-																		<dd><a title="功能测试" href="/job/search?type=移动web前端"><span>功能测试</span></a></dd>
-																	</dl>
-																	<dl class="dl-sort">
-																		<dt><span title="测试">运维/技术支持</span></dt>
-																		<dd><a title="IT技术支持" href="/job/search?type=IT技术支持"><span>IT技术支持</span></a></dd>
-																		<dd><a title="网络安全" href="/job/search?type=网络安全"><span>网络安全</span></a></dd>
-																		<dd><a title="硬件测试" href="/job/search?type=硬件测试"><span>硬件测试</span></a></dd>
-																		<dd><a title="性能测试" href="/job/search?type=性能测试"><span>性能测试</span></a></dd>
-																		<dd><a title="自动化测试" href="/job/search?type=自动化测试"><span>自动化测试</span></a></dd>
-																		<dd><a title="测试开发" href="/job/search?type=测试开发"><span>测试开发</span></a></dd>
-																		<dd><a title="功能测试" href="/job/search?type=移动web前端"><span>功能测试</span></a></dd>
-																	</dl>
-																</div>
-															</div>
-														</div>
-													</div>
-												</div>
-												<b class="arrow"></b>
-											</li>
-											<li>
-												<div class="category-info">
-													<h3 class="category-name b-category-name"><i><img src="/images/cake.png"></i><a class="ml-22" title="技术">技术</a></h3>
-													<em>&gt;</em></div>
-												<div class="menu-item menu-in top">
-													<div class="area-in">
-														<div class="area-bg">
-															<div class="menu-srot">
-																<div class="sort-side">
-																	<dl class="dl-sort">
-																		<dt><span title="技术">后端开发</span></dt>
-																		<dd><a title="Hadhoop" href="/job/search?type=Hadhoop"><span>Hadhoop</span></a></dd>
-																		<dd><a title="Golong" href="/job/search?type=Golong"><span>Golong</span></a></dd>
-																		<dd><a title="NET" href="/job/search?type=NET"><span>NET</span></a></dd>
-																		<dd><a title="PHP" href="/job/search?type=PHP"><span>PHP</span></a></dd>
-																		<dd><a title="后端开发" href="/job/search?type=后端开发"><span>后端开发</span></a></dd>
-																		<dd><a title="全栈工程师" href="/job/search?type=全栈工程师"><span>全栈工程师</span></a></dd>
-																	</dl>
-																	<dl class="dl-sort">
-																		<dt><span title="移动开发">移动开发</span></dt>
-																		<dd><a title="JavaScript" href="/job/search?type=JavaScript"><span>JavaScript</span></a></dd>
-																		<dd><a title="Flash开发" href="/job/search?type=Flash开发"><span>Flash开发</span></a></dd>
-																		<dd><a title="移动开发" href="/job/search?type=移动开发"><span>移动开发</span></a></dd>
-																		<dd><a title="ios" href="/job/search?type=ios"><span>ios</span></a></dd>
-																		<dd><a title="HTML5" href="/job/search?type=HTML5"><span>HTML5</span></a></dd>
-																		<dd><a title="移动web前端" href="/job/search?type=移动web前端"><span>移动web前端</span></a></dd>
-																		<dd><a title="移动web前端" href="/job/search?type=移动web前端"><span>移动web前端</span></a></dd>
-																		<dd><a title="java" href="/job/search?type=java"><span>java</span></a></dd>
-																	</dl>
-																	<dl class="dl-sort">
-																		<dt><span title="测试">测试</span></dt>
-																		<dd><a title="渗透测试" href="/job/search?type=渗透测试"><span>渗透测试</span></a></dd>
-																		<dd><a title="游戏测试" href="/job/search?type=游戏测试"><span>游戏测试</span></a></dd>
-																		<dd><a title="硬件测试" href="/job/search?type=硬件测试"><span>硬件测试</span></a></dd>
-																		<dd><a title="性能测试" href="/job/search?type=性能测试"><span>性能测试</span></a></dd>
-																		<dd><a title="自动化测试" href="/job/search?type=自动化测试"><span>自动化测试</span></a></dd>
-																		<dd><a title="测试开发" href="/job/search?type=测试开发"><span>测试开发</span></a></dd>
-																		<dd><a title="功能测试" href="/job/search?type=移动web前端"><span>功能测试</span></a></dd>
-																	</dl>
-																	<dl class="dl-sort">
-																		<dt><span title="测试">运维/技术支持</span></dt>
-																		<dd><a title="IT技术支持" href="/job/search?type=IT技术支持"><span>IT技术支持</span></a></dd>
-																		<dd><a title="网络安全" href="/job/search?type=网络安全"><span>网络安全</span></a></dd>
-																		<dd><a title="硬件测试" href="/job/search?type=硬件测试"><span>硬件测试</span></a></dd>
-																		<dd><a title="性能测试" href="/job/search?type=性能测试"><span>性能测试</span></a></dd>
-																		<dd><a title="自动化测试" href="/job/search?type=自动化测试"><span>自动化测试</span></a></dd>
-																		<dd><a title="测试开发" href="/job/search?type=测试开发"><span>测试开发</span></a></dd>
-																		<dd><a title="功能测试" href="/job/search?type=移动web前端"><span>功能测试</span></a></dd>
-																	</dl>
-																</div>
-															</div>
-														</div>
-													</div>
-												</div>
-												<b class="arrow"></b>
-											</li>
-											<li>
-												<div class="category-info">
-													<h3 class="category-name b-category-name"><i><img src="/images/cake.png"></i><a class="ml-22" title="技术">技术</a></h3>
-													<em>&gt;</em></div>
-												<div class="menu-item menu-in top">
-													<div class="area-in">
-														<div class="area-bg">
-															<div class="menu-srot">
-																<div class="sort-side">
-																	<dl class="dl-sort">
-																		<dt><span title="技术">后端开发</span></dt>
-																		<dd><a title="Hadhoop" href="/job/search?type=Hadhoop"><span>Hadhoop</span></a></dd>
-																		<dd><a title="Golong" href="/job/search?type=Golong"><span>Golong</span></a></dd>
-																		<dd><a title="NET" href="/job/search?type=NET"><span>NET</span></a></dd>
-																		<dd><a title="PHP" href="/job/search?type=PHP"><span>PHP</span></a></dd>
-																		<dd><a title="后端开发" href="/job/search?type=后端开发"><span>后端开发</span></a></dd>
-																		<dd><a title="全栈工程师" href="/job/search?type=全栈工程师"><span>全栈工程师</span></a></dd>
-																	</dl>
-																	<dl class="dl-sort">
-																		<dt><span title="移动开发">移动开发</span></dt>
-																		<dd><a title="JavaScript" href="/job/search?type=JavaScript"><span>JavaScript</span></a></dd>
-																		<dd><a title="Flash开发" href="/job/search?type=Flash开发"><span>Flash开发</span></a></dd>
-																		<dd><a title="移动开发" href="/job/search?type=移动开发"><span>移动开发</span></a></dd>
-																		<dd><a title="ios" href="/job/search?type=ios"><span>ios</span></a></dd>
-																		<dd><a title="HTML5" href="/job/search?type=HTML5"><span>HTML5</span></a></dd>
-																		<dd><a title="移动web前端" href="/job/search?type=移动web前端"><span>移动web前端</span></a></dd>
-																		<dd><a title="移动web前端" href="/job/search?type=移动web前端"><span>移动web前端</span></a></dd>
-																		<dd><a title="java" href="/job/search?type=java"><span>java</span></a></dd>
-																	</dl>
-																	<dl class="dl-sort">
-																		<dt><span title="测试">测试</span></dt>
-																		<dd><a title="渗透测试" href="/job/search?type=渗透测试"><span>渗透测试</span></a></dd>
-																		<dd><a title="游戏测试" href="/job/search?type=游戏测试"><span>游戏测试</span></a></dd>
-																		<dd><a title="硬件测试" href="/job/search?type=硬件测试"><span>硬件测试</span></a></dd>
-																		<dd><a title="性能测试" href="/job/search?type=性能测试"><span>性能测试</span></a></dd>
-																		<dd><a title="自动化测试" href="/job/search?type=自动化测试"><span>自动化测试</span></a></dd>
-																		<dd><a title="测试开发" href="/job/search?type=测试开发"><span>测试开发</span></a></dd>
-																		<dd><a title="功能测试" href="/job/search?type=移动web前端"><span>功能测试</span></a></dd>
-																	</dl>
-																	<dl class="dl-sort">
-																		<dt><span title="测试">运维/技术支持</span></dt>
-																		<dd><a title="IT技术支持" href="/job/search?type=IT技术支持"><span>IT技术支持</span></a></dd>
-																		<dd><a title="网络安全" href="/job/search?type=网络安全"><span>网络安全</span></a></dd>
-																		<dd><a title="硬件测试" href="/job/search?type=硬件测试"><span>硬件测试</span></a></dd>
-																		<dd><a title="性能测试" href="/job/search?type=性能测试"><span>性能测试</span></a></dd>
-																		<dd><a title="自动化测试" href="/job/search?type=自动化测试"><span>自动化测试</span></a></dd>
-																		<dd><a title="测试开发" href="/job/search?type=测试开发"><span>测试开发</span></a></dd>
-																		<dd><a title="功能测试" href="/job/search?type=移动web前端"><span>功能测试</span></a></dd>
-																	</dl>
-																</div>
-														</div>
-													</div>
-												</div>
-												<b class="arrow"></b>
-											</li>
-											<li>
-												<div class="category-info">
-													<h3 class="category-name b-category-name"><i><img src="/images/cake.png"></i><a class="ml-22" title="技术">技术</a></h3>
-													<em>&gt;</em></div>
-												<div class="menu-item menu-in top">
-													<div class="area-in">
-														<div class="area-bg">
-															<div class="menu-srot">
-																<div class="sort-side">
-																	<dl class="dl-sort">
-																		<dt><span title="技术">后端开发</span></dt>
-																		<dd><a title="Hadhoop" href="/job/search?type=Hadhoop"><span>Hadhoop</span></a></dd>
-																		<dd><a title="Golong" href="/job/search?type=Golong"><span>Golong</span></a></dd>
-																		<dd><a title="NET" href="/job/search?type=NET"><span>NET</span></a></dd>
-																		<dd><a title="PHP" href="/job/search?type=PHP"><span>PHP</span></a></dd>
-																		<dd><a title="后端开发" href="/job/search?type=后端开发"><span>后端开发</span></a></dd>
-																		<dd><a title="全栈工程师" href="/job/search?type=全栈工程师"><span>全栈工程师</span></a></dd>
-																	</dl>
-																	<dl class="dl-sort">
-																		<dt><span title="移动开发">移动开发</span></dt>
-																		<dd><a title="JavaScript" href="/job/search?type=JavaScript"><span>JavaScript</span></a></dd>
-																		<dd><a title="Flash开发" href="/job/search?type=Flash开发"><span>Flash开发</span></a></dd>
-																		<dd><a title="移动开发" href="/job/search?type=移动开发"><span>移动开发</span></a></dd>
-																		<dd><a title="ios" href="/job/search?type=ios"><span>ios</span></a></dd>
-																		<dd><a title="HTML5" href="/job/search?type=HTML5"><span>HTML5</span></a></dd>
-																		<dd><a title="移动web前端" href="/job/search?type=移动web前端"><span>移动web前端</span></a></dd>
-																		<dd><a title="移动web前端" href="/job/search?type=移动web前端"><span>移动web前端</span></a></dd>
-																		<dd><a title="java" href="/job/search?type=java"><span>java</span></a></dd>
-																	</dl>
-																	<dl class="dl-sort">
-																		<dt><span title="测试">测试</span></dt>
-																		<dd><a title="渗透测试" href="/job/search?type=渗透测试"><span>渗透测试</span></a></dd>
-																		<dd><a title="游戏测试" href="/job/search?type=游戏测试"><span>游戏测试</span></a></dd>
-																		<dd><a title="硬件测试" href="/job/search?type=硬件测试"><span>硬件测试</span></a></dd>
-																		<dd><a title="性能测试" href="/job/search?type=性能测试"><span>性能测试</span></a></dd>
-																		<dd><a title="自动化测试" href="/job/search?type=自动化测试"><span>自动化测试</span></a></dd>
-																		<dd><a title="测试开发" href="/job/search?type=测试开发"><span>测试开发</span></a></dd>
-																		<dd><a title="功能测试" href="/job/search?type=移动web前端"><span>功能测试</span></a></dd>
-																	</dl>
-																	<dl class="dl-sort">
-																		<dt><span title="测试">运维/技术支持</span></dt>
-																		<dd><a title="IT技术支持" href="/job/search?type=IT技术支持"><span>IT技术支持</span></a></dd>
-																		<dd><a title="网络安全" href="/job/search?type=网络安全"><span>网络安全</span></a></dd>
-																		<dd><a title="硬件测试" href="/job/search?type=硬件测试"><span>硬件测试</span></a></dd>
-																		<dd><a title="性能测试" href="/job/search?type=性能测试"><span>性能测试</span></a></dd>
-																		<dd><a title="自动化测试" href="/job/search?type=自动化测试"><span>自动化测试</span></a></dd>
-																		<dd><a title="测试开发" href="/job/search?type=测试开发"><span>测试开发</span></a></dd>
-																		<dd><a title="功能测试" href="/job/search?type=移动web前端"><span>功能测试</span></a></dd>
-																	</dl>
-																</div>
-															</div>
-														</div>
-													</div>
-												</div>
-												<b class="arrow"></b>
-											</li>
-											<li>
-												<div class="category-info">
-													<h3 class="category-name b-category-name"><i><img src="/images/cake.png"></i><a class="ml-22" title="技术">技术</a></h3>
-													<em>&gt;</em></div>
-												<div class="menu-item menu-in top">
-													<div class="area-in">
-														<div class="area-bg">
-															<div class="menu-srot">
-																<div class="sort-side">
-																	<dl class="dl-sort">
-																		<dt><span title="技术">后端开发</span></dt>
-																		<dd><a title="Hadhoop" href="/job/search?type=Hadhoop"><span>Hadhoop</span></a></dd>
-																		<dd><a title="Golong" href="/job/search?type=Golong"><span>Golong</span></a></dd>
-																		<dd><a title="NET" href="/job/search?type=NET"><span>NET</span></a></dd>
-																		<dd><a title="PHP" href="/job/search?type=PHP"><span>PHP</span></a></dd>
-																		<dd><a title="后端开发" href="/job/search?type=后端开发"><span>后端开发</span></a></dd>
-																		<dd><a title="全栈工程师" href="/job/search?type=全栈工程师"><span>全栈工程师</span></a></dd>
-																	</dl>
-																	<dl class="dl-sort">
-																		<dt><span title="移动开发">移动开发</span></dt>
-																		<dd><a title="JavaScript" href="/job/search?type=JavaScript"><span>JavaScript</span></a></dd>
-																		<dd><a title="Flash开发" href="/job/search?type=Flash开发"><span>Flash开发</span></a></dd>
-																		<dd><a title="移动开发" href="/job/search?type=移动开发"><span>移动开发</span></a></dd>
-																		<dd><a title="ios" href="/job/search?type=ios"><span>ios</span></a></dd>
-																		<dd><a title="HTML5" href="/job/search?type=HTML5"><span>HTML5</span></a></dd>
-																		<dd><a title="移动web前端" href="/job/search?type=移动web前端"><span>移动web前端</span></a></dd>
-																		<dd><a title="移动web前端" href="/job/search?type=移动web前端"><span>移动web前端</span></a></dd>
-																		<dd><a title="java" href="/job/search?type=java"><span>java</span></a></dd>
-																	</dl>
-																	<dl class="dl-sort">
-																		<dt><span title="测试">测试</span></dt>
-																		<dd><a title="渗透测试" href="/job/search?type=渗透测试"><span>渗透测试</span></a></dd>
-																		<dd><a title="游戏测试" href="/job/search?type=游戏测试"><span>游戏测试</span></a></dd>
-																		<dd><a title="硬件测试" href="/job/search?type=硬件测试"><span>硬件测试</span></a></dd>
-																		<dd><a title="性能测试" href="/job/search?type=性能测试"><span>性能测试</span></a></dd>
-																		<dd><a title="自动化测试" href="/job/search?type=自动化测试"><span>自动化测试</span></a></dd>
-																		<dd><a title="测试开发" href="/job/search?type=测试开发"><span>测试开发</span></a></dd>
-																		<dd><a title="功能测试" href="/job/search?type=移动web前端"><span>功能测试</span></a></dd>
-																	</dl>
-																	<dl class="dl-sort">
-																		<dt><span title="测试">运维/技术支持</span></dt>
-																		<dd><a title="IT技术支持" href="/job/search?type=IT技术支持"><span>IT技术支持</span></a></dd>
-																		<dd><a title="网络安全" href="/job/search?type=网络安全"><span>网络安全</span></a></dd>
-																		<dd><a title="硬件测试" href="/job/search?type=硬件测试"><span>硬件测试</span></a></dd>
-																		<dd><a title="性能测试" href="/job/search?type=性能测试"><span>性能测试</span></a></dd>
-																		<dd><a title="自动化测试" href="/job/search?type=自动化测试"><span>自动化测试</span></a></dd>
-																		<dd><a title="测试开发" href="/job/search?type=测试开发"><span>测试开发</span></a></dd>
-																		<dd><a title="功能测试" href="/job/search?type=移动web前端"><span>功能测试</span></a></dd>
-																	</dl>
-																</div>
-															</div>
-														</div>
-													</div>
-												</div>
-												<b class="arrow"></b>
-											</li>
-											<li>
-												<div class="category-info">
-													<h3 class="category-name b-category-name"><i><img src="/images/cake.png"></i><a class="ml-22" title="技术">技术</a></h3>
-													<em>&gt;</em></div>
-												<div class="menu-item menu-in top">
-													<div class="area-in">
-														<div class="area-bg">
-															<div class="menu-srot">
-																<div class="sort-side">
-																	<dl class="dl-sort">
-																		<dt><span title="技术">后端开发</span></dt>
-																		<dd><a title="Hadhoop" href="/job/search?type=Hadhoop"><span>Hadhoop</span></a></dd>
-																		<dd><a title="Golong" href="/job/search?type=Golong"><span>Golong</span></a></dd>
-																		<dd><a title="NET" href="/job/search?type=NET"><span>NET</span></a></dd>
-																		<dd><a title="PHP" href="/job/search?type=PHP"><span>PHP</span></a></dd>
-																		<dd><a title="后端开发" href="/job/search?type=后端开发"><span>后端开发</span></a></dd>
-																		<dd><a title="全栈工程师" href="/job/search?type=全栈工程师"><span>全栈工程师</span></a></dd>
-																	</dl>
-																	<dl class="dl-sort">
-																		<dt><span title="移动开发">移动开发</span></dt>
-																		<dd><a title="JavaScript" href="/job/search?type=JavaScript"><span>JavaScript</span></a></dd>
-																		<dd><a title="Flash开发" href="/job/search?type=Flash开发"><span>Flash开发</span></a></dd>
-																		<dd><a title="移动开发" href="/job/search?type=移动开发"><span>移动开发</span></a></dd>
-																		<dd><a title="ios" href="/job/search?type=ios"><span>ios</span></a></dd>
-																		<dd><a title="HTML5" href="/job/search?type=HTML5"><span>HTML5</span></a></dd>
-																		<dd><a title="移动web前端" href="/job/search?type=移动web前端"><span>移动web前端</span></a></dd>
-																		<dd><a title="移动web前端" href="/job/search?type=移动web前端"><span>移动web前端</span></a></dd>
-																		<dd><a title="java" href="/job/search?type=java"><span>java</span></a></dd>
-																	</dl>
-																	<dl class="dl-sort">
-																		<dt><span title="测试">测试</span></dt>
-																		<dd><a title="渗透测试" href="/job/search?type=渗透测试"><span>渗透测试</span></a></dd>
-																		<dd><a title="游戏测试" href="/job/search?type=游戏测试"><span>游戏测试</span></a></dd>
-																		<dd><a title="硬件测试" href="/job/search?type=硬件测试"><span>硬件测试</span></a></dd>
-																		<dd><a title="性能测试" href="/job/search?type=性能测试"><span>性能测试</span></a></dd>
-																		<dd><a title="自动化测试" href="/job/search?type=自动化测试"><span>自动化测试</span></a></dd>
-																		<dd><a title="测试开发" href="/job/search?type=测试开发"><span>测试开发</span></a></dd>
-																		<dd><a title="功能测试" href="/job/search?type=移动web前端"><span>功能测试</span></a></dd>
-																	</dl>
-																	<dl class="dl-sort">
-																		<dt><span title="测试">运维/技术支持</span></dt>
-																		<dd><a title="IT技术支持" href="/job/search?type=IT技术支持"><span>IT技术支持</span></a></dd>
-																		<dd><a title="网络安全" href="/job/search?type=网络安全"><span>网络安全</span></a></dd>
-																		<dd><a title="硬件测试" href="/job/search?type=硬件测试"><span>硬件测试</span></a></dd>
-																		<dd><a title="性能测试" href="/job/search?type=性能测试"><span>性能测试</span></a></dd>
-																		<dd><a title="自动化测试" href="/job/search?type=自动化测试"><span>自动化测试</span></a></dd>
-																		<dd><a title="测试开发" href="/job/search?type=测试开发"><span>测试开发</span></a></dd>
-																		<dd><a title="功能测试" href="/job/search?type=移动web前端"><span>功能测试</span></a></dd>
-																	</dl>
-																</div>
-															</div>
-														</div>
-													</div>
-												</div>
-												<b class="arrow"></b>
-											</li>
-											<li>
-												<div class="category-info">
-													<h3 class="category-name b-category-name"><i><img src="/images/cake.png"></i><a class="ml-22" title="技术">技术</a></h3>
-													<em>&gt;</em></div>
-												<div class="menu-item menu-in top">
-													<div class="area-in">
-														<div class="area-bg">
-															<div class="menu-srot">
-																<div class="sort-side">
-																	<dl class="dl-sort">
-																		<dt><span title="技术">后端开发</span></dt>
-																		<dd><a title="Hadhoop" href="/job/search?type=Hadhoop"><span>Hadhoop</span></a></dd>
-																		<dd><a title="Golong" href="/job/search?type=Golong"><span>Golong</span></a></dd>
-																		<dd><a title="NET" href="/job/search?type=NET"><span>NET</span></a></dd>
-																		<dd><a title="PHP" href="/job/search?type=PHP"><span>PHP</span></a></dd>
-																		<dd><a title="后端开发" href="/job/search?type=后端开发"><span>后端开发</span></a></dd>
-																		<dd><a title="全栈工程师" href="/job/search?type=全栈工程师"><span>全栈工程师</span></a></dd>
-																	</dl>
-																	<dl class="dl-sort">
-																		<dt><span title="移动开发">移动开发</span></dt>
-																		<dd><a title="JavaScript" href="/job/search?type=JavaScript"><span>JavaScript</span></a></dd>
-																		<dd><a title="Flash开发" href="/job/search?type=Flash开发"><span>Flash开发</span></a></dd>
-																		<dd><a title="移动开发" href="/job/search?type=移动开发"><span>移动开发</span></a></dd>
-																		<dd><a title="ios" href="/job/search?type=ios"><span>ios</span></a></dd>
-																		<dd><a title="HTML5" href="/job/search?type=HTML5"><span>HTML5</span></a></dd>
-																		<dd><a title="移动web前端" href="/job/search?type=移动web前端"><span>移动web前端</span></a></dd>
-																		<dd><a title="移动web前端" href="/job/search?type=移动web前端"><span>移动web前端</span></a></dd>
-																		<dd><a title="java" href="/job/search?type=java"><span>java</span></a></dd>
-																	</dl>
-																	<dl class="dl-sort">
-																		<dt><span title="测试">测试</span></dt>
-																		<dd><a title="渗透测试" href="/job/search?type=渗透测试"><span>渗透测试</span></a></dd>
-																		<dd><a title="游戏测试" href="/job/search?type=游戏测试"><span>游戏测试</span></a></dd>
-																		<dd><a title="硬件测试" href="/job/search?type=硬件测试"><span>硬件测试</span></a></dd>
-																		<dd><a title="性能测试" href="/job/search?type=性能测试"><span>性能测试</span></a></dd>
-																		<dd><a title="自动化测试" href="/job/search?type=自动化测试"><span>自动化测试</span></a></dd>
-																		<dd><a title="测试开发" href="/job/search?type=测试开发"><span>测试开发</span></a></dd>
-																		<dd><a title="功能测试" href="/job/search?type=移动web前端"><span>功能测试</span></a></dd>
-																	</dl>
-																	<dl class="dl-sort">
-																		<dt><span title="测试">运维/技术支持</span></dt>
-																		<dd><a title="IT技术支持" href="/job/search?type=IT技术支持"><span>IT技术支持</span></a></dd>
-																		<dd><a title="网络安全" href="/job/search?type=网络安全"><span>网络安全</span></a></dd>
-																		<dd><a title="硬件测试" href="/job/search?type=硬件测试"><span>硬件测试</span></a></dd>
-																		<dd><a title="性能测试" href="/job/search?type=性能测试"><span>性能测试</span></a></dd>
-																		<dd><a title="自动化测试" href="/job/search?type=自动化测试"><span>自动化测试</span></a></dd>
-																		<dd><a title="测试开发" href="/job/search?type=测试开发"><span>测试开发</span></a></dd>
-																		<dd><a title="功能测试" href="/job/search?type=移动web前端"><span>功能测试</span></a></dd>
-																	</dl>
-																</div>
-															</div>
-														</div>
-													</div>
-												</div>
-												<b class="arrow"></b>
-											</li>
-											<li>
-												<div class="category-info">
-													<h3 class="category-name b-category-name"><i><img src="/images/cake.png"></i><a class="ml-22" title="技术">技术</a></h3>
-													<em>&gt;</em></div>
-												<div class="menu-item menu-in top">
-													<div class="area-in">
-														<div class="area-bg">
-															<div class="menu-srot">
-																<div class="sort-side">
-																	<dl class="dl-sort">
-																		<dt><span title="技术">后端开发</span></dt>
-																		<dd><a title="Hadhoop" href="/job/search?type=Hadhoop"><span>Hadhoop</span></a></dd>
-																		<dd><a title="Golong" href="/job/search?type=Golong"><span>Golong</span></a></dd>
-																		<dd><a title="NET" href="/job/search?type=NET"><span>NET</span></a></dd>
-																		<dd><a title="PHP" href="/job/search?type=PHP"><span>PHP</span></a></dd>
-																		<dd><a title="后端开发" href="/job/search?type=后端开发"><span>后端开发</span></a></dd>
-																		<dd><a title="全栈工程师" href="/job/search?type=全栈工程师"><span>全栈工程师</span></a></dd>
-																	</dl>
-																	<dl class="dl-sort">
-																		<dt><span title="移动开发">移动开发</span></dt>
-																		<dd><a title="JavaScript" href="/job/search?type=JavaScript"><span>JavaScript</span></a></dd>
-																		<dd><a title="Flash开发" href="/job/search?type=Flash开发"><span>Flash开发</span></a></dd>
-																		<dd><a title="移动开发" href="/job/search?type=移动开发"><span>移动开发</span></a></dd>
-																		<dd><a title="ios" href="/job/search?type=ios"><span>ios</span></a></dd>
-																		<dd><a title="HTML5" href="/job/search?type=HTML5"><span>HTML5</span></a></dd>
-																		<dd><a title="移动web前端" href="/job/search?type=移动web前端"><span>移动web前端</span></a></dd>
-																		<dd><a title="移动web前端" href="/job/search?type=移动web前端"><span>移动web前端</span></a></dd>
-																		<dd><a title="java" href="/job/search?type=java"><span>java</span></a></dd>
-																	</dl>
-																	<dl class="dl-sort">
-																		<dt><span title="测试">测试</span></dt>
-																		<dd><a title="渗透测试" href="/job/search?type=渗透测试"><span>渗透测试</span></a></dd>
-																		<dd><a title="游戏测试" href="/job/search?type=游戏测试"><span>游戏测试</span></a></dd>
-																		<dd><a title="硬件测试" href="/job/search?type=硬件测试"><span>硬件测试</span></a></dd>
-																		<dd><a title="性能测试" href="/job/search?type=性能测试"><span>性能测试</span></a></dd>
-																		<dd><a title="自动化测试" href="/job/search?type=自动化测试"><span>自动化测试</span></a></dd>
-																		<dd><a title="测试开发" href="/job/search?type=测试开发"><span>测试开发</span></a></dd>
-																		<dd><a title="功能测试" href="/job/search?type=移动web前端"><span>功能测试</span></a></dd>
-																	</dl>
-																	<dl class="dl-sort">
-																		<dt><span title="测试">运维/技术支持</span></dt>
-																		<dd><a title="IT技术支持" href="/job/search?type=IT技术支持"><span>IT技术支持</span></a></dd>
-																		<dd><a title="网络安全" href="/job/search?type=网络安全"><span>网络安全</span></a></dd>
-																		<dd><a title="硬件测试" href="/job/search?type=硬件测试"><span>硬件测试</span></a></dd>
-																		<dd><a title="性能测试" href="/job/search?type=性能测试"><span>性能测试</span></a></dd>
-																		<dd><a title="自动化测试" href="/job/search?type=自动化测试"><span>自动化测试</span></a></dd>
-																		<dd><a title="测试开发" href="/job/search?type=测试开发"><span>测试开发</span></a></dd>
-																		<dd><a title="功能测试" href="/job/search?type=移动web前端"><span>功能测试</span></a></dd>
-																	</dl>
-																</div>
-															</div>
-														</div>
-													</div>
-												</div>
-												<b class="arrow"></b>
-											</li>
-											<li>
-												<div class="category-info">
-													<h3 class="category-name b-category-name"><i><img src="/images/cake.png"></i><a class="ml-22" title="技术">技术</a></h3>
-													<em>&gt;</em></div>
-												<div class="menu-item menu-in top">
-													<div class="area-in">
-														<div class="area-bg">
-															<div class="menu-srot">
-																<div class="sort-side">
-																	<dl class="dl-sort">
-																		<dt><span title="技术">后端开发</span></dt>
-																		<dd><a title="Hadhoop" href="/job/search?type=Hadhoop"><span>Hadhoop</span></a></dd>
-																		<dd><a title="Golong" href="/job/search?type=Golong"><span>Golong</span></a></dd>
-																		<dd><a title="NET" href="/job/search?type=NET"><span>NET</span></a></dd>
-																		<dd><a title="PHP" href="/job/search?type=PHP"><span>PHP</span></a></dd>
-																		<dd><a title="后端开发" href="/job/search?type=后端开发"><span>后端开发</span></a></dd>
-																		<dd><a title="全栈工程师" href="/job/search?type=全栈工程师"><span>全栈工程师</span></a></dd>
-																	</dl>
-																	<dl class="dl-sort">
-																		<dt><span title="移动开发">移动开发</span></dt>
-																		<dd><a title="JavaScript" href="/job/search?type=JavaScript"><span>JavaScript</span></a></dd>
-																		<dd><a title="Flash开发" href="/job/search?type=Flash开发"><span>Flash开发</span></a></dd>
-																		<dd><a title="移动开发" href="/job/search?type=移动开发"><span>移动开发</span></a></dd>
-																		<dd><a title="ios" href="/job/search?type=ios"><span>ios</span></a></dd>
-																		<dd><a title="HTML5" href="/job/search?type=HTML5"><span>HTML5</span></a></dd>
-																		<dd><a title="移动web前端" href="/job/search?type=移动web前端"><span>移动web前端</span></a></dd>
-																		<dd><a title="移动web前端" href="/job/search?type=移动web前端"><span>移动web前端</span></a></dd>
-																		<dd><a title="java" href="/job/search?type=java"><span>java</span></a></dd>
-																	</dl>
-																	<dl class="dl-sort">
-																		<dt><span title="测试">测试</span></dt>
-																		<dd><a title="渗透测试" href="/job/search?type=渗透测试"><span>渗透测试</span></a></dd>
-																		<dd><a title="游戏测试" href="/job/search?type=游戏测试"><span>游戏测试</span></a></dd>
-																		<dd><a title="硬件测试" href="/job/search?type=硬件测试"><span>硬件测试</span></a></dd>
-																		<dd><a title="性能测试" href="/job/search?type=性能测试"><span>性能测试</span></a></dd>
-																		<dd><a title="自动化测试" href="/job/search?type=自动化测试"><span>自动化测试</span></a></dd>
-																		<dd><a title="测试开发" href="/job/search?type=测试开发"><span>测试开发</span></a></dd>
-																		<dd><a title="功能测试" href="/job/search?type=移动web前端"><span>功能测试</span></a></dd>
-																	</dl>
-																	<dl class="dl-sort">
-																		<dt><span title="测试">运维/技术支持</span></dt>
-																		<dd><a title="IT技术支持" href="/job/search?type=IT技术支持"><span>IT技术支持</span></a></dd>
-																		<dd><a title="网络安全" href="/job/search?type=网络安全"><span>网络安全</span></a></dd>
-																		<dd><a title="硬件测试" href="/job/search?type=硬件测试"><span>硬件测试</span></a></dd>
-																		<dd><a title="性能测试" href="/job/search?type=性能测试"><span>性能测试</span></a></dd>
-																		<dd><a title="自动化测试" href="/job/search?type=自动化测试"><span>自动化测试</span></a></dd>
-																		<dd><a title="测试开发" href="/job/search?type=测试开发"><span>测试开发</span></a></dd>
-																		<dd><a title="功能测试" href="/job/search?type=移动web前端"><span>功能测试</span></a></dd>
-																	</dl>
-																</div>
-															</div>
-														</div>
-													</div>
-												</div>
-												<b class="arrow"></b>
-											</li>
-											<li>
-												<div class="category-info">
-													<h3 class="category-name b-category-name"><i><img src="/images/cake.png"></i><a class="ml-22" title="技术">技术</a></h3>
-													<em>&gt;</em></div>
-												<div class="menu-item menu-in top">
-													<div class="area-in">
-														<div class="area-bg">
-															<div class="menu-srot">
-																<div class="sort-side">
-																	<dl class="dl-sort">
-																		<dt><span title="技术">后端开发</span></dt>
-																		<dd><a title="Hadhoop" href="/job/search?type=Hadhoop"><span>Hadhoop</span></a></dd>
-																		<dd><a title="Golong" href="/job/search?type=Golong"><span>Golong</span></a></dd>
-																		<dd><a title="NET" href="/job/search?type=NET"><span>NET</span></a></dd>
-																		<dd><a title="PHP" href="/job/search?type=PHP"><span>PHP</span></a></dd>
-																		<dd><a title="后端开发" href="/job/search?type=后端开发"><span>后端开发</span></a></dd>
-																		<dd><a title="全栈工程师" href="/job/search?type=全栈工程师"><span>全栈工程师</span></a></dd>
-																	</dl>
-																	<dl class="dl-sort">
-																		<dt><span title="移动开发">移动开发</span></dt>
-																		<dd><a title="JavaScript" href="/job/search?type=JavaScript"><span>JavaScript</span></a></dd>
-																		<dd><a title="Flash开发" href="/job/search?type=Flash开发"><span>Flash开发</span></a></dd>
-																		<dd><a title="移动开发" href="/job/search?type=移动开发"><span>移动开发</span></a></dd>
-																		<dd><a title="ios" href="/job/search?type=ios"><span>ios</span></a></dd>
-																		<dd><a title="HTML5" href="/job/search?type=HTML5"><span>HTML5</span></a></dd>
-																		<dd><a title="移动web前端" href="/job/search?type=移动web前端"><span>移动web前端</span></a></dd>
-																		<dd><a title="移动web前端" href="/job/search?type=移动web前端"><span>移动web前端</span></a></dd>
-																		<dd><a title="java" href="/job/search?type=java"><span>java</span></a></dd>
-																	</dl>
-																	<dl class="dl-sort">
-																		<dt><span title="测试">测试</span></dt>
-																		<dd><a title="渗透测试" href="/job/search?type=渗透测试"><span>渗透测试</span></a></dd>
-																		<dd><a title="游戏测试" href="/job/search?type=游戏测试"><span>游戏测试</span></a></dd>
-																		<dd><a title="硬件测试" href="/job/search?type=硬件测试"><span>硬件测试</span></a></dd>
-																		<dd><a title="性能测试" href="/job/search?type=性能测试"><span>性能测试</span></a></dd>
-																		<dd><a title="自动化测试" href="/job/search?type=自动化测试"><span>自动化测试</span></a></dd>
-																		<dd><a title="测试开发" href="/job/search?type=测试开发"><span>测试开发</span></a></dd>
-																		<dd><a title="功能测试" href="/job/search?type=移动web前端"><span>功能测试</span></a></dd>
-																	</dl>
-																	<dl class="dl-sort">
-																		<dt><span title="测试">运维/技术支持</span></dt>
-																		<dd><a title="IT技术支持" href="/job/search?type=IT技术支持"><span>IT技术支持</span></a></dd>
-																		<dd><a title="网络安全" href="/job/search?type=网络安全"><span>网络安全</span></a></dd>
-																		<dd><a title="硬件测试" href="/job/search?type=硬件测试"><span>硬件测试</span></a></dd>
-																		<dd><a title="性能测试" href="/job/search?type=性能测试"><span>性能测试</span></a></dd>
-																		<dd><a title="自动化测试" href="/job/search?type=自动化测试"><span>自动化测试</span></a></dd>
-																		<dd><a title="测试开发" href="/job/search?type=测试开发"><span>测试开发</span></a></dd>
-																		<dd><a title="功能测试" href="/job/search?type=移动web前端"><span>功能测试</span></a></dd>
-																	</dl>
-																</div>
-															</div>
-														</div>
-													</div>
-												</div>
-												<b class="arrow"></b>
-											</li>
-										</ul>
-									</div>
-								</div>
+                        <input class="myClass"
+                               style="font-size: 15px;width: 300px;border: 1px solid white;border-right: 1px solid black"
+                               name="company" placeholder="公司名字">
+                        <select class="layui-input-block layui-form-item "
+                                style="margin: 0px;height: 50px;width: 100px;border: 1px solid white;" name="location">
+                            <option value="">工作地点</option>
+                            <option value="成都">成都</option>
+                            <option value="1">上海</option>
+                            <option value="2">广州</option>
+                            <option value="3">深圳</option>
+                            <option value="4">杭州</option>
+                        </select>
+                        <input class="am-btn am-btn-primary"
+                               style="width: 130px;font-size: 20px;float: right;margin: 0px" type="submit" value="搜索">
+                    </form>
+                </div>
+            </div>
+        </div>
 
-							</div>
-						</div>
-						<!--导航 -->
-						<script type="text/javascript">
-							(function() {
-								$('.am-slider').flexslider();
-							});
-							$(document).ready(function() {
-								$("li").hover(function() {
-									$(".category-content .category-list li.first .menu-in").css("display", "none");
-									$(".category-content .category-list li.first").removeClass("hover");
-									$(this).addClass("hover");
-									$(this).children("div.menu-in").css("display", "block")
-								}, function() {
-									$(this).removeClass("hover")
-									$(this).children("div.menu-in").css("display", "none")
-								});
-							})
-						</script>
+        <div class="clear"></div>
+    </div>
+    <div class="shopNav">
+        <div class="slideall" style="height: auto;">
 
+            <div class="long-title"><span class="all-goods">全部分类</span></div>
+            <!--        <div class="nav-cont">-->
+            <!--            <ul>-->
+            <!--                <li class="index"><a href="#">首页</a></li>-->
+            <!--                <li class="qc"><a href="#">闪购</a></li>-->
+            <!--                <li class="qc"><a href="#">限时抢</a></li>-->
+            <!--                <li class="qc"><a href="#">团购</a></li>-->
+            <!--                <li class="qc last"><a href="#">大包装</a></li>-->
+            <!--            </ul>-->
+            <!--        </div>-->
 
-					<!--小导航 -->
-					<div class="am-g am-g-fixed smallnav">
-						<div class="am-u-sm-3">
-							<a href="sort.html"><img src="/images/navsmall.jpg" />
-								<div class="title">商品分类</div>
-							</a>
-						</div>
-						<div class="am-u-sm-3">
-							<a href="#"><img src="/images/huismall.jpg" />
-								<div class="title">大聚惠</div>
-							</a>
-						</div>
-						<div class="am-u-sm-3">
-							<a href="#"><img src="/images/mansmall.jpg" />
-								<div class="title">个人中心</div>
-							</a>
-						</div>
-						<div class="am-u-sm-3">
-							<a href="#"><img src="/images/moneysmall.jpg" />
-								<div class="title">投资理财</div>
-							</a>
-						</div>
-					</div>
+            <div class="bannerTwo">
+                <!--轮播 -->
+                <div class="am-slider am-slider-default scoll" data-am-flexslider id="demo-slider-0">
+                    <ul class="am-slides">
+                        <li class="banner1"><a><img height="330px" width="40px" src="/images/img/baidu.jpg"/></a></li>
+                        <li class="banner2"><a><img height="330px" width="40px" src="/images/img/alibaba.jpg"/></a></li>
+                        <li class="banner3"><a><img height="330px" width="40px" src="/images/img/java.jpg"/></a></li>
+                        <li class="banner4"><a><img height="330px" width="40px" src="/images/img/test.jpg"/></a></li>
+                    </ul>
+                </div>
+                <div class="clear"></div>
+            </div>
 
-					
-				<!--各类活动-->
-<!--				<div class="row">-->
-<!--					<li><a><img src="/images/row1.jpg"/></a></li>-->
-<!--					<li><a><img src="/images/row2.jpg"/></a></li>-->
-<!--					<li><a><img src="/images/row3.jpg"/></a></li>-->
-<!--					<li><a><img src="/images/row4.jpg"/></a></li>-->
-<!--				</div>-->
-<!--				<div class="clear"></div>	-->
-					<!--走马灯 -->
+            <!--侧边导航 -->
+            <div id="nav" class="navfull" style="position: static;">
+                <div class="area clearfix">
+                    <div class="category-content" id="guide_2">
 
-<!--					<div class="marqueenTwo">-->
-<!--						<span class="marqueen-title"><i class="am-icon-volume-up am-icon-fw"></i>商城头条<em class="am-icon-angle-double-right"></em></span>-->
-<!--						<div class="demo">-->
+                        <div class="category" style="box-shadow:none ;margin-top: 2px;">
+                            <ul class="category-list navTwo" id="js_climit_li">
+                                <li>
+                                    <div class="category-info">
+                                        <h3 class="category-name b-category-name"><a class="ml-22" title="技术">技术</a>
+                                        </h3>
+                                        <em>&gt;</em></div>
+                                    <div class="menu-item menu-in top">
+                                        <div class="area-in">
+                                            <div class="area-bg">
+                                                <div class="menu-srot">
+                                                    <div class="sort-side">
+                                                        <dl class="dl-sort">
+                                                            <dt><span title="蛋糕">蛋糕</span></dt>
+                                                            <dd><a title="蒸蛋糕" href="#"><span>蒸蛋糕</span></a></dd>
+                                                            <dd><a title="脱水蛋糕" href="#"><span>脱水蛋糕</span></a></dd>
+                                                            <dd><a title="瑞士卷" href="#"><span>瑞士卷</span></a></dd>
+                                                            <dd><a title="软面包" href="#"><span>软面包</span></a></dd>
+                                                            <dd><a title="马卡龙" href="#"><span>马卡龙</span></a></dd>
+                                                            <dd><a title="千层饼" href="#"><span>千层饼</span></a></dd>
+                                                            <dd><a title="甜甜圈" href="#"><span>甜甜圈</span></a></dd>
+                                                            <dd><a title="蒸三明治" href="#"><span>蒸三明治</span></a></dd>
+                                                            <dd><a title="铜锣烧" href="#"><span>铜锣烧</span></a></dd>
+                                                        </dl>
+                                                        <dl class="dl-sort">
+                                                            <dt><span title="蛋糕">点心</span></dt>
+                                                            <dd><a title="蒸蛋糕" href="#"><span>蒸蛋糕</span></a></dd>
+                                                            <dd><a title="脱水蛋糕" href="#"><span>脱水蛋糕</span></a></dd>
+                                                            <dd><a title="瑞士卷" href="#"><span>瑞士卷</span></a></dd>
+                                                            <dd><a title="软面包" href="#"><span>软面包</span></a></dd>
+                                                            <dd><a title="马卡龙" href="#"><span>马卡龙</span></a></dd>
+                                                            <dd><a title="千层饼" href="#"><span>千层饼</span></a></dd>
+                                                            <dd><a title="甜甜圈" href="#"><span>甜甜圈</span></a></dd>
+                                                            <dd><a title="蒸三明治" href="#"><span>蒸三明治</span></a></dd>
+                                                            <dd><a title="铜锣烧" href="#"><span>铜锣烧</span></a></dd>
+                                                        </dl>
 
-<!--							<ul>-->
-<!--								<li class="title-first"><a target="_blank" href="#">-->
-<!--									<img src="/images/TJ2.jpg"></img>-->
-<!--									<span>[特惠]</span>洋河年末大促，低至两件五折							-->
-<!--								</a></li>-->
-<!--								<li class="title-first"><a target="_blank" href="#">-->
-<!--									<span>[公告]</span>商城与广州市签署战略合作协议-->
-<!--								     <img src="/images/TJ.jpg"></img>-->
-<!--								     <p>XXXXXXXXXXXXXXXXXX</p>-->
-<!--							    </a></li>																    							    -->
-<!--								<li><a target="_blank" href="#"><span>[特惠]</span>女生节商城爆品1分秒	</a></li>-->
-<!--								<li><a target="_blank" href="#"><span>[公告]</span>华北、华中部分地区配送延迟</a></li>-->
-<!--								<li><a target="_blank" href="#"><span>[特惠]</span>家电狂欢千亿礼券 买1送1！</a></li>-->
-<!--								<li><a target="_blank" href="#"><span>[特惠]</span>洋河年末大促，低至两件五折</a></li>-->
-<!--								<li><a target="_blank" href="#"><span>[公告]</span>华北、华中部分地区配送延迟</a></li>-->
-<!--						-->
-<!--							</ul>-->
-<!--                       -->
-<!--						</div>-->
-<!--					</div>-->
-<!--					<div class="clear"></div>-->
-<!--				-->
-<!--				</div>-->
-<!--				-->
-				
-							
-				<script type="text/javascript">
-					if ($(window).width() < 640) {
-						function autoScroll(obj) {
-							$(obj).find("ul").animate({
-								marginTop: "-39px"
-							}, 500, function() {
-								$(this).css({
-									marginTop: "0px"
-								}).find("li:first").appendTo(this);
-							})
-						}
-						$(function() {
-							setInterval('autoScroll(".demo")', 3000);
-						})
-					}
-				</script>
-			</div>
-			<div class="shopMainbg">
-				<div class="shopMain" id="shopmain">
+                                                    </div>
+                                                    <div class="brand-side">
+                                                        <dl class="dl-sort">
+                                                            <dt><span>实力商家</span></dt>
+                                                            <dd><a title="呵官方旗舰店" target="_blank" href="#"
+                                                                   rel="nofollow"><span class="red">呵官方旗舰店</span></a>
+                                                            </dd>
+                                                            <dd><a title="格瑞旗舰店" target="_blank" href="#"
+                                                                   rel="nofollow"><span>格瑞旗舰店</span></a></dd>
+                                                            <dd><a title="飞彦大厂直供" target="_blank" href="#"
+                                                                   rel="nofollow"><span class="red">飞彦大厂直供</span></a>
+                                                            </dd>
+                                                            <dd><a title="红e·艾菲妮" target="_blank" href="#"
+                                                                   rel="nofollow"><span>红e·艾菲妮</span></a></dd>
+                                                            <dd><a title="本真旗舰店" target="_blank" href="#"
+                                                                   rel="nofollow"><span class="red">本真旗舰店</span></a>
+                                                            </dd>
+                                                            <dd><a title="杭派女装批发网" target="_blank" href="#"
+                                                                   rel="nofollow"><span class="red">杭派女装批发网</span></a>
+                                                            </dd>
+                                                        </dl>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <b class="arrow"></b>
+                                </li>
+                                <li>
+                                    <div class="category-info">
+                                        <h3 class="category-name b-category-name"><a class="ml-22" title="产品">产品</a>
+                                        </h3>
+                                        <em>&gt;</em></div>
+                                    <div class="menu-item menu-in top">
+                                        <div class="area-in">
+                                            <div class="area-bg">
+                                                <div class="menu-srot">
+                                                    <div class="sort-side">
+                                                        <dl class="dl-sort">
+                                                            <dt><span title="饼干">饼干</span></dt>
+                                                            <dd><a title="蒸蛋糕" href="#"><span>蒸蛋糕</span></a></dd>
+                                                            <dd><a title="脱水蛋糕" href="#"><span>脱水蛋糕</span></a></dd>
+                                                            <dd><a title="瑞士卷" href="#"><span>瑞士卷</span></a></dd>
+                                                            <dd><a title="软面包" href="#"><span>软面包</span></a></dd>
+                                                            <dd><a title="马卡龙" href="#"><span>马卡龙</span></a></dd>
+                                                        </dl>
+                                                        <dl class="dl-sort">
+                                                            <dt><span title="薯片">薯片</span></dt>
+                                                            <dd><a title="蒸蛋糕" href="#"><span>蒸蛋糕</span></a></dd>
+                                                            <dd><a title="脱水蛋糕" href="#"><span>脱水蛋糕</span></a></dd>
+                                                            <dd><a title="瑞士卷" href="#"><span>瑞士卷</span></a></dd>
+                                                            <dd><a title="软面包" href="#"><span>软面包</span></a></dd>
+                                                            <dd><a title="马卡龙" href="#"><span>马卡龙</span></a></dd>
+                                                            <dd><a title="千层饼" href="#"><span>千层饼</span></a></dd>
+                                                            <dd><a title="甜甜圈" href="#"><span>甜甜圈</span></a></dd>
+                                                            <dd><a title="蒸三明治" href="#"><span>蒸三明治</span></a></dd>
+                                                            <dd><a title="铜锣烧" href="#"><span>铜锣烧</span></a></dd>
+                                                        </dl>
+                                                        <dl class="dl-sort">
+                                                            <dt><span title="蛋糕">虾条</span></dt>
+                                                            <dd><a title="蒸蛋糕" href="#"><span>蒸蛋糕</span></a></dd>
+                                                            <dd><a title="脱水蛋糕" href="#"><span>脱水蛋糕</span></a></dd>
+                                                            <dd><a title="瑞士卷" href="#"><span>瑞士卷</span></a></dd>
+                                                            <dd><a title="软面包" href="#"><span>软面包</span></a></dd>
+                                                            <dd><a title="马卡龙" href="#"><span>马卡龙</span></a></dd>
+                                                            <dd><a title="千层饼" href="#"><span>千层饼</span></a></dd>
+                                                            <dd><a title="甜甜圈" href="#"><span>甜甜圈</span></a></dd>
+                                                            <dd><a title="蒸三明治" href="#"><span>蒸三明治</span></a></dd>
+                                                            <dd><a title="铜锣烧" href="#"><span>铜锣烧</span></a></dd>
+                                                        </dl>
+                                                    </div>
+                                                    <div class="brand-side">
+                                                        <dl class="dl-sort">
+                                                            <dt><span>实力商家</span></dt>
+                                                            <dd><a title="YYKCLOT" target="_blank" href="#"
+                                                                   rel="nofollow"><span class="red">YYKCLOT</span></a>
+                                                            </dd>
+                                                            <dd><a title="池氏品牌男装" target="_blank" href="#"
+                                                                   rel="nofollow"><span class="red">池氏品牌男装</span></a>
+                                                            </dd>
+                                                            <dd><a title="男装日志" target="_blank" href="#" rel="nofollow"><span>男装日志</span></a>
+                                                            </dd>
+                                                            <dd><a title="索比诺官方旗舰店" target="_blank" href="#"
+                                                                   rel="nofollow"><span>索比诺官方旗舰店</span></a></dd>
+                                                            <dd><a title="onTTno傲徒" target="_blank" href="#"
+                                                                   rel="nofollow"><span class="red">onTTno傲徒</span></a>
+                                                            </dd>
+                                                            <dd><a title="玛狮路男装旗舰店" target="_blank" href="#"
+                                                                   rel="nofollow"><span>玛狮路男装旗舰店</span></a></dd>
+                                                            <dd><a title="劳威特品牌男装" target="_blank" href="#"
+                                                                   rel="nofollow"><span>劳威特品牌男装</span></a></dd>
+                                                            <dd><a title="卡斯郎世家批发城" target="_blank" href="#"
+                                                                   rel="nofollow"><span class="red">卡斯郎世家批发城</span></a>
+                                                            </dd>
+                                                        </dl>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <b class="arrow"></b>
+                                </li>
+                                <li>
+                                    <div class="category-info">
+                                        <h3 class="category-name b-category-name"></i><a class="ml-22" title="设计">设计</a>
+                                        </h3>
+                                        <em>&gt;</em></div>
+                                    <div class="menu-item menu-in top">
+                                        <div class="area-in">
+                                            <div class="area-bg">
+                                                <div class="menu-srot">
+                                                    <div class="sort-side">
+                                                        <dl class="dl-sort">
+                                                            <dt><span title="蛋糕">蛋糕</span></dt>
+                                                            <dd><a title="蒸蛋糕" href="#"><span>蒸蛋糕</span></a></dd>
+                                                            <dd><a title="脱水蛋糕" href="#"><span>脱水蛋糕</span></a></dd>
+                                                            <dd><a title="瑞士卷" href="#"><span>瑞士卷</span></a></dd>
+                                                            <dd><a title="软面包" href="#"><span>软面包</span></a></dd>
+                                                            <dd><a title="马卡龙" href="#"><span>马卡龙</span></a></dd>
+                                                            <dd><a title="千层饼" href="#"><span>千层饼</span></a></dd>
+                                                            <dd><a title="甜甜圈" href="#"><span>甜甜圈</span></a></dd>
+                                                            <dd><a title="蒸三明治" href="#"><span>蒸三明治</span></a></dd>
+                                                            <dd><a title="铜锣烧" href="#"><span>铜锣烧</span></a></dd>
+                                                        </dl>
+                                                        <dl class="dl-sort">
+                                                            <dt><span title="蛋糕">点心</span></dt>
+                                                            <dd><a title="蒸蛋糕" href="#"><span>蒸蛋糕</span></a></dd>
+                                                            <dd><a title="脱水蛋糕" href="#"><span>脱水蛋糕</span></a></dd>
+                                                            <dd><a title="瑞士卷" href="#"><span>瑞士卷</span></a></dd>
+                                                            <dd><a title="软面包" href="#"><span>软面包</span></a></dd>
+                                                            <dd><a title="马卡龙" href="#"><span>马卡龙</span></a></dd>
+                                                            <dd><a title="千层饼" href="#"><span>千层饼</span></a></dd>
+                                                            <dd><a title="甜甜圈" href="#"><span>甜甜圈</span></a></dd>
+                                                            <dd><a title="蒸三明治" href="#"><span>蒸三明治</span></a></dd>
+                                                            <dd><a title="铜锣烧" href="#"><span>铜锣烧</span></a></dd>
+                                                        </dl>
+                                                    </div>
+                                                    <div class="brand-side">
+                                                        <dl class="dl-sort">
+                                                            <dt><span>实力商家</span></dt>
+                                                            <dd><a title="今生只围你" target="_blank" href="#"
+                                                                   rel="nofollow"><span>今生只围你</span></a></dd>
+                                                            <dd><a title="忆佳人" target="_blank" href="#"
+                                                                   rel="nofollow"><span class="red">忆佳人</span></a></dd>
+                                                            <dd><a title="斐洱普斯" target="_blank" href="#" rel="nofollow"><span
+                                                                    class="red">斐洱普斯</span></a></dd>
+                                                            <dd><a title="聚百坊" target="_blank" href="#"
+                                                                   rel="nofollow"><span class="red">聚百坊</span></a></dd>
+                                                            <dd><a title="朵朵棉织直营店" target="_blank" href="#"
+                                                                   rel="nofollow"><span>朵朵棉织直营店</span></a></dd>
+                                                        </dl>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <b class="arrow"></b>
+                                </li>
+                                <li>
+                                    <div class="category-info">
+                                        <h3 class="category-name b-category-name"><a class="ml-22" title="运营">运营</a>
+                                        </h3>
+                                        <em>&gt;</em></div>
+                                    <div class="menu-item menu-in top">
+                                        <div class="area-in">
+                                            <div class="area-bg">
+                                                <div class="menu-srot">
+                                                    <div class="sort-side">
+                                                        <dl class="dl-sort">
+                                                            <dt><span title="大包装">大包装</span></dt>
+                                                            <dd><a title="蒸蛋糕" href="#"><span>蒸蛋糕</span></a></dd>
+                                                            <dd><a title="脱水蛋糕" href="#"><span>脱水蛋糕</span></a></dd>
+                                                            <dd><a title="瑞士卷" href="#"><span>瑞士卷</span></a></dd>
+                                                            <dd><a title="软面包" href="#"><span>软面包</span></a></dd>
+                                                            <dd><a title="马卡龙" href="#"><span>马卡龙</span></a></dd>
+                                                            <dd><a title="千层饼" href="#"><span>千层饼</span></a></dd>
+                                                            <dd><a title="甜甜圈" href="#"><span>甜甜圈</span></a></dd>
+                                                            <dd><a title="蒸三明治" href="#"><span>蒸三明治</span></a></dd>
+                                                            <dd><a title="铜锣烧" href="#"><span>铜锣烧</span></a></dd>
+                                                        </dl>
+                                                        <dl class="dl-sort">
+                                                            <dt><span title="两件套">两件套</span></dt>
+                                                            <dd><a title="蒸蛋糕" href="#"><span>蒸蛋糕</span></a></dd>
+                                                            <dd><a title="脱水蛋糕" href="#"><span>脱水蛋糕</span></a></dd>
+                                                            <dd><a title="瑞士卷" href="#"><span>瑞士卷</span></a></dd>
+                                                            <dd><a title="软面包" href="#"><span>软面包</span></a></dd>
+                                                            <dd><a title="马卡龙" href="#"><span>马卡龙</span></a></dd>
+                                                            <dd><a title="千层饼" href="#"><span>千层饼</span></a></dd>
+                                                            <dd><a title="甜甜圈" href="#"><span>甜甜圈</span></a></dd>
+                                                            <dd><a title="蒸三明治" href="#"><span>蒸三明治</span></a></dd>
+                                                            <dd><a title="铜锣烧" href="#"><span>铜锣烧</span></a></dd>
+                                                        </dl>
+                                                    </div>
+                                                    <div class="brand-side">
+                                                        <dl class="dl-sort">
+                                                            <dt><span>实力商家</span></dt>
+                                                            <dd><a title="琳琅鞋业" target="_blank" href="#" rel="nofollow"><span>琳琅鞋业</span></a>
+                                                            </dd>
+                                                            <dd><a title="宏利鞋业" target="_blank" href="#" rel="nofollow"><span>宏利鞋业</span></a>
+                                                            </dd>
+                                                            <dd><a title="比爱靓点鞋业" target="_blank" href="#"
+                                                                   rel="nofollow"><span>比爱靓点鞋业</span></a></dd>
+                                                            <dd><a title="浪人怪怪" target="_blank" href="#" rel="nofollow"><span>浪人怪怪</span></a>
+                                                            </dd>
+                                                        </dl>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
 
-					<!--热门活动 -->
+                                </li>
+
+                                <!--比较多的导航	-->
+                                <li>
+                                    <div class="category-info">
+                                        <h3 class="category-name b-category-name"><a class="ml-22" title="市场">市场</a>
+                                        </h3>
+                                        <em>&gt;</em></div>
+                                    <div class="menu-item menu-in top">
+                                        <div class="area-in">
+                                            <div class="area-bg">
+                                                <div class="menu-srot">
+                                                    <div class="sort-side">
+                                                        <dl class="dl-sort">
+                                                            <dt><span title="饼干">饼干</span></dt>
+                                                            <dd><a title="蒸蛋糕" href="#"><span>蒸蛋糕</span></a></dd>
+                                                            <dd><a title="脱水蛋糕" href="#"><span>脱水蛋糕</span></a></dd>
+                                                            <dd><a title="瑞士卷" href="#"><span>瑞士卷</span></a></dd>
+                                                            <dd><a title="软面包" href="#"><span>软面包</span></a></dd>
+                                                            <dd><a title="马卡龙" href="#"><span>马卡龙</span></a></dd>
+                                                        </dl>
+                                                        <dl class="dl-sort">
+                                                            <dt><span title="薯片">薯片</span></dt>
+                                                            <dd><a title="蒸蛋糕" href="#"><span>蒸蛋糕</span></a></dd>
+                                                            <dd><a title="脱水蛋糕" href="#"><span>脱水蛋糕</span></a></dd>
+                                                            <dd><a title="瑞士卷" href="#"><span>瑞士卷</span></a></dd>
+                                                            <dd><a title="软面包" href="#"><span>软面包</span></a></dd>
+                                                            <dd><a title="马卡龙" href="#"><span>马卡龙</span></a></dd>
+                                                            <dd><a title="千层饼" href="#"><span>千层饼</span></a></dd>
+                                                            <dd><a title="甜甜圈" href="#"><span>甜甜圈</span></a></dd>
+                                                            <dd><a title="蒸三明治" href="#"><span>蒸三明治</span></a></dd>
+                                                            <dd><a title="铜锣烧" href="#"><span>铜锣烧</span></a></dd>
+                                                        </dl>
+                                                        <dl class="dl-sort">
+                                                            <dt><span title="蛋糕">虾条</span></dt>
+                                                            <dd><a title="蒸蛋糕" href="#"><span>蒸蛋糕</span></a></dd>
+                                                            <dd><a title="脱水蛋糕" href="#"><span>脱水蛋糕</span></a></dd>
+                                                            <dd><a title="瑞士卷" href="#"><span>瑞士卷</span></a></dd>
+                                                            <dd><a title="软面包" href="#"><span>软面包</span></a></dd>
+                                                            <dd><a title="马卡龙" href="#"><span>马卡龙</span></a></dd>
+                                                            <dd><a title="千层饼" href="#"><span>千层饼</span></a></dd>
+                                                            <dd><a title="甜甜圈" href="#"><span>甜甜圈</span></a></dd>
+                                                            <dd><a title="蒸三明治" href="#"><span>蒸三明治</span></a></dd>
+                                                            <dd><a title="铜锣烧" href="#"><span>铜锣烧</span></a></dd>
+                                                        </dl>
+                                                    </div>
+                                                    <div class="brand-side">
+                                                        <dl class="dl-sort">
+                                                            <dt><span>实力商家</span></dt>
+                                                            <dd><a title="YYKCLOT" target="_blank" href="#"
+                                                                   rel="nofollow"><span class="red">YYKCLOT</span></a>
+                                                            </dd>
+                                                            <dd><a title="池氏品牌男装" target="_blank" href="#"
+                                                                   rel="nofollow"><span class="red">池氏品牌男装</span></a>
+                                                            </dd>
+                                                            <dd><a title="男装日志" target="_blank" href="#" rel="nofollow"><span>男装日志</span></a>
+                                                            </dd>
+                                                            <dd><a title="索比诺官方旗舰店" target="_blank" href="#"
+                                                                   rel="nofollow"><span>索比诺官方旗舰店</span></a></dd>
+                                                            <dd><a title="onTTno傲徒" target="_blank" href="#"
+                                                                   rel="nofollow"><span class="red">onTTno傲徒</span></a>
+                                                            </dd>
+                                                            <dd><a title="玛狮路男装旗舰店" target="_blank" href="#"
+                                                                   rel="nofollow"><span>玛狮路男装旗舰店</span></a></dd>
+                                                            <dd><a title="劳威特品牌男装" target="_blank" href="#"
+                                                                   rel="nofollow"><span>劳威特品牌男装</span></a></dd>
+                                                            <dd><a title="卡斯郎世家批发城" target="_blank" href="#"
+                                                                   rel="nofollow"><span class="red">卡斯郎世家批发城</span></a>
+                                                            </dd>
+                                                        </dl>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <b class="arrow"></b>
+                                </li>
+                                <li>
+                                    <div class="category-info">
+                                        <h3 class="category-name b-category-name"><a class="ml-22" title="行政">行政</a>
+                                        </h3>
+                                        <em>&gt;</em></div>
+                                    <div class="menu-item menu-in top">
+                                        <div class="area-in">
+                                            <div class="area-bg">
+                                                <div class="menu-srot">
+                                                    <div class="sort-side">
+                                                        <dl class="dl-sort">
+                                                            <dt><span title="猪肉脯">猪肉脯</span></dt>
+                                                            <dd><a title="蒸蛋糕" href="#"><span>蒸蛋糕</span></a></dd>
+                                                            <dd><a title="脱水蛋糕" href="#"><span>脱水蛋糕</span></a></dd>
+                                                            <dd><a title="瑞士卷" href="#"><span>瑞士卷</span></a></dd>
+                                                            <dd><a title="软面包" href="#"><span>软面包</span></a></dd>
+                                                            <dd><a title="马卡龙" href="#"><span>马卡龙</span></a></dd>
+                                                        </dl>
+                                                        <dl class="dl-sort">
+                                                            <dt><span title="牛肉丝">牛肉丝</span></dt>
+                                                            <dd><a title="蒸蛋糕" href="#"><span>蒸蛋糕</span></a></dd>
+                                                            <dd><a title="脱水蛋糕" href="#"><span>脱水蛋糕</span></a></dd>
+                                                            <dd><a title="瑞士卷" href="#"><span>瑞士卷</span></a></dd>
+                                                            <dd><a title="软面包" href="#"><span>软面包</span></a></dd>
+                                                            <dd><a title="马卡龙" href="#"><span>马卡龙</span></a></dd>
+                                                        </dl>
+                                                        <dl class="dl-sort">
+                                                            <dt><span title="小香肠">小香肠</span></dt>
+                                                            <dd><a title="蒸蛋糕" href="#"><span>蒸蛋糕</span></a></dd>
+                                                            <dd><a title="脱水蛋糕" href="#"><span>脱水蛋糕</span></a></dd>
+                                                            <dd><a title="瑞士卷" href="#"><span>瑞士卷</span></a></dd>
+                                                            <dd><a title="软面包" href="#"><span>软面包</span></a></dd>
+                                                            <dd><a title="铜锣烧" href="#"><span>铜锣烧</span></a></dd>
+                                                        </dl>
+                                                    </div>
+                                                    <div class="brand-side">
+                                                        <dl class="dl-sort">
+                                                            <dt><span>实力商家</span></dt>
+                                                            <dd><a title="花颜巧语 " target="_blank" href="#"
+                                                                   rel="nofollow"><span class="red">花颜巧语 </span></a>
+                                                            </dd>
+                                                            <dd><a title="糖衣小屋" target="_blank" href="#" rel="nofollow"><span>糖衣小屋</span></a>
+                                                            </dd>
+                                                            <dd><a title="卡拉迪克  " target="_blank" href="#"
+                                                                   rel="nofollow"><span class="red">卡拉迪克  </span></a>
+                                                            </dd>
+                                                            <dd><a title="暖春童话 " target="_blank" href="#"
+                                                                   rel="nofollow"><span>暖春童话 </span></a></dd>
+                                                            <dd><a title="华盛童装批发行 " target="_blank" href="#"
+                                                                   rel="nofollow"><span>华盛童装批发行 </span></a></dd>
+                                                            <dd><a title="奈仕华童装旗舰店" target="_blank" href="#"
+                                                                   rel="nofollow"><span>奈仕华童装旗舰店</span></a></dd>
+                                                            <dd><a title="斑蒂尼BONDYNI" target="_blank" href="#"
+                                                                   rel="nofollow"><span
+                                                                    class="red">斑蒂尼BONDYNI</span></a></dd>
+                                                            <dd><a title="猫儿朵朵 " target="_blank" href="#"
+                                                                   rel="nofollow"><span>猫儿朵朵 </span></a></dd>
+                                                            <dd><a title="童衣阁" target="_blank" href="#"
+                                                                   rel="nofollow"><span class="red">童衣阁</span></a></dd>
+                                                        </dl>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <b class="arrow"></b>
+                                </li>
+                                <li>
+                                    <div class="category-info">
+                                        <h3 class="category-name b-category-name"><a class="ml-22" title="高级管理">高级管理</a>
+                                        </h3>
+                                        <em>&gt;</em></div>
+                                    <div class="menu-item menu-in top">
+                                        <div class="area-in">
+                                            <div class="area-bg">
+                                                <div class="menu-srot">
+                                                    <div class="sort-side">
+                                                        <dl class="dl-sort">
+                                                            <dt><span title="豆干">豆干</span></dt>
+                                                            <dd><a title="蒸蛋糕" href="#"><span>蒸蛋糕</span></a></dd>
+                                                            <dd><a title="脱水蛋糕" href="#"><span>脱水蛋糕</span></a></dd>
+                                                            <dd><a title="瑞士卷" href="#"><span>瑞士卷</span></a></dd>
+                                                            <dd><a title="铜锣烧" href="#"><span>铜锣烧</span></a></dd>
+                                                        </dl>
+                                                        <dl class="dl-sort">
+                                                            <dt><span title="干笋">干笋</span></dt>
+                                                            <dd><a title="蒸蛋糕" href="#"><span>蒸蛋糕</span></a></dd>
+                                                            <dd><a title="脱水蛋糕" href="#"><span>脱水蛋糕</span></a></dd>
+                                                            <dd><a title="瑞士卷" href="#"><span>瑞士卷</span></a></dd>
+                                                            <dd><a title="铜锣烧" href="#"><span>铜锣烧</span></a></dd>
+                                                        </dl>
+                                                        <dl class="dl-sort">
+                                                            <dt><span title="鸭脖">鸭脖</span></dt>
+                                                            <dd><a title="蒸蛋糕" href="#"><span>蒸蛋糕</span></a></dd>
+                                                            <dd><a title="脱水蛋糕" href="#"><span>脱水蛋糕</span></a></dd>
+                                                            <dd><a title="瑞士卷" href="#"><span>瑞士卷</span></a></dd>
+                                                            <dd><a title="软面包" href="#"><span>软面包</span></a></dd>
+                                                            <dd><a title="马卡龙" href="#"><span>马卡龙</span></a></dd>
+                                                            <dd><a title="千层饼" href="#"><span>千层饼</span></a></dd>
+                                                            <dd><a title="甜甜圈" href="#"><span>甜甜圈</span></a></dd>
+                                                            <dd><a title="蒸三明治" href="#"><span>蒸三明治</span></a></dd>
+                                                            <dd><a title="铜锣烧" href="#"><span>铜锣烧</span></a></dd>
+                                                        </dl>
+                                                    </div>
+                                                    <div class="brand-side">
+                                                        <dl class="dl-sort">
+                                                            <dt><span>实力商家</span></dt>
+                                                            <dd><a title="歌芙品牌旗舰店" target="_blank" href="#"
+                                                                   rel="nofollow"><span class="red">歌芙品牌旗舰店</span></a>
+                                                            </dd>
+                                                            <dd><a title="爱丝蓝内衣厂" target="_blank" href="#"
+                                                                   rel="nofollow"><span>爱丝蓝内衣厂</span></a></dd>
+                                                            <dd><a title="香港优蓓尔防辐射" target="_blank" href="#"
+                                                                   rel="nofollow"><span>香港优蓓尔防辐射</span></a></dd>
+                                                            <dd><a title="蓉莉娜内衣批发" target="_blank" href="#"
+                                                                   rel="nofollow"><span>蓉莉娜内衣批发</span></a></dd>
+                                                        </dl>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <b class="arrow"></b>
+                                </li>
+                                <li>
+                                    <div class="category-info">
+                                        <h3 class="category-name b-category-name"><a class="ml-22" title="财务">财务</a>
+                                        </h3>
+                                        <em>&gt;</em></div>
+                                    <div class="menu-item menu-in top">
+                                        <div class="area-in">
+                                            <div class="area-bg">
+                                                <div class="menu-srot">
+                                                    <div class="sort-side">
+                                                        <dl class="dl-sort">
+                                                            <dt><span title="蛋糕">坚果</span></dt>
+                                                            <dd><a title="蒸蛋糕" href="#"><span>蒸蛋糕</span></a></dd>
+                                                            <dd><a title="脱水蛋糕" href="#"><span>脱水蛋糕</span></a></dd>
+                                                            <dd><a title="瑞士卷" href="#"><span>瑞士卷</span></a></dd>
+                                                            <dd><a title="软面包" href="#"><span>软面包</span></a></dd>
+                                                            <dd><a title="马卡龙" href="#"><span>马卡龙</span></a></dd>
+                                                            <dd><a title="千层饼" href="#"><span>千层饼</span></a></dd>
+                                                            <dd><a title="甜甜圈" href="#"><span>甜甜圈</span></a></dd>
+                                                            <dd><a title="蒸三明治" href="#"><span>蒸三明治</span></a></dd>
+                                                            <dd><a title="铜锣烧" href="#"><span>铜锣烧</span></a></dd>
+                                                        </dl>
+                                                        <dl class="dl-sort">
+                                                            <dt><span title="蛋糕">锅巴</span></dt>
+                                                            <dd><a title="蒸蛋糕" href="#"><span>蒸蛋糕</span></a></dd>
+                                                            <dd><a title="脱水蛋糕" href="#"><span>脱水蛋糕</span></a></dd>
+                                                            <dd><a title="瑞士卷" href="#"><span>瑞士卷</span></a></dd>
+                                                            <dd><a title="软面包" href="#"><span>软面包</span></a></dd>
+                                                            <dd><a title="马卡龙" href="#"><span>马卡龙</span></a></dd>
+                                                            <dd><a title="千层饼" href="#"><span>千层饼</span></a></dd>
+                                                            <dd><a title="甜甜圈" href="#"><span>甜甜圈</span></a></dd>
+                                                            <dd><a title="蒸三明治" href="#"><span>蒸三明治</span></a></dd>
+                                                            <dd><a title="铜锣烧" href="#"><span>铜锣烧</span></a></dd>
+                                                        </dl>
+                                                    </div>
+                                                    <div class="brand-side">
+                                                        <dl class="dl-sort">
+                                                            <dt><span>实力商家</span></dt>
+                                                            <dd><a title="呵呵嘿官方旗舰店" target="_blank" href="#"
+                                                                   rel="nofollow"><span class="red">呵呵嘿官方旗舰店</span></a>
+                                                            </dd>
+                                                            <dd><a title="格瑞旗舰店" target="_blank" href="#"
+                                                                   rel="nofollow"><span>格瑞旗舰店</span></a></dd>
+                                                            <dd><a title="飞彦大厂直供" target="_blank" href="#"
+                                                                   rel="nofollow"><span class="red">飞彦大厂直供</span></a>
+                                                            </dd>
+                                                            <dd><a title="红e·艾菲妮" target="_blank" href="#"
+                                                                   rel="nofollow"><span>红e·艾菲妮</span></a></dd>
+                                                            <dd><a title="本真旗舰店" target="_blank" href="#"
+                                                                   rel="nofollow"><span class="red">本真旗舰店</span></a>
+                                                            </dd>
+                                                            <dd><a title="杭派女装批发网" target="_blank" href="#"
+                                                                   rel="nofollow"><span class="red">杭派女装批发网</span></a>
+                                                            </dd>
+                                                            <dd><a title="华伊阁旗舰店" target="_blank" href="#"
+                                                                   rel="nofollow"><span>华伊阁旗舰店</span></a></dd>
+                                                            <dd><a title="独家折扣旗舰店" target="_blank" href="#"
+                                                                   rel="nofollow"><span>独家折扣旗舰店</span></a></dd>
+                                                        </dl>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <b class="arrow"></b>
+                                </li>
+                                <li>
+                                    <div class="category-info">
+                                        <h3 class="category-name b-category-name"><a class="ml-22" title="人事">人事</a>
+                                        </h3>
+                                        <em>&gt;</em></div>
+                                    <div class="menu-item menu-in top">
+                                        <div class="area-in">
+                                            <div class="area-bg">
+                                                <div class="menu-srot">
+                                                    <div class="sort-side">
+                                                        <dl class="dl-sort">
+                                                            <dt><span title="糖果">糖果</span></dt>
+                                                            <dd><a title="蒸蛋糕" href="#"><span>蒸蛋糕</span></a></dd>
+                                                            <dd><a title="脱水蛋糕" href="#"><span>脱水蛋糕</span></a></dd>
+                                                            <dd><a title="瑞士卷" href="#"><span>瑞士卷</span></a></dd>
+                                                            <dd><a title="软面包" href="#"><span>软面包</span></a></dd>
+                                                            <dd><a title="马卡龙" href="#"><span>马卡龙</span></a></dd>
+                                                            <dd><a title="千层饼" href="#"><span>千层饼</span></a></dd>
+                                                            <dd><a title="甜甜圈" href="#"><span>甜甜圈</span></a></dd>
+                                                            <dd><a title="蒸三明治" href="#"><span>蒸三明治</span></a></dd>
+                                                            <dd><a title="铜锣烧" href="#"><span>铜锣烧</span></a></dd>
+                                                        </dl>
+                                                        <dl class="dl-sort">
+                                                            <dt><span title="蜜饯">蜜饯</span></dt>
+                                                            <dd><a title="猕猴桃干" href="#"><span>猕猴桃干</span></a></dd>
+                                                            <dd><a title="糖樱桃" href="#"><span>糖樱桃</span></a></dd>
+                                                            <dd><a title="瑞士卷" href="#"><span>瑞士卷</span></a></dd>
+                                                            <dd><a title="软面包" href="#"><span>软面包</span></a></dd>
+                                                            <dd><a title="马卡龙" href="#"><span>马卡龙</span></a></dd>
+                                                            <dd><a title="千层饼" href="#"><span>千层饼</span></a></dd>
+                                                            <dd><a title="甜甜圈" href="#"><span>甜甜圈</span></a></dd>
+                                                            <dd><a title="蒸三明治" href="#"><span>蒸三明治</span></a></dd>
+                                                            <dd><a title="铜锣烧" href="#"><span>铜锣烧</span></a></dd>
+                                                        </dl>
+                                                    </div>
+                                                    <div class="brand-side">
+                                                        <dl class="dl-sort">
+                                                            <dt><span>实力商家</span></dt>
+                                                            <dd><a title="YYKCLOT" target="_blank" href="#"
+                                                                   rel="nofollow"><span class="red">YYKCLOT</span></a>
+                                                            </dd>
+                                                            <dd><a title="池氏品牌男装" target="_blank" href="#"
+                                                                   rel="nofollow"><span class="red">池氏品牌男装</span></a>
+                                                            </dd>
+                                                            <dd><a title="男装日志" target="_blank" href="#" rel="nofollow"><span>男装日志</span></a>
+                                                            </dd>
+                                                            <dd><a title="索比诺官方旗舰店" target="_blank" href="#"
+                                                                   rel="nofollow"><span>索比诺官方旗舰店</span></a></dd>
+                                                            <dd><a title="onTTno傲徒" target="_blank" href="#"
+                                                                   rel="nofollow"><span class="red">onTTno傲徒</span></a>
+                                                            </dd>
+                                                            <dd><a title="卡斯郎世家批发城" target="_blank" href="#"
+                                                                   rel="nofollow"><span class="red">卡斯郎世家批发城</span></a>
+                                                            </dd>
+                                                        </dl>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <b class="arrow"></b>
+                                </li>
+                                <li>
+                                    <div class="category-info">
+                                        <h3 class="category-name b-category-name"><a class="ml-22" title="其它">其它</a>
+                                        </h3>
+                                        <em>&gt;</em></div>
+                                    <div class="menu-item menu-in top">
+                                        <div class="area-in">
+                                            <div class="area-bg">
+                                                <div class="menu-srot">
+                                                    <div class="sort-side">
+                                                        <dl class="dl-sort">
+                                                            <dt><span title="蛋糕">巧克力</span></dt>
+                                                            <dd><a title="蒸蛋糕" href="#"><span>蒸蛋糕</span></a></dd>
+                                                            <dd><a title="脱水蛋糕" href="#"><span>脱水蛋糕</span></a></dd>
+                                                            <dd><a title="瑞士卷" href="#"><span>瑞士卷</span></a></dd>
+                                                            <dd><a title="软面包" href="#"><span>软面包</span></a></dd>
+                                                            <dd><a title="马卡龙" href="#"><span>马卡龙</span></a></dd>
+                                                            <dd><a title="千层饼" href="#"><span>千层饼</span></a></dd>
+                                                            <dd><a title="甜甜圈" href="#"><span>甜甜圈</span></a></dd>
+                                                            <dd><a title="蒸三明治" href="#"><span>蒸三明治</span></a></dd>
+                                                            <dd><a title="铜锣烧" href="#"><span>铜锣烧</span></a></dd>
+                                                        </dl>
+                                                        <dl class="dl-sort">
+                                                            <dt><span title="蛋糕">果冻</span></dt>
+                                                            <dd><a title="蒸蛋糕" href="#"><span>蒸蛋糕</span></a></dd>
+                                                            <dd><a title="脱水蛋糕" href="#"><span>脱水蛋糕</span></a></dd>
+                                                            <dd><a title="瑞士卷" href="#"><span>瑞士卷</span></a></dd>
+                                                            <dd><a title="软面包" href="#"><span>软面包</span></a></dd>
+                                                            <dd><a title="马卡龙" href="#"><span>马卡龙</span></a></dd>
+                                                            <dd><a title="千层饼" href="#"><span>千层饼</span></a></dd>
+                                                            <dd><a title="甜甜圈" href="#"><span>甜甜圈</span></a></dd>
+                                                            <dd><a title="蒸三明治" href="#"><span>蒸三明治</span></a></dd>
+                                                            <dd><a title="铜锣烧" href="#"><span>铜锣烧</span></a></dd>
+                                                        </dl>
+                                                    </div>
+                                                    <div class="brand-side">
+                                                        <dl class="dl-sort">
+                                                            <dt><span>实力商家</span></dt>
+                                                            <dd><a title="花颜巧语 " target="_blank" href="#"
+                                                                   rel="nofollow"><span class="red">花颜巧语 </span></a>
+                                                            </dd>
+                                                            <dd><a title="糖衣小屋" target="_blank" href="#" rel="nofollow"><span>糖衣小屋</span></a>
+                                                            </dd>
+                                                            <dd><a title="卡拉迪克  " target="_blank" href="#"
+                                                                   rel="nofollow"><span class="red">卡拉迪克  </span></a>
+                                                            </dd>
+                                                            <dd><a title="暖春童话 " target="_blank" href="#"
+                                                                   rel="nofollow"><span>暖春童话 </span></a></dd>
+                                                            <dd><a title="华盛童装批发行 " target="_blank" href="#"
+                                                                   rel="nofollow"><span>华盛童装批发行 </span></a></dd>
+                                                            <dd><a title="奈仕华童装旗舰店" target="_blank" href="#"
+                                                                   rel="nofollow"><span>奈仕华童装旗舰店</span></a></dd>
+                                                            <dd><a title="斑蒂尼BONDYNI" target="_blank" href="#"
+                                                                   rel="nofollow"><span
+                                                                    class="red">斑蒂尼BONDYNI</span></a></dd>
+                                                            <dd><a title="童衣阁" target="_blank" href="#"
+                                                                   rel="nofollow"><span class="red">童衣阁</span></a></dd>
+                                                        </dl>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <b class="arrow"></b>
+                                </li>
+
+                            </ul>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <!--导航 -->
+            <script type="text/javascript">
+                (function () {
+                    $('.am-slider').flexslider();
+                });
+                $(document).ready(function () {
+                    $("li").hover(function () {
+                        $(".category-content .category-list li.first .menu-in").css("display", "none");
+                        $(".category-content .category-list li.first").removeClass("hover");
+                        $(this).addClass("hover");
+                        $(this).children("div.menu-in").css("display", "block")
+                    }, function () {
+                        $(this).removeClass("hover")
+                        $(this).children("div.menu-in").css("display", "none")
+                    });
+                })
+            </script>
 
 
-		<script>
-			window.jQuery || document.write('<script src="basic/js/jquery.min.js "><\/script>');
-		</script>
-		<script type="text/javascript " src="../basic/js/quick_links.js "></script>
-	</body>
+            <!--小导航 -->
+            <div class="am-g am-g-fixed smallnav">
+                <div class="am-u-sm-3">
+                    <a href="sort.html"><img src="/images/navsmall.jpg"/>
+                        <div class="title">商品分类</div>
+                    </a>
+                </div>
+                <div class="am-u-sm-3">
+                    <a href="#"><img src="/images/huismall.jpg"/>
+                        <div class="title">大聚惠</div>
+                    </a>
+                </div>
+                <div class="am-u-sm-3">
+                    <a href="#"><img src="/images/mansmall.jpg"/>
+                        <div class="title">个人中心</div>
+                    </a>
+                </div>
+                <div class="am-u-sm-3">
+                    <a href="#"><img src="/images/moneysmall.jpg"/>
+                        <div class="title">投资理财</div>
+                    </a>
+                </div>
+            </div>
+
+
+            <div class="clear"></div>
+            <!--走马灯 -->
+
+            <div class="marqueenTwo">
+                <span class="marqueen-title"><i class="am-icon-volume-up am-icon-fw"></i>招聘头条<em
+                        class="am-icon-angle-double-right"></em></span>
+                <div class="demo">
+
+                    <ul>
+                        <li class="title-first">
+                            <a target="_blank" href="https://new.qq.com/omn/20200226/20200226A0SGE700.html">
+                                腾讯决定2020年扩招，速来！
+                            </a>
+                        </li>
+                        <li class="title-first">
+                            <a target="_blank" href="https://www.sohu.com/a/375056276_120012781">
+                                百度开始招聘计划
+                            </a>
+                        </li>
+                        <li>
+                            <a target="_blank"
+                               href="https://baijiahao.baidu.com/s?id=1631152143262120688&wfr=spider&for=pc">
+                                应届生应当注意的招聘陷阱，干货！！！
+                            </a>
+                        </li>
+                        <li>
+                            <a target="_blank" href="http://arts.51job.com/arts/02/406221.html">
+                                应届生如何找到好工作？
+                            </a>
+                        </li>
+                        <li>
+                            <a target="_blank" href="https://www.zhihu.com/question/339517386/answer/797074004">
+                                应届毕业生拿到offer加入字节跳动是一种什么样的体验？
+                            </a>
+                        </li>
+                        <li>
+                            <a target="_blank" href="https://xw.qq.com/cmsid/20200223A0LCG600?f=newdc">
+                                2020年招聘走势图
+                            </a>
+                        </li>
+                        <li>
+                            <a target="_blank" href="https://blog.csdn.net/youanyyou/article/details/104744233/">
+                                2020程序员工资走势，教你一图看清行业形势
+                            </a>
+                        </li>
+                    </ul>
+
+                </div>
+            </div>
+            <div class="clear"></div>
+
+        </div>
+
+
+        <script type="text/javascript">
+            if ($(window).width() < 640) {
+                function autoScroll(obj) {
+                    $(obj).find("ul").animate({
+                        marginTop: "-39px"
+                    }, 500, function () {
+                        $(this).css({
+                            marginTop: "0px"
+                        }).find("li:first").appendTo(this);
+                    })
+                }
+
+                $(function () {
+                    setInterval('autoScroll(".demo")', 3000);
+                })
+            }
+        </script>
+    </div>
+    <div class="shopMainbg" style="background-color: transparent">
+        <div class="shopMain" id="shopmain">
+
+
+            <div class="am-container">
+
+                <!--            <div class="sale-mt">-->
+                <!--                <i></i>-->
+                <!--                <em class="sale-title">限时秒杀</em>-->
+                <!--                <div class="s-time" id="countdown">-->
+                <!--                    <span class="hh">01</span>-->
+                <!--                    <span class="mm">20</span>-->
+                <!--                    <span class="ss">59</span>-->
+                <!--                </div>-->
+                <!--            </div>-->
+
+
+                <!--            <div class="am-g am-g-fixed sale">-->
+                <!--                <div class="am-u-sm-3 sale-item">-->
+                <!--                    <div class="s-img">-->
+                <!--                        <a href="# "><img src="/images/sale3.jpg" /></a>-->
+                <!--                    </div>-->
+                <!--                    <div class="s-info">-->
+                <!--                        <a href="#"><p class="s-title">ZEK 原味海苔</p></a>-->
+                <!--                        <div class="s-price">￥<b>9.90</b>-->
+                <!--                            <a class="s-buy" href="#">秒杀</a>-->
+                <!--                        </div>-->
+                <!--                    </div>-->
+                <!--                </div>-->
+
+                <!--                <div class="am-u-sm-3 sale-item">-->
+                <!--                    <div class="s-img">-->
+                <!--                        <a href="# "><img src="/images/sale2.jpg" /></a>-->
+                <!--                    </div>-->
+                <!--                    <div class="s-info">-->
+                <!--                        <a href="#"><p class="s-title">ZEK 原味海苔</p></a>-->
+                <!--                        <div class="s-price">￥<b>9.90</b>-->
+                <!--                            <a class="s-buy" href="#">秒杀</a>-->
+                <!--                        </div>-->
+                <!--                    </div>-->
+                <!--                </div>-->
+
+                <!--                <div class="am-u-sm-3 sale-item">-->
+                <!--                    <div class="s-img">-->
+                <!--                        <a href="# "><img src="/images/sale1.jpg" /></a>-->
+                <!--                    </div>-->
+                <!--                    <div class="s-info">-->
+                <!--                        <a href="#"><p class="s-title">ZEK 原味海苔</p></a>-->
+                <!--                        <div class="s-price">￥<b>9.90</b>-->
+                <!--                            <a class="s-buy" href="#">秒杀</a>-->
+                <!--                        </div>-->
+                <!--                    </div>-->
+                <!--                </div>-->
+
+                <!--                <div class="am-u-sm-3 sale-item">-->
+                <!--                    <div class="s-img">-->
+                <!--                        <a href="# "><img src="/images/sale2.jpg " /></a>-->
+                <!--                    </div>-->
+                <!--                    <div class="s-info">-->
+                <!--                        <a href="#"><p class="s-title">ZEK 原味海苔</p></a>-->
+                <!--                        <div class="s-price">￥<b>9.90</b>-->
+                <!--                            <a class="s-buy" href="#">秒杀</a>-->
+                <!--                        </div>-->
+                <!--                    </div>-->
+                <!--                </div>-->
+
+                <!--            </div>-->
+                <!--            表单搜索-->
+                <!--            <form class="am-form-inline" role="form">-->
+                <!--                <div class="am-form-group" style="width: 70px">-->
+                <!--                    <input type="text" class="am-form-field" placeholder="公司名字">-->
+                <!--                </div>-->
+                <!--                <div class="am-form-group">-->
+                <!--                    <input type="text" class="am-form-field" placeholder="工作地点">-->
+                <!--                </div>-->
+                <!--                <div class="am-form-group">-->
+                <!--                    <input type="text" class="am-form-field" placeholder="入职时间">-->
+                <!--                </div>-->
+                <!--                <div class="am-form-group">-->
+                <!--                    <input type="text" class="am-form-field" placeholder="学历要求">-->
+                <!--                </div>-->
+                <!--                <div class="am-form-group">-->
+                <!--                    <input type="text" class="am-form-field" placeholder="工作经验">-->
+                <!--                </div>-->
+                <!--                <div class="am-form-group">-->
+                <!--                    <input type="text" class="am-form-field" placeholder="最低薪资">-->
+                <!--                </div>-->
+                <!--                <div class="am-form-group">-->
+                <!--                    <input type="text" class="am-form-field" placeholder="最高薪资">-->
+                <!--                </div>-->
+                <!--                <div class="am-form-group">-->
+                <!--                    <input type="text" class="am-form-field" placeholder="职位类型">-->
+                <!--                </div>-->
+                <!--                <div class="am-form-group">-->
+                <!--                    <input type="text" class="am-form-field" placeholder="排序">-->
+                <!--                </div>-->
+                <!--&lt;!&ndash;                薪资范围、职位类型、工作地点、入职时间、公司名字、学历要求、工作经验）&ndash;&gt;-->
+                <!--                <button type="submit" class="am-btn am-btn-default">搜索</button>-->
+                <!--            </form>-->
+            </div>
+
+            <div class="f1">
+                <!--甜点-->
+
+                <div class="am-container" style="align-content: center;background-color: rgba(139,108,203,0.1)">
+                    <div class="shopTitle" style="background-color: white">
+                        <h4 class="floor-title" style="margin-left: 550px">热门岗位</h4>
+                        <br>
+                    </div>
+                </div>
+                <br><br>
+
+                <div class="am-g am-g-fixed floodSix " style="background-color: transparent">
+                    <ul class="am-avg-sm-2 am-avg-md-3 am-avg-lg-3 am-thumbnails" th:each="job:${#request.getAttribute('jobList')}">
+                        <li>
+                            <div style="width:393px;height:150px;border: 1px solid darkred">
+                                <table>
+                                    <tr>
+                                        <td width="70%">
+                                            [[${job.name}]]
+                                        </td>
+                                        <td width="30%">
+                                            [[${job.minSalary}]]&nbsp;&nbsp; ——&nbsp;&nbsp; [[${job.maxSalary}]]
+                                        </td>
+                                    </tr>
+                                    <tr>
+
+                                    </tr>
+                                    <tr></tr>
+                                    <tr></tr>
+                                </table>
+                                <span th:text="${job.company}"></span>
+                            </div>
+                        </li>
+
+                    </ul>
+                </div>
+
+
+            </div>
+            <div class="f2">
+
+                <!--坚果-->
+                <div class="am-container"style="align-content: center;background-color: rgba(139,108,203,0.1)">
+                    <div class="shopTitle" style="background-color: white">
+                        <h4 class="floor-title" style="margin-left: 550px">热门企业</h4>
+                        <br>
+                    </div>
+                </div>
+                <br><br>
+                <div class="am-g am-g-fixed floodSix " style="background-color: rgba(139,108,203,0.1)">
+                    <ul class="am-avg-sm-2 am-avg-md-3 am-avg-lg-3 am-thumbnails">
+                        <li><img src="http://amazeui.shopxo.net/static/images/001.jpg"/></li>
+                        <li><img src="http://amazeui.shopxo.net/static/images/002.jpg"/></li>
+                        <li><img src="http://amazeui.shopxo.net/static/images/003.jpg"/></li>
+                        <li><img src="http://amazeui.shopxo.net/static/images/004.jpg"/></li>
+                        <li><img src="http://amazeui.shopxo.net/static/images/001.jpg"/></li>
+                        <li><img src="http://amazeui.shopxo.net/static/images/002.jpg"/></li>
+                        <li><img src="http://amazeui.shopxo.net/static/images/003.jpg"/></li>
+                        <li><img src="http://amazeui.shopxo.net/static/images/004.jpg"/></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+<script>
+    window.jQuery || document.write('<script src="basic/js/jquery.min.js "><\/script>');
+</script>
+<script type="text/javascript " src="/basic/js/quick_links.js "></script>
+</body>
 
 </html>
