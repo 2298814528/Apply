@@ -57,7 +57,7 @@ public class JobController extends BaseController {
 
     @ResponseBody
     @GetMapping("/list")
-    public Result JobList(@RequestParam Map map) {
+    public Result JobList() {
         int page = Integer.parseInt(request.getParameter("page"));
         int limit = Integer.parseInt(request.getParameter("limit"));
         User user = (User) session.getAttribute("user");

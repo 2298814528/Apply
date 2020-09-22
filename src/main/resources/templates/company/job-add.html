@@ -119,7 +119,14 @@
         </div>
     </div>
     <div class="layui-form-item">
-
+        <label for="data1" class="layui-form-label">
+            <span class="x-red">*</span>发布时间
+        </label>
+        <div class="layui-input-inline">
+            <input type="date" class="layui-input" name="put_time" id="data2"  required="" lay-verify="required">
+        </div>
+    </div>
+    <div class="layui-form-item">
     </div>
     <div class="layui-form-item layui-form-text">
         <label for="trade" class="layui-form-label">
@@ -149,23 +156,13 @@
             $.ajax({
                 url:"http://localhost:8080/company/addJob",
                 type:"post",
-                data: {
-                    name:data.field.name,
-                    type:data.field.type,
-                    location:data.field.location,
-                    education:data.field.education,
-                    phone:data.field.phone,
-                    email:data.field.email,
-                    min_salary:data.field.min_salary,
-                    max_salary:data.field.max_salary,
-                    experience:data.field.experience,
-                    entry_time:data.field.entry_time,
-                    trade:data.field.trade,
-                },
+                data: data.field,
                 data_type:"json",
                 success:function(data){
-                    if (data.code != null){
+                    if (data.code == 200){
                         layer.msg("添加成功")
+                    }else if (data.code == 400) {
+                        layer.msg("添加失败")
                     }
                 }
             });

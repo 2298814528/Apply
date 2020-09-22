@@ -2,16 +2,18 @@ package com.group9.apply.entity;
 
 import java.time.LocalDateTime;
 import java.io.Serializable;
+import java.util.Date;
 
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;
+import org.springframework.format.annotation.DateTimeFormat;
 
 /**
  * <p>
- * 
+ *
  * </p>
  *
  * @author zjj
@@ -24,7 +26,7 @@ public class Seeker implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    @TableId(value = "id",type = IdType.AUTO)
+    @TableId(value = "id", type = IdType.AUTO)
     private Long id;
     /**
      * 求职者姓名
@@ -54,16 +56,17 @@ public class Seeker implements Serializable {
     /**
      * 入学时间
      */
-    private LocalDateTime enrollmentTime;
+    private Date enrollmentTime;
 
     /**
      * 毕业时间
      */
-    private LocalDateTime graduationTime;
+    private Date graduationTime;
 
     /**
      * 公司名字
      */
+
     private String companyName;
 
     /**
@@ -89,12 +92,12 @@ public class Seeker implements Serializable {
     /**
      * 工作开始时间
      */
-    private LocalDateTime startTime;
+    private Date startTime;
 
     /**
      * 离职时间
      */
-    private LocalDateTime endTime;
+    private Date endTime;
 
     /**
      * 个人主页

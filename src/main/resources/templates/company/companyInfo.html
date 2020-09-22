@@ -1,0 +1,39 @@
+<!DOCTYPE>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="/css/font.css">
+    <link rel="stylesheet" href="/css/xadmin.css">
+    <script type="text/javascript" src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+    <script src="/lib/layui/layui.js" charset="utf-8"></script>
+    <script type="text/javascript" src="/js/xadmin.js"></script>
+</head>
+<body>
+
+<xblock>
+    <button class="layui-btn" onclick="x_admin_show('添加','http://localhost:8080/seeker/updateSeeker')"><i class="layui-icon"></i>修改简历</button>
+</xblock>
+<fieldset class="layui-elem-field">
+    <legend>企业信息</legend>
+    <div class="layui-field-box">
+        <table class="layui-table">
+            <tbody th:object="${#request.getAttribute('company1')}">
+            <tr>
+                <th>企业名称</th>
+                <td>[[*{name}]]</td></tr>
+            <tr>
+                <th>企业地址</th>
+                <td>[[*{address}]]</td></tr>
+            <tr>
+                <th>企业简介</th>
+                <td>[[*{description}]]</td></tr>
+            </tbody>
+        </table>
+    </div>
+</fieldset>
+
+
+</body>
+</html>
