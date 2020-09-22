@@ -2,9 +2,66 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title th:text="${session.company.name}">Title</title>
-</head>
-<body>
+    <title th:text="${#request.getAttribute('oneCompany').name}">Title</title>
+    <style>
+        a {
+            text-decoration: none;
+        }
+        .myClass:hover{
+            background-color: #f2f2f5;
+        }
 
+    </style>
+</head>
+<body th:object="${#request.getAttribute('oneCompany')}">
+<div style="background-color: #41495e;height: 200px;width: 100%;padding-top: 30px;">
+    <div style="margin-left: 60px;width: 50%;display: inline-block">
+        <table style="margin-top: 50px">
+            <tr>
+                <td rowspan="2">
+                    <img style="height: 70px;width: 70px;border-radius: 50px" src="/images/img/360.jpg">
+                </td>
+                <td style="padding-left: 50px;color: white;font-size: 30px">[[*{name}]]</td>
+            </tr>
+            <tr>
+                <td rowspan="2" style="padding-top: 20px;padding-left: 50px;color: #c7cacf">
+                    [[*{address}]]
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>
+<div style="background-color: #f2f2f5;height: 200px;width: 100%;">
+    <div style="width: 80%;margin: auto;padding-left: 80px">
+        <br>
+        <span style="font-size: 18px;display: block;">热招职位</span>
+        <br>
+        <div style="background-color: white;height: 130px;width: 30%;display: inline-block" class="myClass"
+             th:each="job:${#request.getAttribute('hotJob')}">
+            <table style="width: 100%;height: 100%;">
+                <tr>
+                    <td style="height: 50%;padding-left: 30px">
+                        <a th:href="@{/job/Info(id=${job.id})}">
+                            <span style="color: #414a60;font-size: 18px">[[${job.name}]]</span>
+                            <span style="margin-left: 50px;color: #fc703e">[[${job.minSalary}]]-[[${job.minSalary}]]</span>
+                        </a>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="height: 50%;padding-left: 30px">
+                        <a th:href="@{/job/Info(id=${job.id})}">
+                            <span style="color: #9fa3b0">[[${job.type}]] | [[${job.education}]] | [[${job.experience}]]年</span>
+                        </a>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
+<div style="width: 80%;margin: auto;padding-left: 80px">
+    <h3>公司简介</h3>
+    <hr style="width: 50px;color: black;margin-left: 0px">
+    <div style="width: 600px">[[*{description}]]</div>
+</div>
 </body>
 </html>

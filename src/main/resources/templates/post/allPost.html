@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>网上招聘</title>
+    <link rel="stylesheet" href="/AmazeUI-2.4.2/assets/css/amazeui.css">
+    <style>
+
+        body{
+            background-color: #f6f6f8;
+        }
+        .breadcrumbs {
+            height: 36px;
+            line-height: 36px;
+            color: #666;
+            font-family: 黑体;
+            padding-left: 20px;
+            font-size: 15px;
+        }
+
+        .breadcrumbs a {
+            color: #666;
+            text-decoration: none;
+        }
+
+        .breadcrumbs a:hover {
+            color: #f60;
+        }
+
+        .breadcrumbs span {
+            margin: 0 10px;
+        }
+        li{
+            list-style-type: none;
+        }
+        #menu {
+            width: 370px;
+            margin: 0px;
+            height: 45px;
+        }
+        #menu li{
+            float: left;
+            width: 92px;
+            line-height:39px;
+            text-align: center;
+            position:relative;
+            border:none;
+        }
+
+        #menu li:hover .dropdown_1column {
+            left:0px;
+            top:38px;
+        }
+        .dropdown_1column{ /* 下拉菜单边框颜色*/
+            margin: 0px auto;
+            float: left;
+            position: absolute;
+            left: -90em;
+            text-align: left;
+            border-top: none;
+
+        }
+
+        #menu li ul {
+            list-style:none;
+            padding:10px 0px 10px 30px;
+            margin:0;
+        }
+        #menu li ul li {
+            font-size:12px;
+            line-height:26px;
+            position:relative;
+            padding:0;margin:0;
+            float:none;
+            text-align:left;
+        }
+
+
+    </style>
+</head>
+<body>
+<div th:object="${#request.getAttribute('param')}" style="background-color: white">
+    <div class="breadcrumbs">
+        <span style="margin-right: 20px">地址:
+            <span th:if="${#request.getAttribute('param') eq null}" style="color: #fc6c38;margin: 0">不限</span>
+            <span th:if="${#request.getAttribute('param') ne null}">[[${#request.getAttribute('param').location}]]</span>
+        </span>
+        <a href="#"><span>不限</span></a>
+        <a href="#"><span>成都</span></a>
+        <a href="#"><span>北京</span></a>
+        <a href="#"><span>上海</span></a>
+    </div>
+    <hr style="margin-top: 0">
+    <div id="menu">
+        <ul>
+            <li>
+                <span>学历</span>
+                <div class="dropdown_1column">
+                    <div class="col_1">
+                        <ul class="simple">
+                            <li><a href="">无</a></li>
+                            <li><a href="">小学</a></li>
+                            <li><a href="">电子商务</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
+
+</body>
+</html>
