@@ -34,7 +34,7 @@
 
 <body style="background-color: rgba(139,108,203,0.1)">
 <div style="margin-left: 50px">
-    <div class="hmtop" style="background-color: rgba(139,108,203,0.1);margin-left: 0px;width: 1270px">
+    <div class="hmtop" style="background-color: #f3f0f9;margin-left: 0px;width: 1270px">
         <!--顶部导航条 -->
         <div class="am-container header">
             <ul class="message-l">
@@ -916,8 +916,8 @@
 
                     </ul>
                 </div>
-
-
+                <br>
+                <a class="layui-btn layui-btn-sm" href="/post/allPost" style="margin-left: 550px">查看更多</a>
             </div>
             <div class="f2">
 
@@ -938,7 +938,7 @@
                                     <a href="/job/search">
                                         <tr>
                                             <td>
-                                                <a th:href="@{/company/getSelectCompany(${company.id})}">
+                                                <a th:href="@{/company/getSelectCompany(id=${company.id})}">
                                                     <span style="font-size: 20px;font-family: 'Verdana';color: #ad2daf">[[${company.name}]]</span>
                                                 </a>
                                             </td>

@@ -78,6 +78,19 @@ public class JobController extends BaseController {
     public String jobInfo(String id){
         JobVo jobVo = jobService.getOneJob(Integer.valueOf(id));
         request.setAttribute("oneJob",jobVo);
+        String name = jobVo.getName();
+        IPage iPage = new Page(0,3);
+        IPage page = jobService.page(iPage,
+                new QueryWrapper<Job>()
+                        .ne("id",jobVo.getId())
+                        .and(jobQueryWrapper -> jobQueryWrapper
+                                .like("name", name)
+                                .or()
+                                .eq("publisher",jobVo.getPublisher())
+                        )
+                        .orderByAsc("pub_time"));
+        List<Job> records = page.getRecords();
+        request.setAttribute("recommend",records);
         return "post/postInfo";
     }
 }

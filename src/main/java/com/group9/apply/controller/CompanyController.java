@@ -2,10 +2,12 @@ package com.group9.apply.controller;
 
 
 
-import com.alibaba.fastjson.JSON;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.group9.apply.entity.Company;
 
+import com.group9.apply.entity.Job;
 import com.group9.apply.entity.User;
 import com.group9.apply.util.MapToPageVo;
 import com.group9.apply.util.Result;
@@ -80,14 +82,16 @@ public class CompanyController extends BaseController {
     }
 
     /**
-     * 首页显示公司信息
+     * 显示某个公司信息
      * @param id  公司ID
      * @return
      */
     @GetMapping("/getSelectCompany")
     public String getSelectCompany(String id){
         Company company = companyService.getOne(new QueryWrapper<Company>().eq("id", Integer.valueOf(id)));
-        request.setAttribute("company",company);
+        request.setAttribute("oneCompany",company);
+        IPage<Job> publisher = jobService.page(new Page<>(0, 3), new QueryWrapper<Job>().eq("publisher", company.getId()));
+        request.setAttribute("hotJob",publisher.getRecords());
         return "company/getCompanyInfo";
     }
 
